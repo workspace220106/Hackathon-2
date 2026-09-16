@@ -131,7 +131,8 @@ const NavbarSfc = {
       A = ref(),
       m = s,
       g = Q => {
-        const target = NAV_ROUTES[Q];
+        // "Work" is the site title (always goes home, even when it is not in the navbar links)
+        const target = NAV_ROUTES[Q] ?? (Q === "Work" ? { path: "/", name: "home" } : null);
         target && (A.value = target.name, router.push(target.path))
       },
       p = Q => {

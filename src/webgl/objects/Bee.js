@@ -8,6 +8,7 @@ import {
   Raycaster,
   Vector2
 } from 'three';
+import { createTrainModel } from './TrainModel.js';
 import {
   app
 } from '../../core/App.js';
@@ -448,14 +449,11 @@ export class Bee extends Object3D {
     this._wingMeshes[0] && (this._wingMeshes[0].rotation.z = Math.abs(Math.sin(e * t)) * BEE_B - BEE_C), this._wingMeshes[1] && (this._wingMeshes[1].rotation.z = Math.abs(Math.cos(e * t)) * BEE_B - BEE_C)
   }
   _createBeeMesh() {
-    var t, n, i, r;
-    const e = app.core.assetsManager.get("beeModel").clone();
-    return e.traverse(o => {
-      o.isMesh && o.name.includes("bee") && (o.material = this._createBeeMaterial(), o.castShadow = !0, this._torsoMeshes.push(o)), o.isMesh && o.name.includes("aile") && (o.material = this._createWingMaterial(), o.castShadow = !0)
-    }), (n = (t = e.children[0]) == null ? void 0 : t.name) != null && n.includes("aile") && (this._wingMeshes[0] = e.children[0]), (r = (i = e.children[1]) == null ? void 0 : i.name) != null && r.includes("aile") && (this._wingMeshes[1] = e.children[1]), this._wingMeshes.length < 2 && (this._wingMeshes.length = 0, e.traverse(o => {
-      o.isMesh && o.name.includes("aile") && this._wingMeshes.push(o)
-    })), e.position.z = BEE_A, this.add(e), e.traverse(o => {
-      o.isMesh && this._raycastTargets.push(o)
-    }), e
+    // The train model stands in for the bee (see TrainModel.js); same pivot/offset as the bee had.
+    const e = createTrainModel({
+      pageTransitionUniforms: this._pageTransitionUniforms,
+      onMesh: (o) => { this._torsoMeshes.push(o), this._raycastTargets.push(o) }
+    });
+    return e.position.z = BEE_A, this.add(e), e
   }
 }

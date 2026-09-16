@@ -28,6 +28,8 @@ import {
 import {
   app
 } from '../../core/App.js';
+import { createTrainModel } from './TrainModel.js';
+import { COIN_SIZE, createCoinModel } from './CoinModel.js';
 import {
   isSafari
 } from '../../utils/browser.js';
@@ -96,10 +98,9 @@ export class Fruits extends Object3D {
     }), e
   }
   _createMeshPursuer() {
-    const e = app.core.assetsManager.get("beeModel").clone();
-    return e.matrixAutoUpdate = !1, e.traverse(t => {
-      t.isMesh && t.name.includes("bee") && (t.material = this._createBeeMaterial(), t.castShadow = !0), t.isMesh && t.name.includes("aile") && (t.material = this._createWingMaterial(), t.castShadow = !0)
-    }), this.enterScaleGroup.add(e), e
+    // the fruit-chasing flyer is the train too (see TrainModel.js)
+    const e = createTrainModel({ pageTransitionUniforms: this._pageTransitionUniforms });
+    return e.matrixAutoUpdate = !1, this.enterScaleGroup.add(e), e
   }
   _createEntityPursuer(e) {
     const t = new Vehicle;
@@ -121,19 +122,15 @@ export class Fruits extends Object3D {
     return this.enterScaleGroup.add(t), t.scale.set(.05, .05, .05), t
   }
   _createGroupTarget() {
+    // Both "fruits" are coins now (see CoinModel.js); the names are kept so the
+    // existing spawn / chase / catch logic keeps working unchanged.
     const e = new Group,
-      t = app.core.assetsManager.get("orangeModel").clone();
-    t.traverse(i => {
-      i.isMesh && (applyLitPageTransition(i.material, this._pageTransitionUniforms, 1.25, {
+      lit = (revealScale, strength) => (mat) => applyLitPageTransition(mat, this._pageTransitionUniforms, strength, {
         revealScale: this._pageTransitionUniforms.uFruitRevealScale
-      }), i.material.roughness = 1, i.material.metalness = 0, i.castShadow = !0)
-    }), t.scale.set(0, 0, 0), t.visible = !1, t.name = "orange";
-    const n = app.core.assetsManager.get("raisinModel").clone();
-    return n.traverse(i => {
-      i.isMesh && (applyLitPageTransition(i.material, this._pageTransitionUniforms, 1.4, {
-        revealScale: this._pageTransitionUniforms.uFruitRevealScale
-      }), i.material.roughness = 1, i.material.metalness = 0, i.castShadow = !0)
-    }), n.scale.set(0, 0, 0), n.visible = !1, n.name = "raisin", e.add(t, n), e
+      }),
+      t = createCoinModel({ name: "orange", size: COIN_SIZE / 1.25, onMaterial: lit(1, 1.25) }),
+      n = createCoinModel({ name: "raisin", size: COIN_SIZE / 2, onMaterial: lit(1, 1.4) });
+    return t.scale.set(0, 0, 0), t.visible = !1, n.scale.set(0, 0, 0), n.visible = !1, e.add(t, n), e
   }
   _createEntityTarget() {
     return new GameEntity
@@ -475,7 +472,7 @@ export class Fruits extends Object3D {
           a = 1 - Math.exp(-12 * t);
         this._currentRotationZ = lerp(this._currentRotationZ, 0, o), this._currentSpeedScale = lerp(this._currentSpeedScale, 1, a), this._applyCursorFruitVisual()
       } const r = 2 * this._entityPursuer.getSpeedSquared() + 15;
-    this._meshPursuer.children[0].rotation.z = Math.abs(Math.sin(n * r)) * this._params.flapStrength - this._params.flapRotationOffset, this._meshPursuer.children[1].rotation.z = Math.abs(Math.cos(n * r)) * this._params.flapStrength - this._params.flapRotationOffset
+    /* wing flap removed: the pursuer is the train model (no wings) */ void n, void r
   }
   destroy() {
     this.resetInteraction()

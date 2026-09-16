@@ -44,6 +44,16 @@ const SEO_PAGES = {
     description: "Log in to your account.",
     path: "/login"
   },
+  signup: {
+    title: "Create account",
+    description: "Create your account.",
+    path: "/signup"
+  },
+  teams: {
+    title: "Teams",
+    description: "All participating teams, their progress, problem statements and domains.",
+    path: "/teams"
+  },
   dashboard: {
     title: "Dashboard",
     description: "Your dashboard.",

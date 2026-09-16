@@ -77,7 +77,8 @@ export const assetPaths = {
   },
   medias: {
     home: {
-      showreel: assetUrl("medias/home/showreel-base/showreel.mp4")
+      // custom reel (played as-is, max quality). Replace public/assets/medias/reel/reel.mp4 with the Instagram reel.
+      showreel: assetUrl("medias/reel/reel.mp4")
     }
   }
 };
@@ -87,8 +88,8 @@ const withoutAbout = (o) => Object.fromEntries(Object.entries(o).filter(([k]) =>
 
 export const ASSETS_MANIFEST = {
   images: {},
-  textures: withoutAbout(ktxTextures),
-  webpTextures: withoutAbout({ ...usedWebpTextures, ...cloudTextures, ...mountainTexture }),
+  textures: withoutAbout(Object.fromEntries(Object.entries(ktxTextures).filter(([k]) => !k.startsWith("homeProject")))),
+  webpTextures: withoutAbout({ ...usedWebpTextures, ...cloudTextures, ...mountainTexture, ...Object.fromEntries(Object.entries(ktxTextures).filter(([k]) => k.startsWith("homeProject"))) }),
   envMaps: {},
   models: {
     beeModel: {

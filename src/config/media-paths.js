@@ -3,12 +3,10 @@ import {
 } from './breakpoints.js';
 
 const PROJECT_MEDIA_COUNTS = {
-  project1: 12,
-  project2: 12,
-  project3: 11,
-  project4: 9,
-  project5: 10,
-  project6: 11
+  project1: 5,
+  project2: 5,
+  project4: 5,
+  project5: 5
 };
 
 const IMAGE_RE = /\.(jpe?g|png|webp)$/i;

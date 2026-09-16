@@ -17,3 +17,13 @@ export async function login({ email, password }) {
 export function logout() {
   localStorage.removeItem(KEY);
 }
+
+export async function signup({ name, email, password, confirm }) {
+  if (!name || !email || !password) throw new Error('Please fill in every field.');
+  if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) throw new Error('That e-mail address looks wrong.');
+  if (password.length < 6) throw new Error('Password must be at least 6 characters.');
+  if (confirm !== undefined && confirm !== password) throw new Error('Passwords do not match.');
+  const user = { email, name, loggedInAt: Date.now() };
+  localStorage.setItem(KEY, JSON.stringify(user));
+  return user;
+}

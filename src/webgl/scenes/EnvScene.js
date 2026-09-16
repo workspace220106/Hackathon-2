@@ -25,7 +25,7 @@ export class EnvScene extends Scene {
     this._homeGroup && (this._homeGroup.visible = !0), this._aboutGroup && (this._aboutGroup.visible = !0)
   }
   onAppLoaded() {
-    this.background = new Color().setHex(16777215, LinearSRGBColorSpace), this._homeGroup = this._createHomeGroup(), this._aboutGroup = null
+    this.background = new Color().setHex(0xEDEDED, LinearSRGBColorSpace), this._homeGroup = this._createHomeGroup(), this._aboutGroup = null
   }
   onAttach() {}
   _createHomeGroup() {

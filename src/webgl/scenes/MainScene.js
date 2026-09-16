@@ -112,6 +112,9 @@ const WS = new Quaternion;
 
 const YS = new Quaternion;
 
+// slider index → original project asset set (projects 3 & 6 were removed from the page)
+const PROJECT_TEXTURE_SET = [1,2,4,5];
+
 export class MainScene extends Scene {
   constructor(e, t) {
     super(), emitter.register(this), this._mediaPlaneGeometry = e, this._planeGeometry = t, this._baseFlowerMesh = null, this._projects = [], this._medias = [], this._backgrounds = [], this._flowers = [], this._lights = {}, this._activeSliders = new Map, this._colors = {
@@ -284,7 +287,7 @@ export class MainScene extends Scene {
     const i = this._measureLayoutRect(e),
       r = new Mesh(this._mediaPlaneGeometry);
     r.layers.set(TOP_LAYER), this._projects[n].add(r), r.position.x = i.left - window.innerWidth / 2 + i.width / 2, r.position.y = -i.top + window.innerHeight / 2 - i.height / 2, r.scale.set(i.width, i.height, 1);
-    const o = app.core.assetsManager.get(`homeProject${n+1}_${t+1}`),
+    const o = app.core.assetsManager.get(`homeProject${PROJECT_TEXTURE_SET[n] ?? n+1}_${t+1}`),
       a = o.source.data.width,
       l = o.source.data.height;
     if (o) {

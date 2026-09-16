@@ -1,17 +1,18 @@
-const SITE_TITLE = "Léo Parpeix";
+const SITE_TITLE = "AI EXPO HACKATHON";
 
 const SITE_INFOS = "Art director, Interactive designer";
 
 // Navbar entries → routes. Add / rename entries here (labels are what the navbar shows).
 export const NAV_ROUTES = {
-  Work: { path: "/", name: "home" },
   Login: { path: "/login", name: "login" },
+  // Work: { path: "/", name: "home" },
+  // Teams: { path: "/teams", name: "teams" },
 };
 
 export const navbarData = {
   links: Object.keys(NAV_ROUTES),
   lab: null, // the external "Lab" button of the original site — set { text, url } to bring it back
-  contact: "lparpeix@gmail.com"
+  contact: "fcrit.aidlofficial26@gmail.com"
 };
 
 const loaderData = {
@@ -31,12 +32,12 @@ const footerData = {
   creditsBtn: "Credits",
   networks: [{
     name: "Instagram",
-    url: "https://www.instagram.com/leo_parpeix"
+    url: "https://www.instagram.com/aidl_fcrit/"
   }, {
-    name: "lparpeix@gmail.com"
+    name: "fcrit.aidlofficial26@gmail.com"
   }, {
     name: "Linkedin",
-    url: "https://www.linkedin.com/in/leo-parpeix"
+    url: "https://www.linkedin.com/company/artificial-intelligence-and-deep-learning-club-fcrit/"
   }],
   copyright: "© 2024",
   infos: "about this Portfolio",

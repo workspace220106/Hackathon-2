@@ -5,6 +5,7 @@ const SOUNDS_EXT = "aac";
 const SOUNDS = [{
   id: "ambient",
   fileBase: "ambient",
+  file: "assets/sounds/subway_surfers.mp3", // custom track (overrides the compressed .aac path)
   params: {
     loop: !0,
     volume: .375,
@@ -48,17 +49,18 @@ const SOUNDS = [{
   }
 }];
 
-function soundPath(s) {
-  return `assets/${SOUNDS_DIR}/${s}.${SOUNDS_EXT}`
+function soundPath(s, file) {
+  return file ?? `assets/${SOUNDS_DIR}/${s}.${SOUNDS_EXT}`
 }
 
 export function buildSoundsManifest(s) {
   return Object.fromEntries(SOUNDS.map(({
     id: e,
     fileBase: t,
+    file: f,
     params: n
   }) => [e, {
-    path: s(soundPath(t)),
+    path: s(soundPath(t, f)),
     params: n
   }]))
 }

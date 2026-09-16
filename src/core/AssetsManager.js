@@ -98,7 +98,7 @@ export class AssetsManager {
         assetsInfos: __privateGet(this, Rs),
         loadedAssets: __privateGet(this, Bs),
         progressCallback: __privateGet(this, pr),
-        afterLoadCallback: a => (a != null && a.isTexture && (a.colorSpace = NoColorSpace), a)
+        afterLoadCallback: (a, l) => (a != null && a.isTexture && (a.colorSpace = NoColorSpace, typeof l == "string" && l.startsWith("homeProject") && (a.flipY = !1)), a)
       }),
       envMaps: new AssetsLoader({
         manifest: ASSETS_MANIFEST.envMaps,

@@ -11,11 +11,13 @@ import {
 } from '../views/HomeView.js';
 import LoginView from '../views/LoginView.vue';
 import DashboardView from '../views/DashboardView.vue';
+import SignupView from '../views/SignupView.vue';
+import TeamsView from '../views/TeamsView.vue';
 import { isLoggedIn } from '../auth/session.js';
 
 export let previousRouteName = null;
 
-const ROUTE_NAMES = new Set(["home", "login", "dashboard"]);
+const ROUTE_NAMES = new Set(["home", "login", "signup", "dashboard", "teams"]);
 
 const homeUrl = () => new URL("/", window.location.origin).href;
 
@@ -34,6 +36,21 @@ export const router = createRouter({
     component: LoginView,
     meta: {
       seoKey: "login"
+    }
+  }, {
+    path: "/signup",
+    name: "signup",
+    component: SignupView,
+    meta: {
+      seoKey: "signup"
+    }
+  }, {
+    path: "/teams",
+    name: "teams",
+    component: TeamsView,
+    meta: {
+      seoKey: "teams",
+      requiresAuth: true
     }
   }, {
     path: "/dashboard",

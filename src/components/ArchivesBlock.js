@@ -635,7 +635,7 @@ const ArchivesBlockSfc = {
             class: "items__mask"
           }, null, 512), J[0] || (J[0] = createElementVNode("div", {
             class: "items__separator items__separator--top"
-          }, null, -1)), createElementVNode("div", pV, [createElementVNode("div", AV, toDisplayString(Oe + 7), 1), createElementVNode("h4", gV, toDisplayString(fe == null ? void 0 : fe.name), 1), createElementVNode("div", mV, toDisplayString(fe == null ? void 0 : fe.type), 1)]), createElementVNode("div", _V, toDisplayString(fe == null ? void 0 : fe.roles), 1), createElementVNode("div", vV, toDisplayString(fe == null ? void 0 : fe.date), 1), createVNode(MainButton, {
+          }, null, -1)), createElementVNode("div", pV, [createElementVNode("div", AV, toDisplayString(Oe + 1), 1), createElementVNode("h4", gV, toDisplayString(fe == null ? void 0 : fe.name), 1), createElementVNode("div", mV, toDisplayString(fe == null ? void 0 : fe.type), 1)]), createElementVNode("div", _V, toDisplayString(fe == null ? void 0 : fe.roles), 1), createElementVNode("div", vV, toDisplayString(fe == null ? void 0 : fe.date), 1), createVNode(MainButton, {
             class: "items__agency",
             text: (je = fe == null ? void 0 : fe.agency) == null ? void 0 : je.name,
             url: (rt = fe == null ? void 0 : fe.agency) == null ? void 0 : rt.url,

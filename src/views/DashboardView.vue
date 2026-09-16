@@ -2,6 +2,7 @@
 import { computed, nextTick, ref } from 'vue';
 import { useRouter } from 'vue-router';
 import { gsap } from 'gsap';
+import ImprintsLayer from '../components/ImprintsLayer.vue';
 import { usePlainPage } from '../composables/usePlainPage.js';
 import { currentUser, logout } from '../auth/session.js';
 
@@ -37,6 +38,7 @@ function signOut() {
 
 <template>
   <div class="page dashboard" ref="rootRef">
+    <ImprintsLayer :count="3" />
     <section class="dashboard__inner">
       <header class="dashboard__head">
         <p class="dashboard__eyebrow fade">Signed in as {{ user?.email }}</p>
@@ -65,7 +67,7 @@ function signOut() {
       </div>
 
       <div class="dashboard__actions fade">
-        <button class="btn btn--primary" type="button">Start a run</button>
+        <router-link to="/teams" class="btn btn--primary">View teams</router-link>
         <button class="btn btn--ghost" type="button" @click="signOut">Log out</button>
       </div>
     </section>
@@ -106,7 +108,7 @@ function signOut() {
 .list__tag { font-size: .75rem; text-transform: uppercase; letter-spacing: .04em; padding: .35rem .7rem; border-radius: 3rem; background: var(--c-brand); }
 
 .dashboard__actions { display: flex; gap: .75rem; margin-top: 2rem; flex-wrap: wrap; }
-.btn { font: inherit; font-size: 1rem; padding: 1rem 1.5rem; border-radius: 3.5714285714rem; border: 1.5px solid transparent; cursor: pointer; transition: transform .35s cubic-bezier(.4,0,0,1), background-color .25s ease, color .25s ease, border-color .25s ease; }
+.btn { font: inherit; text-decoration: none; display: inline-block; font-size: 1rem; padding: 1rem 1.5rem; border-radius: 3.5714285714rem; border: 1.5px solid transparent; cursor: pointer; transition: transform .35s cubic-bezier(.4,0,0,1), background-color .25s ease, color .25s ease, border-color .25s ease; }
 .btn:hover { transform: translateY(-2px); }
 .btn--primary { background: var(--c-brand); color: var(--c-navy); }
 .btn--primary:hover { background: var(--c-cyan); }

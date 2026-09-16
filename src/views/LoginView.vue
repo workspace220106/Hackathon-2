@@ -2,6 +2,7 @@
 import { nextTick, ref } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import { gsap } from 'gsap';
+import ImprintsLayer from '../components/ImprintsLayer.vue';
 import { usePlainPage } from '../composables/usePlainPage.js';
 import { login } from '../auth/session.js';
 
@@ -29,7 +30,7 @@ async function submit() {
   busy.value = true;
   try {
     await login({ email: email.value.trim(), password: password.value });
-    router.push(route.query.next?.toString() || { name: 'dashboard' });
+    router.push(route.query.next?.toString() || { name: 'teams' });
   } catch (e) {
     error.value = e.message;
   } finally {
@@ -40,6 +41,7 @@ async function submit() {
 
 <template>
   <div class="page loginPage" ref="rootRef">
+    <ImprintsLayer :count="3" />
     <section class="loginPage__inner">
       <header class="loginPage__head">
         <p class="loginPage__eyebrow fade">Welcome back</p>
@@ -66,7 +68,7 @@ async function submit() {
           <svg width="8" height="8" viewBox="0 0 8 8" fill="none" aria-hidden="true"><path d="M7.47503 5.00038H6.47514V1.65681L0.70711 7.42484L2.76905e-06 6.71774L5.71762 1.00011H2.47488V0.000221195H7.47434L7.47503 5.00038Z" fill="currentColor"/></svg>
         </button>
 
-        <p class="loginForm__hint fade">No account yet? <a href="#" class="loginForm__link" @click.prevent>Create one</a></p>
+        <p class="loginForm__hint fade">No account yet? <router-link to="/signup" class="loginForm__link">Create one</router-link></p>
       </form>
     </section>
   </div>

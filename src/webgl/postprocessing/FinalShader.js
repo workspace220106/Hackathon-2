@@ -1,4 +1,5 @@
 import {
+  Color,
   Vector2
 } from 'three';
 
@@ -12,6 +13,8 @@ uniform vec2 uResolution;
 uniform float uBlurRadius;
 uniform float uDistortionStrength;
 uniform float uVelocityBlurScale;
+uniform vec3 uTrailColor;      // cursor trail tint (white-ish) — visible on every page, not only over media
+uniform float uTrailStrength;  // 0 = off
 
 #ifndef PI
 	#define PI 3.14159265358
@@ -56,8 +59,11 @@ void main() {
 
 	float blurRadius = uBlurRadius + velMag * uVelocityBlurScale;
 
+	// glow that follows the fluid velocity (the "white smear" behind the cursor)
+	float trail = smoothstep(0.01, 0.45, velMag) * uTrailStrength;
+
 	if (blurRadius <= 0.0) {
-		gl_FragColor = texColor;
+		gl_FragColor = vec4(mix(texColor.rgb, uTrailColor, trail), texColor.a);
 		return;
 	}
 
@@ -65,7 +71,7 @@ void main() {
 	float aspect = uResolution.x / uResolution.y;
 	vec3 blurred = hashBlurTexture(tDiffuse, uv, radius * 1.5, aspect, vec2(velMag));
 
-	gl_FragColor = vec4(blurred, texColor.a);
+	gl_FragColor = vec4(mix(blurred, uTrailColor, trail), texColor.a);
 }`;
 
 const finalVertexShader = `varying vec2 vUv;
@@ -94,6 +100,12 @@ export const FinalShader = {
     },
     uVelocityBlurScale: {
       value: 15
+    },
+    uTrailColor: {
+      value: new Color('#ffffff') // white glow (the page background is kept slightly off-white so it shows)
+    },
+    uTrailStrength: {
+      value: 1
     }
   },
   vertexShader: finalVertexShader,

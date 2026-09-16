@@ -13,12 +13,10 @@ export const SCENE_TEXTURES = {
 };
 
 const PROJECT_TEXTURE_COUNTS = {
-  project1: 12,
-  project2: 12,
-  project3: 11,
-  project4: 9,
-  project5: 10,
-  project6: 11
+  project1: 5,
+  project2: 5,
+  project4: 5,
+  project5: 5
 };
 
 const KTX_TEXTURES = [{
@@ -111,7 +109,7 @@ function ktxTexturePath({
 }
 
 function projectTexturePath(s, e, t = projectTextureSize()) {
-  return `assets/medias/home/projects/${s}-ktx/${t}/${e}.ktx2`
+  return `assets/medias/home/projects/${s}-webp/${t}/${e}.webp`
 }
 
 function ktxParentDir(s) {

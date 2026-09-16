@@ -36,6 +36,9 @@ import {
   GridWrapper
 } from './GridWrapper.js';
 
+// Background video shown while the site loads (see also src/styles/original.css → .loaderBlock__video)
+const LOADER_VIDEO_SRC = '/assets/medias/loader/intro.mp4';
+
 const n5 = {
   class: "container__title"
 };
@@ -171,7 +174,16 @@ export const LoaderBlock = {
       ref_key: "loaderBlockRef",
       ref: n,
       class: "loaderBlock"
-    }, [createVNode(GridWrapper, {
+    }, [createElementVNode("video", {
+      class: "loaderBlock__video",
+      src: LOADER_VIDEO_SRC,
+      autoplay: "",
+      muted: "",
+      loop: "",
+      playsinline: "",
+      "aria-hidden": "true",
+      onVnodeMounted: ({ el }) => { el.muted = !0; const p = el.play(); p && p.catch && p.catch(() => {}) }
+    }, null, 8, ["src"]), createElementVNode("div", { class: "loaderBlock__scrim", "aria-hidden": "true" }), createVNode(GridWrapper, {
       class: "loaderBlock__container"
     }, {
       default: withCtx(() => [createElementVNode("div", n5, [createElementVNode("h2", {

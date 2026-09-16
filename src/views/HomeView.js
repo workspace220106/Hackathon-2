@@ -30,6 +30,7 @@ import {
 import {
   HeaderBlock
 } from '../components/HeaderBlock.js';
+import ImprintsLayer from '../components/ImprintsLayer.vue';
 import {
   HomeHeroBlock
 } from '../components/home/HeroBlock.js';
@@ -90,19 +91,19 @@ const HomeViewSfc = {
       app.firstReveal && (a(!0), app.firstReveal = !1)
     }), emitter.on(EVENTS.SHOW_HOME_PAGE, () => {
       a(!1)
-    }), (l, u) => (openBlock(), createElementBlock("div", E4, [createVNode(HeaderBlock, mergeProps({
+    }), (l, u) => (openBlock(), createElementBlock("div", E4, [createVNode(ImprintsLayer, { zones: [".heroBlock", ".introBlock", ".footerBlock"] }), createVNode(HeaderBlock, mergeProps({
       ref_key: "headerBlockRef",
       ref: t
     }, unref(homeData).header), null, 16), createVNode(HomeHeroBlock, normalizeProps(guardReactiveProps(unref(homeData).hero)), null, 16), createVNode(HomeIntroBlock, normalizeProps(guardReactiveProps(unref(homeData).intro)), null, 16), createElementVNode("div", S4, [(openBlock(!0), createElementBlock(Fragment, null, renderList(unref(homeData).projects, (h, c) => (openBlock(), createElementBlock(Fragment, {
       key: c
-    }, [h.sectionType === "slider" && h.projectIndex === 3 ? (openBlock(), createBlock(ProjectBlock, mergeProps({
+    }, [h.sectionType === "slider" && h.projectIndex === 2 ? (openBlock(), createBlock(ProjectBlock, mergeProps({
       key: 0,
       ref_for: !0,
       ref_key: "firstProjectAfterWebglRef",
       ref: i
     }, {
       ref_for: !0
-    }, h), null, 16)) : createCommentVNode("", !0), h.sectionType === "slider" && h.projectIndex !== 3 ? (openBlock(), createBlock(ProjectBlock, mergeProps({
+    }, h), null, 16)) : createCommentVNode("", !0), h.sectionType === "slider" && h.projectIndex !== 2 ? (openBlock(), createBlock(ProjectBlock, mergeProps({
       key: 1,
       ref_for: !0
     }, h), null, 16)) : createCommentVNode("", !0), h.sectionType === "webgl" ? (openBlock(), createBlock(WebglSectionBlock, mergeProps({
