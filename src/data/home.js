@@ -99,8 +99,8 @@ export const homeData = {
     cameraParams: {
       scrollRangePosition: {
         x: 0,
-        y: 2.75,
-        z: 0
+        y: 0,
+        z: 2
       },
       scrollRangeRotation: {
         x: 0,
@@ -109,7 +109,7 @@ export const homeData = {
       },
       scrollOffsetPosition: {
         x: 0,
-        y: 2.75,
+        y: 0,
         z: 0
       },
       scrollOffsetRotation: {

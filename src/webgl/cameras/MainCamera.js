@@ -51,7 +51,8 @@ export class MainCamera extends PerspectiveCamera {
         f = -mapRangeClamped(e, [l, u], [0, 1]) * i.x,
         A = -mapRangeClamped(e, [l, u], [0, 1]) * i.y,
         m = -mapRangeClamped(e, [l, u], [0, 1]) * i.z;
-      c >= 0 ? app.isOnHeader = !0 : app.isOnHeader = !1, app.isOnHeader || (app.webgl.camera.position.x = h - r.x, app.webgl.camera.position.y = c - r.y, app.webgl.camera.position.z = d - r.z, app.webgl.camera.rotation.x = f - o.x, app.webgl.camera.rotation.y = A - o.y, app.webgl.camera.rotation.z = m - o.z)
+      // in the section as soon as scroll progress > 0 (the original keyed this off the y offset, which is now 0)
+      app.isOnHeader = mapRangeClamped(e, [l, u], [0, 1]) <= 0, app.isOnHeader || (app.webgl.camera.position.x = h - r.x, app.webgl.camera.position.y = c - r.y, app.webgl.camera.position.z = d - r.z, app.webgl.camera.rotation.x = f - o.x, app.webgl.camera.rotation.y = A - o.y, app.webgl.camera.rotation.z = m - o.z)
     }
   }
   onResize({
