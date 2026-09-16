@@ -1,0 +1,887 @@
+   0 core           7 Ra                     Ra=null
+   1 core           7 Cd                     Cd=null
+   2 core         146 dO                     function dO(s){if(Cd)return Cd;const t="/assets/basis/";return Ra=new _r,Ra.setTranscoderP
+   3 core         153 fO                     class fO{loadAsync(e,t){return Ra?Ra.loadAsync(e,t):Promise.reject(new Error("KTX2Loader n
+   4 core           4 Mt                     Mt=0
+   5 core         880 ce                     ce={LOADER_PROGRESS:Mt++,APP_LOADED:Mt++,LOADER_REVEAL_COMPLETE:Mt++,ATTACH:Mt++,TICK:Mt++
+   6 core         147 pO                     pO=Object.fromEntries(Object.entries(ce).map(([s,e])=>[e,`on${s.toLowerCase().split("_").m
+   7 core           2 js                     js
+   8 core           2 Go                     Go
+   9 core           2 Na                     Na
+  10 core           2 ka                     ka
+  11 core           2 Tp                     Tp
+  12 core           2 Yb                     Yb
+  13 core         743 La                     La=class La{constructor(){Qt(this,Tp);Qt(this,js);Qt(this,Go);Qt(this,Na);Qt(this,ka);ci(t
+  14 core         202 (ExpressionStatement)  js=new WeakMap,Go=new WeakMap,Na=new WeakMap,ka=new WeakMap,Tp=new WeakSet,Yb=function(e,t
+  15 core           5 Qm                     Qm=La
+  16 core          19 te                     te=Qm.getInstance()
+  73 core           5 JO                     JO=!1
+  74 core          44 (ExpressionStatement)  new URLSearchParams(window.location.search);
+  75 core           5 ZO                     ZO=JO
+  76 core          28 co                     co={tablet:768,desktop:1025}
+  77 core          42 (ExpressionStatement)  new re(0,0,0),new re(0,0,0),new re(0,0,0);
+  78 core          75 $O                     $O={project1:12,project2:12,project3:11,project4:9,project5:10,project6:11}
+  79 core          25 jb                     jb=/\.(jpe?g|png|webp)$/i
+  80 core          12 Kb                     Kb=/\.mp4$/i
+  81 core          20 Yf                     Yf="/archives-base/"
+  82 core          26 ah                     ah="/archives-compressed/"
+  83 core          20 gx                     gx="/showreel-base/"
+  84 core          26 eF                     eF="/showreel-compressed/"
+  85 core          73 tF                     function tF(s,e,t){return!s||!Kb.test(s)||s.includes(t)?s:s.replace(e,t)}
+  86 core          34 nF                     function nF(s){return tF(s,Yf,ah)}
+  87 core         112 iF                     function iF(s){return!s||!Kb.test(s)?null:(s.includes(ah)?s:s.replace(Yf,ah)).replace(/\.m
+  88 core          72 sF                     function sF(s=window.innerWidth){return s<co.desktop?"mobile":"desktop"}
+  89 core         144 Jb                     function Jb(s,e=typeof window<"u"?window.innerWidth:co.desktop){if(!s||!s.includes(gx))ret
+  90 core         179 rF                     function rF(s){if(!s||!jb.test(s)||!s.includes(Yf)||s.includes(ah))return s;const e=s.spli
+  91 core          63 oF                     function oF(s=window.innerWidth){return s<co.desktop?1024:2048}
+  92 core         238 aF                     function aF(s){if(!s||!jb.test(s))return s;const t=(s.startsWith("/")?s:`/${s}`).match(/^\
+  93 core         248 lF                     function lF(s,e=window.innerWidth){if(!s)return s;const n=(s.startsWith("/")?s:`/${s}`).ma
+  94 core         181 cF                     function cF(s=window.innerWidth){return Object.fromEntries(Object.entries($O).map(([e,t])=
+  95 core          22 uF                     uF="sounds/compressed"
+  96 core           8 hF                     hF="aac"
+  97 core         461 dF                     dF=[{id:"ambient",fileBase:"ambient",params:{loop:!0,volume:.375,fadeDuration:500},compres
+  98 core          47 fF                     function fF(s){return`assets/${uF}/${s}.${hF}`}
+  99 core         109 pF                     function pF(s){return Object.fromEntries(dF.map(({id:e,fileBase:t,params:n})=>[e,{path:s(f
+ 100 core           7 Zb                     Zb=1600
+ 101 core          25 $b                     $b=`(max-width: ${Zb}px)`
+ 102 core          51 AF                     function AF(){return!window.matchMedia($b).matches}
+ 103 core         952 gF                     gF=[{id:"leaves",sourcePath:"about/leaves.png",webpDir:"leaves-webp",desktop:256,mobile:12
+ 104 core          30 mF                     mF=s=>s.replace(/\.[^.]+$/,"")
+ 105 core          53 _F                     function _F(s=window.innerWidth){return s<co.desktop}
+ 106 core         158 vF                     function vF({webpParentDir:s,webpDir:e,desktop:t,mobile:n,fileBase:i},r=window.innerWidth)
+ 107 core         142 yF                     function yF(s){if(s.sourceDir){const e=s.sourceDir.split("/");return e.pop(),e.join("/")}r
+ 108 core         122 ag                     function ag(s,e,t,n){return t(vF({webpParentDir:yF(s),webpDir:s.webpDir,desktop:s.desktop,
+ 109 core         319 xF                     function xF(s,e=window.innerWidth){return gF.reduce((t,n)=>{if(n.manifestKey)return t[n.ma
+ 110 core          14 EF                     EF="scene-ktx"
+ 111 core         225 Xf                     Xf={home:["TexFleur","TexProps","TexMobilier","TexDecor","TexTableaux","TexBibli","TexFloo
+ 112 core          75 SF                     SF={project1:12,project2:12,project3:11,project4:9,project5:10,project6:11}
+ 113 core         969 wF                     wF=[{id:"flower",sourcePath:"textures/global/flower.jpg",ktxDir:"flower-ktx",desktop:1024,
+ 114 core          30 bF                     bF=s=>s.replace(/\.[^.]+$/,"")
+ 115 core          69 TF                     function TF(s=window.innerWidth){return s<co.desktop||s<Zb?2048:4096}
+ 116 core          48 mx                     function mx(s,e=window.innerWidth){return TF(e)}
+ 117 core          53 CF                     function CF(s=window.innerWidth){return s<co.desktop}
+ 118 core          63 eT                     function eT(s=window.innerWidth){return s<co.desktop?1024:2048}
+ 119 core          69 _x                     function _x(s,e,t){return`assets/textures/${s}/${EF}/${t}/${e}.ktx2`}
+ 120 core         156 MF                     function MF({ktxParentDir:s,ktxDir:e,desktop:t,mobile:n,fileBase:i},r=window.innerWidth){c
+ 121 core          84 IF                     function IF(s,e,t=eT()){return`assets/medias/home/projects/${s}-ktx/${t}/${e}.ktx2`}
+ 122 core         152 RF                     function RF(s){return(s.sourceDir?s.sourceDir.split("/").slice(0,-1).join("/"):s.sourcePat
+ 123 core         119 lg                     function lg(s,e,t,n){return t(MF({ktxParentDir:RF(s),ktxDir:s.ktxDir,desktop:s.desktop,mob
+ 124 core          40 Tl                     Tl=(s,e="srgb")=>({path:s,colorSpace:e})
+ 125 core         692 BF                     function BF(s,e=window.innerWidth){const t={...Object.fromEntries(Xf.home.map(i=>[`home${i
+ 126 core          41 DF                     DF=["aboutTexLeaves","aboutGroundNormal"]
+ 127 core          58 LF                     LF=["cloud1","cloud2","cloud3","cloud4","cloud5","cloud6"]
+ 128 core           6 PF                     PF="/"
+ 129 core          17 Zs                     Zs=s=>`${PF}${s}`
+ 130 core          20 OF                     OF=s=>`/assets/${s}`
+ 131 core           9 ur                     ur=BF(Zs)
+ 132 core           9 vx                     vx=xF(Zs)
+ 133 core           9 FF                     FF=pF(Zs)
+ 134 core          60 Wm                     Wm=Object.fromEntries(DF.filter(s=>vx[s]).map(s=>[s,vx[s]]))
+ 135 core          89 Sa                     Sa=Object.fromEntries(LF.map(s=>[s,{path:Zs(`assets/textures/global/clouds/${s}.png`)}]))
+ 136 core          78 tT                     tT={abouttexMontagne:{path:Zs("assets/textures/about/scene/texMontagne.png")}}
+ 137 core           7 Cl                     Cl=cF()
+ 138 core        1035 wa                     wa={textures:{home:Object.fromEntries(Xf.home.map(s=>[s,ur[`home${s}`].path])),about:{...O
+ 139 core         337 Po                     Po={images:{},textures:{...ur},webpTextures:{...Wm,...Sa,...tT},envMaps:{},models:{beeMode
+ 140 core        1717 Aa                     class Aa{constructor({manifest:e={},loader:t=null,isMobile:n=!1,assetsInfos:i=new Map,load
+ 141 core           2 Lh                     Lh
+ 142 core         390 NF                     class NF extends ks{constructor(t){super(t);Qt(this,Lh);ci(this,Lh,new Lb),this.setRespons
+ 143 core          15 (ExpressionStatement)  Lh=new WeakMap;
+ 144 core           2 Ph                     Ph
+ 145 core         174 kF                     class kF extends Rr{constructor(t){super(t);Qt(this,Ph);ci(this,Ph,new ks)}load(t,n,i,r){J
+ 146 core          15 (ExpressionStatement)  Ph=new WeakMap;
+ 147 core           2 Oh                     Oh
+ 148 core           2 q_                     q_
+ 149 core         402 UF                     class UF extends ks{constructor(t){super(t);Qt(this,Oh);Qt(this,q_);ci(this,Oh,new Pb),thi
+ 150 core          30 (ExpressionStatement)  Oh=new WeakMap,q_=new WeakMap;
+ 151 core          14 (ExpressionStatement)  lo.enabled=!0;
+ 152 core           2 Rs                     Rs
+ 153 core           2 Bs                     Bs
+ 154 core           2 Fh                     Fh
+ 155 core           2 go                     go
+ 156 core           2 Ym                     Ym
+ 157 core           2 nT                     nT
+ 158 core           2 iT                     iT
+ 159 core           2 pr                     pr
+ 160 core        2015 GF                     class GF{constructor({blockingLoad:e=!0,withPriority:t=!1,withCriticals:n=!1,isMobile:i=!1
+ 161 core         494 (ExpressionStatement)  Rs=new WeakMap,Bs=new WeakMap,Fh=new WeakMap,go=new WeakSet,Ym=function(){return Promise.a
+ 162 core           2 fc                     fc
+ 163 core           2 Nh                     Nh
+ 164 core         573 HF                     class HF{constructor(){Qt(this,fc,!1);li(this,"play",()=>{ci(this,fc,!0),Je(this,Nh).call(
+ 165 core          30 (ExpressionStatement)  fc=new WeakMap,Nh=new WeakMap;
+ 166 core          71 QF                     function QF(){const s=new GF,e=new HF;return{assetsManager:s,ticker:e}}
+ 167 ui-1          14 I3                     I3=Math.PI/180
+ 168 ui-1          37 Wi                     function Wi(s,e,t){return(1-t)*s+t*e}
+ 169 ui-1          27 xE                     function xE(s){return s*I3}
+ 170 ui-1         105 y_                     function y_(s){const e=parseFloat(getComputedStyle(document.documentElement).fontSize)||16
+ 171 ui-1          81 EE                     function EE(s){const e={};for(const[t,n]of Object.entries(s))e[t]=y_(n);return e}
+ 172 ui-1         194 or                     function or(s){let e=0,t=0,n=s;for(;n;){e+=n.offsetLeft,t+=n.offsetTop;const i=n.offsetPar
+ 173 ui-1          44 gn                     function gn(){return window.innerWidth<1025}
+ 174 ui-1         171 ti                     function ti(){return window.matchMedia("(pointer: coarse)").matches?!0:window.matchMedia("
+ 176 ui-1          37 R3                     R3={class:"showreel__timelineArrows"}
+ 177 ui-1          39 B3                     B3={class:"cursorIndication__lineWrap"}
+ 178 ui-1          74 D3                     D3={class:"cursorIndication__lineWrap cursorIndication__lineWrap--copied"}
+ 179 ui-1          11 SE                     SE="Copied"
+ 180 ui-1           6 Ig                     Ig=.25
+ 181 ui-1           5 L3                     L3=50
+ 182 ui-1           6 P3                     P3=.35
+ 183 ui-1           6 O3                     O3=1.4
+ 184 ui-1           7 Rg                     Rg=1.75
+ 185 ui-1           4 F3                     F3=5
+ 186 ui-1           5 N3                     N3=27
+ 187 ui-1       16245 k3                     k3={__name:"CursorIndication",props:{cursorIndication:{type:[String,Array],default:null},i
+ 188 ui-1          43 SM                     SM=Ht(k3,[["__scopeId","data-v-002aba1a"]])
+ 189 ui-1         103 U3                     U3=["About","Playground","Home","Work","Lab","Navbar","Tuesday","Instagram","Linkedin","Fo
+ 190 ui-1          99 G3                     G3=[[/\bi'm\b/g,"I'm"],[/\bi've\b/g,"I've"],[/\bi'll\b/g,"I'll"],[/\bi'd\b/g,"I'd"],[/\bi\
+ 191 ui-1          62 H3                     function H3(s){return s.replace(/[.*+?^${}()|[\]\\]/g,"\\$&")}
+ 192 ui-1          59 Q3                     function Q3(s){return/[a-z]/.test(s)===!1&&/[A-Z]/.test(s)}
+ 193 ui-1         205 z3                     function z3(s){const e=new Set(U3);for(const t of s.matchAll(/\b[A-Z]{2,}\b/g))e.add(t[0])
+ 194 ui-1          88 V3                     function V3(s){return s.replace(/(^|[.!?…]\s+|\n+)([a-z])/g,(e,t,n)=>t+n.toUpperCase())}
+ 195 ui-1         196 W3                     function W3(s,e){let t=s;for(const[n,i]of G3)t=t.replace(n,i);for(const n of e){if(n==="I"
+ 196 ui-1         108 Y3                     function Y3(s){if(!s||typeof s!="string"||Q3(s))return s;const e=z3(s),t=s.toLowerCase();r
+ 197 ui-1          37 X3                     X3={class:"beeTextIndication__label"}
+ 198 ui-1        3704 q3                     q3={__name:"BeeTextIndication",setup(s){const e=ue(),t=ue(),n=ue(""),i=ue(!1),r=ue(!1),o=u
+ 199 ui-1          43 j3                     j3=Ht(q3,[["__scopeId","data-v-e2dfbf19"]])
+ 200 ui-1         113 K3                     function K3(){return window.innerWidth>window.innerHeight||window.matchMedia("(orientation
+ 201 ui-1         279 wM                     function wM(){const s=navigator.userAgent||"";return/iPad/.test(s)||navigator.platform==="
+ 202 ui-1          26 bM                     function bM(){return wM()}
+ 203 ui-1          32 wE                     function wE(){return wM()&&K3()}
+ 204 ui-1         443 J3                     function J3(){const s=ue(wE()),e=()=>{s.value=wE()},t=()=>{e(),requestAnimationFrame(e)};l
+ 205 ui-1          17 Z3                     Z3=["aria-label"]
+ 206 ui-1          43 $3                     $3={class:"orientationIndication__content"}
+ 207 ui-1          41 eG                     eG={class:"orientationIndication__title"}
+ 208 ui-1          40 tG                     tG={class:"orientationIndication__text"}
+ 209 ui-1        1196 nG                     nG={__name:"OrientationIndication",props:{title:{type:String,required:!0},text:{type:Strin
+ 210 ui-1          43 iG                     iG=Ht(nG,[["__scopeId","data-v-2887326e"]])
+ 211 ui-1          20 sG                     sG=["href","target"]
+ 212 ui-1         358 rG                     rG={__name:"MainButton",props:{text:{type:String,default:null},url:{type:String,default:nu
+ 213 ui-1          43 Sh                     Sh=Ht(rG,[["__scopeId","data-v-3d08a041"]])
+ 214 ui-2          23 yG                     yG={class:"menuButton"}
+ 215 ui-2        1741 xG                     xG={__name:"MenuButton",setup(s,{expose:e}){Kn.create("reveal","0.4,0,0,1");const t=ue(nul
+ 216 ui-2          43 EG                     EG=Ht(xG,[["__scopeId","data-v-13eb05a0"]])
+ 217 ui-2          11 SG                     SG=["href"]
+ 218 ui-2          31 wG                     wG={class:"navLabButton__text"}
+ 219 ui-2        1128 bG                     bG={__name:"NavLabButton",props:{text:{type:String,default:"lab"},url:{type:String,default
+ 220 ui-2          43 TG                     TG=Ht(bG,[["__scopeId","data-v-68201abb"]])
+ 221 ui-2          56 qh                     function qh(s,[e,t],[n,i]){return n+(i-n)*((s-e)/(t-e))}
+ 222 ui-2           7 CG                     CG=.005
+ 223 ui-2           4 MG                     MG=4
+ 224 ui-2         775 IG                     IG={__name:"SoundButton",setup(s){const e=ue([]),t=ue(!1),n={amount:0},i=[{offset:0},{offs
+ 225 ui-2          43 ME                     ME=Ht(IG,[["__scopeId","data-v-be39561a"]])
+ 229 ui-3          52 Kr                     function Kr(s,e,t){return Math.min(Math.max(s,e),t)}
+ 230 ui-3          70 ei                     function ei(s,e,t){return Kr(qh(s,e,t),Math.min(...t),Math.max(...t))}
+ 231 ui-3         154 dp                     function dp(s,e,t="transform"){(Array.isArray(s)?s:[s]).flat().filter(Boolean).forEach(i=>
+ 232 ui-3         156 fp                     function fp(s,e){const t=n=>dp(e(),n);s.eventCallback("onStart",()=>t(!0)),s.eventCallback
+ 233 ui-3          15 Wn                     Wn={force3D:!0}
+ 234 ui-3        3765 kG                     kG={__name:"TextComponent",props:{parallaxPositionAmount:{type:Number,default:20},content:
+ 235 ui-3          43 xn                     xn=Ht(kG,[["__scopeId","data-v-0a0537df"]])
+ 236 ui-3         205 UG                     UG=Rv({__name:"GridWrapper",props:{hasPadding:{type:Boolean,default:!0}},setup(s){return(e
+ 237 ui-3          43 Qn                     Qn=Ht(UG,[["__scopeId","data-v-56dff9b3"]])
+ 238 ui-4           6 QH                     QH=500
+ 239 ui-4          71 GM                     function GM(){return window.matchMedia(`(max-width: ${QH}px)`).matches}
+ 240 ui-4        1121 zH                     function zH({heroRef:s,webglRef:e}){const t=ue({hero:null,webgl:null}),n=ue(null),i=d=>{co
+ 241 ui-4         261 VH                     VH={description:"Bringing depth and personality to every creation.",scrollIndication:"Scro
+ 242 ui-4         301 WH                     WH={titles:["Who is this","curious","fellow"],titlesReveal:["Colorblind","But Sees","Vibes
+ 243 ui-4         374 YH                     YH={imageUrl:"assets/medias/about/intro/intro.jpg",place:"El Valle de Antón",date:"Spring 
+ 244 ui-4         290 XH                     XH={text1:"Venturing beyond creative limits in each project and",lines:["exploring the","d
+ 245 ui-4         647 qH                     qH={experiences:{indication:"+6 years exp.",title:"Professional experiences",jobs:[{date:"
+ 246 ui-4        1001 jH                     jH={titleText:"Throughout my various professional experiences, I've had the chance to work
+ 247 ui-4          62 Ll                     Ll={header:VH,hero:WH,intro:YH,flowers:XH,cards:qH,content:jH}
+ 248 ui-4          16 KH                     KH="Léo Parpeix"
+ 249 ui-4          39 JH                     JH="Art director, Interactive designer"
+ 250 ui-4         119 ZH                     ZH={links:["Work","About","Playground"],lab:{text:"Lab",url:"https://lab.leoparpeix.com"},
+ 251 ui-4          79 $H                     $H={progressText:"World building",cursorIndication:["Click","to enable sound"]}
+ 252 ui-4         101 eQ                     eQ={title:"Rotate your device",text:"For an optimal navigation, please turn your screen ve
+ 253 ui-4        1630 tQ                     tQ={titles:["Let's create","a remarkable","journey"],titlesReveal:["your gateway","to exci
+ 254 ui-4          67 Ui                     Ui={title:KH,infos:JH,navbar:ZH,loader:$H,orientation:eQ,footer:tQ}
+ 255 ui-4           6 nQ                     nQ=200
+ 256 ui-4          10 Lf                     Lf=new Set
+ 257 ui-4           5 Nd                     Nd=!1
+ 258 ui-4          52 JE                     JE=s=>{const e=s.animatedScroll;Lf.forEach(t=>t(e))}
+ 259 ui-4          80 HM                     HM=()=>{var s;return((s=I.lenis)==null?void 0:s.animatedScroll)??window.scrollY}
+ 260 ui-4         101 QM                     function QM(s,e,t=nQ){if(!e)return!1;const n=s-t,i=s+window.innerHeight+t;return e.bottom>
+ 261 ui-4         156 r0                     function r0(s){return Lf.add(s),!Nd&&I.lenis&&(I.lenis.on("scroll",JE),Nd=!0),()=>{Lf.dele
+ 262 ui-4          43 iQ                     iQ={root:null,rootMargin:"0px",threshold:0}
+ 263 ui-4          10 Ap                     Ap=new Map
+ 264 ui-4          10 gp                     gp=new Set
+ 265 ui-4           5 aA                     aA=!1
+ 266 ui-4         158 sQ                     sQ=(s,e,t)=>{if(e){if(t!=null&&t.onVisible){t.onVisible();return}s.play().catch(()=>{});re
+ 267 ui-4          86 rQ                     function rQ(){aA=!0,Ap.forEach((s,e)=>{s.observer.disconnect(),gp.add(e)}),Ap.clear()}
+ 268 ui-4          58 oQ                     function oQ(){aA=!1,gp.forEach(s=>{s.pause()}),gp.clear()}
+ 269 ui-4         374 aQ                     function aQ(s,e={}){if(!s)return()=>{};const{onVisible:t,onHidden:n,...i}=e,r={...iQ,...i}
+ 270 ui-4          10 lQ                     lQ=["src"]
+ 271 ui-4          10 cQ                     cQ=["src"]
+ 272 ui-4          10 uQ                     uQ=["src"]
+ 273 ui-4          10 hQ                     hQ=["src"]
+ 274 ui-4        3790 dQ                     dQ={__name:"MediaComponent",props:{url:{type:String,default:null},url2:{type:String,defaul
+ 275 ui-4          43 lA                     lA=Ht(dQ,[["__scopeId","data-v-229b2ac0"]])
+ 276 ui-4         880 fQ                     fQ={__name:"ParallaxWrapperComponent",props:{parallaxAmount:{type:Number,default:-200}},se
+ 277 ui-4          43 zM                     zM=Ht(fQ,[["__scopeId","data-v-72708019"]])
+ 278 ui-4        1554 pQ                     pQ={__name:"WebglBgComponent",props:{index:{type:Number,default:null},needLight:{type:Bool
+ 279 ui-4          43 zs                     zs=Ht(pQ,[["__scopeId","data-v-bdd5ee4a"]])
+ 280 ui-4          32 o0                     function o0(){return ti()&&gn()}
+ 281 ui-4          33 ZE                     function ZE(s,e=1.35){return s/e}
+ 282 ui-4         843 AQ                     function AQ({triggerRef:s,getTextComponents:e,stagger:t,enabled:n=o0(),expectedCount:i=0})
+ 283 ui-4          31 gQ                     gQ={class:"contentBlock__left"}
+ 284 ui-4          32 mQ                     mQ={class:"right__recognitions"}
+ 285 ui-4          32 _Q                     _Q={class:"recognitions__title"}
+ 286 ui-4          24 vQ                     vQ={class:"title__text"}
+ 287 ui-4          26 yQ                     yQ={class:"title__number"}
+ 288 ui-4          24 xQ                     xQ={class:"award__name"}
+ 289 ui-4          26 EQ                     EQ={class:"award__number"}
+ 290 ui-4          27 SQ                     SQ={class:"right__clients"}
+ 291 ui-4          27 wQ                     wQ={class:"clients__title"}
+ 292 ui-4          29 bQ                     bQ={class:"clients__wrapper"}
+ 293 ui-4          28 TQ                     TQ={class:"wrapper__column"}
+ 294 ui-4          28 CQ                     CQ={class:"wrapper__column"}
+ 295 ui-4        1935 MQ                     MQ={__name:"ContentBlock",props:{titleText:{type:String,default:null},imageUrl:{type:Strin
+ 296 ui-4          43 IQ                     IQ=Ht(MQ,[["__scopeId","data-v-ce774f65"]])
+ 297 ui-4          47 RQ                     RQ={class:"line__paragraph line__paragraph--1"}
+ 298 ui-4          53 BQ                     BQ={class:"flowersBlock__line flowersBlock__line--2"}
+ 299 ui-4          26 DQ                     DQ={class:"line__wrapper"}
+ 300 ui-4          53 LQ                     LQ={class:"flowersBlock__line flowersBlock__line--3"}
+ 301 ui-4          26 PQ                     PQ={class:"line__wrapper"}
+ 302 ui-4          53 OQ                     OQ={class:"flowersBlock__line flowersBlock__line--4"}
+ 303 ui-4          53 FQ                     FQ={class:"flowersBlock__line flowersBlock__line--5"}
+ 304 ui-4          53 NQ                     NQ={class:"flowersBlock__line flowersBlock__line--6"}
+ 305 ui-4          53 kQ                     kQ={class:"flowersBlock__line flowersBlock__line--7"}
+ 306 ui-4          53 UQ                     UQ={class:"flowersBlock__line flowersBlock__line--8"}
+ 307 ui-4          26 GQ                     GQ={class:"line__wrapper"}
+ 308 ui-4          47 HQ                     HQ={class:"line__paragraph line__paragraph--2"}
+ 309 ui-4           7 QQ                     QQ=.075
+ 310 ui-4           5 kd                     kd=56
+ 311 ui-4           7 zQ                     zQ=1200
+ 312 ui-4           6 VQ                     VQ=100
+ 313 ui-4           5 $E                     $E=12
+ 314 ui-4        5297 WQ                     WQ={__name:"FlowersBlock",props:{text1:{type:String,default:null},lines:{type:Array,defaul
+ 315 ui-4          43 YQ                     YQ=Ht(WQ,[["__scopeId","data-v-245019a5"]])
+ 316 ui-4          39 XQ                     XQ={class:"container__titles--default"}
+ 317 ui-4          28 qQ                     qQ={class:"titles__wrapper"}
+ 318 ui-4          38 jQ                     jQ={class:"container__titles--reveal"}
+ 319 ui-4          28 KQ                     KQ={class:"titles__wrapper"}
+ 320 ui-4          29 JQ                     JQ={key:0,class:"indication"}
+ 321 ui-4           4 Pl                     Pl=2
+ 322 ui-4           7 eS                     eS=2600
+ 323 ui-4        7364 ZQ                     ZQ={__name:"BeeBlock",props:{titles:{type:Array,default:null},titlesReveal:{type:Array,def
+ 324 ui-4          43 cA                     cA=Ht(ZQ,[["__scopeId","data-v-46f0f810"]])
+ 325 ui-4          22 $Q                     $Q={class:"top__left"}
+ 326 ui-4          16 ez                     ez=["innerHTML"]
+ 327 ui-4          23 tz                     tz={class:"top__right"}
+ 328 ui-4         652 nz                     nz={__name:"HeroBlock",props:{titles:{type:Array,default:null},titlesReveal:{type:Array,de
+ 329 ui-4          43 iz                     iz=Ht(nz,[["__scopeId","data-v-188c8467"]])
+ 330 ui-4          30 sz                     sz={class:"introBlock__infos"}
+ 331 ui-4          24 rz                     rz={class:"infos__left"}
+ 332 ui-4          24 oz                     oz={class:"left__place"}
+ 333 ui-4          23 az                     az={class:"left__date"}
+ 334 ui-4          26 lz                     lz={class:"infos__credit"}
+ 335 ui-4          30 cz                     cz={class:"introBlock__texts"}
+ 336 ui-4         818 uz                     uz={__name:"IntroBlock",props:{imageUrl:{type:String,default:null},place:{type:String,defa
+ 337 ui-4          43 hz                     hz=Ht(uz,[["__scopeId","data-v-95d29d2a"]])
+ 338 ui-4           5 dz                     dz={}
+ 339 ui-4         112 fz                     fz={class:"svg-cross",width:"11",height:"11",viewBox:"0 0 11 11",fill:"none",xmlns:"http:/
+ 340 ui-4         196 pz                     function pz(s,e){return we(),Ne("svg",fz,[...e[0]||(e[0]=[ee("rect",{y:"5",width:"11",heig
+ 341 ui-4          25 VM                     VM=Ht(dz,[["render",pz]])
+ 342 ui-4         150 a0                     function a0(){if(typeof navigator>"u")return!1;const s=navigator.userAgent;return/Safari/.
+ 343 ui-4          32 Az                     Az={class:"footerBlock__bottom"}
+ 344 ui-4          29 gz                     gz={class:"bottom__networks"}
+ 345 ui-4          14 mz                     mz=["onClick"]
+ 346 ui-4          30 _z                     _z={class:"bottom__copyright"}
+ 347 ui-4          23 vz                     vz={class:"popup__top"}
+ 348 ui-4          23 yz                     yz={class:"top__infos"}
+ 349 ui-4          27 xz                     xz={class:"popup__content"}
+ 350 ui-4          26 Ez                     Ez={class:"content__left"}
+ 351 ui-4          26 Sz                     Sz={class:"left__content"}
+ 352 ui-4          16 wz                     wz=["innerHTML"]
+ 353 ui-4          27 bz                     bz={class:"content__right"}
+ 354 ui-4          16 Tz                     Tz=["innerHTML"]
+ 355 ui-4          22 Cz                     Cz="Copy to clipboard"
+ 356 ui-4           7 Ud                     Ud=1.25
+ 357 ui-4           6 bs                     bs=.85
+ 358 ui-4           5 tS                     tS=.5
+ 359 ui-4           5 Mz                     Mz=.4
+ 360 ui-4           6 Iz                     Iz=700
+ 361 ui-4           4 Rz                     Rz=2
+ 362 ui-4           4 Bz                     Bz=8
+ 363 ui-4           7 Dz                     Dz=1500
+ 364 ui-4        8520 Lz                     Lz={__name:"FooterBlock",props:{theme:{type:String,default:"white"},titles:{type:Array,def
+ 365 ui-4          43 l0                     l0=Ht(Lz,[["__scopeId","data-v-063391ad"]])
+ 366 ui-4        3471 Pz                     Pz={__name:"HeaderBlock",props:{cameraParams:{type:Object,default:null},description:{type:
+ 367 ui-4          43 WM                     WM=Ht(Pz,[["__scopeId","data-v-9a2f8b06"]])
+ 368 ui-4          22 Oz                     Oz={class:"cardBlock"}
+ 369 ui-4          27 Fz                     Fz={class:"cardBlock__top"}
+ 370 ui-4          28 Nz                     Nz={class:"top__indication"}
+ 371 ui-4          24 kz                     kz={class:"top__number"}
+ 372 ui-4          31 Uz                     Uz={class:"cardBlock__content"}
+ 373 ui-4          27 Gz                     Gz={class:"content__title"}
+ 374 ui-4          26 Hz                     Hz={class:"content__jobs"}
+ 375 ui-4          22 Qz                     Qz={class:"jobs__job"}
+ 376 ui-4          25 zz                     zz={class:"job__wrapper"}
+ 377 ui-4          22 Vz                     Vz={class:"job__date"}
+ 378 ui-4          26 Wz                     Wz={key:0,class:"wrapper"}
+ 379 ui-4          25 Yz                     Yz={class:"job__current"}
+ 380 ui-4          26 Xz                     Xz={class:"current__text"}
+ 381 ui-4          22 qz                     qz={class:"job__name"}
+ 382 ui-4          28 jz                     jz={key:1,class:"job__name"}
+ 383 ui-4          23 Kz                     Kz={class:"job__roles"}
+ 384 ui-4         794 Jz                     Jz={__name:"CardBlock",props:{experiences:{type:Object,default:null}},setup(s){return(e,t)
+ 385 ui-4          43 Zz                     Zz=Ht(Jz,[["__scopeId","data-v-c38c2dd3"]])
+ 386 ui-4          31 $z                     $z={class:"textWrapper__inner"}
+ 387 ui-4           6 nS                     nS=.15
+ 388 ui-4           6 eV                     eV=.72
+ 389 ui-4           4 tV                     tV=8
+ 390 ui-4           5 nV                     nV=.9
+ 391 ui-4           4 iV                     iV=0
+ 392 ui-4           6 sV                     sV=.35
+ 393 ui-4        6077 rV                     rV={__name:"WebglSectionBlock",props:{experiences:{type:Object,default:null},text:{type:St
+ 394 ui-4          43 YM                     YM=Ht(rV,[["__scopeId","data-v-afac87a3"]])
+ 395 ui-4          17 oV                     oV={class:"page"}
+ 396 ui-4         908 aV                     aV={__name:"AboutView",setup(s){const e=Gc(),t=ue(),n=ue(),i=ue(),{measure:r,update:o}=zH(
+ 397 ui-4        1026 lV                     function lV({webglRef:s,firstProjectRef:e}){const t=ue({webgl:null,firstProject:null}),n=u
+ 398 ui-4          46 Og                     Og="/assets/medias/home/archives-base/dna.jpg"
+ 399 ui-4       16021 Da                     Da={header:{description:"Driven by detail. Obsessed with seamless motion.",scrollIndicatio
+ 400 ui-4           2 Gw                     Gw
+ 401 ui-4           2 Hw                     Hw
+ 402 ui-4         200 (ForOfStatement)       for(const s of Da.archives.items)(Gw=s.media)!=null&&Gw.isVideo&&s.media.url2?(s.media.pos
+ 403 ui-4          11 cV                     cV=["href"]
+ 404 ui-4          30 uV                     uV={class:"arrowButton__text"}
+ 405 ui-4          33 hV                     hV={class:"arrowButton__wrapper"}
+ 406 ui-4        2626 dV                     dV={__name:"ArrowButton",props:{text:{type:String,default:null},url:{type:String,default:n
+ 407 ui-4          43 C_                     C_=Ht(dV,[["__scopeId","data-v-fbcd8e8f"]])
+ 408 ui-4         239 XM                     function XM(s,e=1,t={}){const n=t.bind||null,i=t.trail!==null?!!t.trail:!0;let r,o,a,l,u=i
+ 409 ui-4          24 fV                     fV={class:"title__text"}
+ 410 ui-4          25 pV                     pV={class:"items__title"}
+ 411 ui-4          26 AV                     AV={class:"title__number"}
+ 412 ui-4          24 gV                     gV={class:"title__name"}
+ 413 ui-4          24 mV                     mV={class:"title__type"}
+ 414 ui-4          25 _V                     _V={class:"items__roles"}
+ 415 ui-4          24 vV                     vV={class:"items__date"}
+ 416 ui-4          25 yV                     yV={class:"items__media"}
+ 417 ui-4          25 xV                     xV={class:"media__inner"}
+ 418 ui-4          10 EV                     EV=["src"]
+ 419 ui-4          10 SV                     SV=["src"]
+ 420 ui-4          10 wV                     wV=["src"]
+ 421 ui-4          10 bV                     bV=["src"]
+ 422 ui-4           6 Gd                     Gd=.35
+ 423 ui-4           7 Fg                     Fg=1400
+ 424 ui-4           6 TV                     TV=350
+ 425 ui-4           6 iS                     iS=1.3
+ 426 ui-4           7 CV                     CV=1023
+ 427 ui-4           6 MV                     MV=.45
+ 428 ui-4           6 IV                     IV=.55
+ 429 ui-4       13567 RV                     RV={__name:"ArchivesBlock",props:{title:{type:String,default:null},items:{type:Array,defau
+ 430 ui-4          43 BV                     BV=Ht(RV,[["__scopeId","data-v-d1c93837"]])
+ 431 ui-4          11 DV                     DV=["href"]
+ 432 ui-4           5 sS                     sS=.4
+ 433 ui-4           4 LV                     LV=1
+ 434 ui-4           6 PV                     PV=.05
+ 435 ui-4           6 Ng                     Ng=.15
+ 436 ui-4           5 OV                     OV=.3
+ 437 ui-4           5 FV                     FV=.4
+ 438 ui-4           5 NV                     NV=.3
+ 439 ui-4           7 kV                     kV=1025
+ 440 ui-4        3385 UV                     UV={__name:"AgencyLink",props:{name:{type:String,required:!0},url:{type:String,required:!0
+ 441 ui-4          43 rS                     rS=Ht(UV,[["__scopeId","data-v-7544a4c6"]])
+ 442 ui-4          16 GV                     GV=["innerHTML"]
+ 443 ui-4          23 HV                     HV={class:"top__infos"}
+ 444 ui-4          26 QV                     QV={key:0,class:"wrapper"}
+ 445 ui-4          10 zV                     zV={key:1}
+ 446 ui-4          28 VV                     VV={class:"infos__agencies"}
+ 447 ui-4          27 WV                     WV={class:"agencies__text"}
+ 448 ui-4        1149 YV                     YV={__name:"HeroBlock",props:{titles:{type:Array,default:null},titlesReveal:{type:Array,de
+ 449 ui-4          43 XV                     XV=Ht(YV,[["__scopeId","data-v-17c2e66f"]])
+ 450 ui-4          26 qV                     qV={class:"top__baseline"}
+ 451 ui-4          25 jV                     jV={class:"bottom__text"}
+ 452 ui-4          33 KV                     KV={class:"bottom__showreelHint"}
+ 453 ui-4        1699 JV                     JV={__name:"IntroBlock",props:{bigTexts:{type:Array,default:null},smallTexts:{type:Array,d
+ 454 ui-4          43 ZV                     ZV=Ht(JV,[["__scopeId","data-v-668bc637"]])
+ 455 ui-4           5 $V                     $V=20
+ 456 ui-4           5 e4                     e4=10
+ 457 ui-4          32 mp                     function mp(){return gn()?e4:$V}
+ 458 ui-4         224 t4                     t4={discreteDrag:!1,infiniteDrag:!0,parallaxXMultiplier:1.25,snapThreshold:42,snapLerp:.05
+ 459 ui-4         268 n4                     n4={discreteDrag:!1,infiniteDrag:!0,parallaxXMultiplier:2.75,dragActivationThresholdPx:85,
+ 460 ui-4          32 Uo                     function Uo(){return gn()?n4:t4}
+ 461 ui-4          24 i4                     i4={class:"title__text"}
+ 462 ui-4          39 s4                     s4={class:"projectBlock__informations"}
+ 463 ui-4          23 r4                     r4={class:"top__title"}
+ 464 ui-4          26 o4                     o4={class:"title__number"}
+ 465 ui-4          24 a4                     a4={class:"title__name"}
+ 466 ui-4          24 l4                     l4={class:"title__type"}
+ 467 ui-4          36 c4                     c4={key:0,class:"top__recognitions"}
+ 468 ui-4          22 u4                     u4={class:"top__date"}
+ 469 ui-4          22 h4                     h4={class:"top__team"}
+ 470 ui-4          23 d4                     d4={class:"team__text"}
+ 471 ui-4          10 f4                     f4={key:1}
+ 472 ui-4          25 p4                     p4={class:"bottom__left"}
+ 473 ui-4          25 A4                     A4={class:"left__number"}
+ 474 ui-4          26 g4                     g4={class:"bottom__roles"}
+ 475 ui-4          24 m4                     m4={class:"roles__text"}
+ 476 ui-4           4 _4                     _4=6
+ 477 ui-4           4 v4                     v4=8
+ 478 ui-4           7 y4                     y4=.029
+ 479 ui-4        7409 x4                     x4={__name:"ProjectBlock",props:{title:{type:String,default:null},cursorIndication:{type:S
+ 480 ui-4          43 oS                     oS=Ht(x4,[["__scopeId","data-v-7bd7230c"]])
+ 481 ui-4          17 E4                     E4={class:"page"}
+ 482 ui-4          20 S4                     S4={class:"wrapper"}
+ 483 ui-4        1229 w4                     w4={__name:"HomeView",setup(s){const e=Gc(),t=ue(),n=ue(),i=ue(),{measure:r,update:o}=lV({
+ 484 ui-4          43 b4                     b4=Ht(w4,[["__scopeId","data-v-94b09d28"]])
+ 485 ui-4         295 T4                     T4={titles:["Welcome on","my design","playground"],titlesReveal:["Always","Pushing","Furth
+ 486 ui-4        2211 C4                     C4=[{medias:[{url:"/assets/medias/playground/1.webm",url2:"/assets/medias/playground/1.mp4
+ 487 ui-4       13543 M4                     M4={idle:["Bzzzzz","Still moving me","I was landing","STOP SCROLLING","Put me down","Verti
+ 488 ui-4          37 M_                     M_={hero:T4,content:C4,contentBee:M4}
+ 489 ui-4          26 bh                     function bh(){return!gn()}
+ 490 ui-4         115 kg                     function kg(s){const e=or(s);return{top:e.top,y:e.top,height:e.height>0?e.height:window.in
+ 491 ui-4         183 I4                     function I4(s,e,t){if(!s||!e||!t)return null;const n=kg(s),i=kg(e),r=kg(t),o=n.height>0?n.
+ 492 ui-4           4 R4                     R4=8
+ 493 ui-4           4 B4                     B4=6
+ 494 ui-4           5 D4                     D4=14
+ 495 ui-4           4 L4                     L4=1
+ 496 ui-4           6 P4                     P4=110
+ 497 ui-4          78 qM                     function qM(s){const e=window.innerHeight*(R4/100);return s.topZoneRect.top-e}
+ 498 ui-4          78 uA                     function uA(s){const e=window.innerHeight*(B4/100);return s.topZoneRect.top+e}
+ 499 ui-4          78 Kh                     function Kh(s){const e=window.innerHeight*(D4/100);return s.topZoneRect.top+e}
+ 500 ui-4          94 al                     function al(s){const e=window.innerHeight*(P4/100);return s.topZoneRect.top+s.bandHeight*L
+ 501 ui-4          53 O4                     function O4(s){return s.topZoneRect.top+s.bandHeight}
+ 502 ui-4          57 jM                     function jM(s){return s.innerRect.top+s.innerRect.height}
+ 503 ui-4           5 F4                     F4=35
+ 504 ui-4          60 N4                     function N4(s,e=1/0){return Number.isFinite(e)&&e>0?e:fA(s)}
+ 505 ui-4         126 hA                     function hA(s,e=1/0){const t=N4(s,e);if(!Number.isFinite(t)||t<=0)return fA(s);const n=win
+ 506 ui-4          36 dA                     function dA(s,e=1/0){return hA(s,e)}
+ 507 ui-4          97 c0                     function c0(s,e=1/0){const t=uA(s),n=dA(s,e),i=n-t,r=t+i*H4;return{start:t,mid:r,end:n,len
+ 508 ui-4          40 KM                     function KM(s,e=1/0){return c0(s,e).mid}
+ 509 ui-4          36 JM                     function JM(s,e=1/0){return KM(s,e)}
+ 510 ui-4          58 ZM                     function ZM(s,e=1/0){return Number.isFinite(e)&&e>0&&s>=e}
+ 511 ui-4          40 Th                     function Th(s){return s.topZoneRect.top}
+ 512 ui-4          78 k4                     function k4(s,e,t=0){if(!bh())return!1;const n=Hc(e)?Th(e):t;return n?s>=n:!1}
+ 513 ui-4          67 fA                     function fA(s){return s.bottomZoneRect.top+s.bottomZoneRect.height}
+ 514 ui-4           7 U4                     U4=2.65
+ 515 ui-4           6 G4                     G4=2.3
+ 516 ui-4           6 H4                     H4=.25
+ 517 ui-4           6 Ug                     Ug=.35
+ 518 ui-4           4 Q4                     Q4=6
+ 519 ui-4           6 z4                     z4=-.5
+ 520 ui-4           7 V4                     V4=1.55
+ 521 ui-4           7 W4                     W4=1.75
+ 522 ui-4           5 Hd                     Hd=.4
+ 523 ui-4           5 Wo                     Wo=.6
+ 524 ui-4           6 Y4                     Y4=.78
+ 525 ui-4           6 X4                     X4=.52
+ 526 ui-4           6 q4                     q4=.55
+ 527 ui-4           6 j4                     j4=.85
+ 528 ui-4           4 K4                     K4=5
+ 529 ui-4           5 J4                     J4=.5
+ 530 ui-4           6 aS                     aS=-.9
+ 531 ui-4           6 Ch                     Ch=.95
+ 532 ui-4           7 Z4                     Z4=-.35
+ 533 ui-4           5 $4                     $4=20
+ 534 ui-4           6 eW                     eW=130
+ 535 ui-4           7 tW                     tW=.012
+ 536 ui-4           6 $M                     $M=.16
+ 537 ui-4           4 nW                     nW=1
+ 538 ui-4          57 _p                     function _p(s){return 1-(1-Math.min(1,Math.max(0,s)))**3}
+ 539 ui-4          36 xu                     function xu(s,e,t){return s+(e-s)*t}
+ 540 ui-4          78 Sr                     function Sr(s){const e=Math.min(1,Math.max(0,s));return e*e*e*(e*(e*6-15)+10)}
+ 541 ui-4          55 iW                     function iW(s,e=3){return Math.min(1,Math.max(0,s))**e}
+ 542 ui-4         105 sW                     function sW(s){const e=Math.min(1,Math.max(0,s));if(e<=Ug)return 0;const t=(e-Ug)/(1-Ug);r
+ 543 ui-4          72 pA                     function pA(s,e){const t=Kh(e),n=al(e);return s<=t?0:s>=n?1:(s-t)/(n-t)}
+ 544 ui-4          99 u0                     function u0(s,e,t=1/0){const{mid:n,end:i}=c0(e,t),r=i-n;return r<=0?s>=i?1:0:s<=n?0:s>=i?1
+ 545 ui-4          67 eI                     function eI(s,e=1/0){const{start:t,length:n}=c0(s,e);return t+n*Y4}
+ 546 ui-4          86 h0                     function h0(s,e,t=1/0){const n=al(e),i=eI(e,t);return i<=n||s<=n?0:s>=i?1:(s-n)/(i-n)}
+ 547 ui-4         125 I_                     function I_(s){const e=X4,t=q4,n=j4;if(s<=e)return Sr(s/e);if(s<=t)return 1;if(s<=n){const
+ 548 ui-4          85 rW                     function rW(s){if(s<=Wo)return 0;if(s>=Ch)return 1;const e=Ch-Wo;return Sr((s-Wo)/e)}
+ 549 ui-4          38 tI                     function tI(s,e){return e>0?1-e:rW(s)}
+ 550 ui-4         131 d0                     function d0(s,e,t=1/0){const n=Kh(e),i=al(e),r=JM(e,t),o=dA(e,t);return s<n?0:s<i?Sr(_p(pA
+ 551 ui-4          72 oW                     function oW(s,e=1/0){const t=al(s),n=eI(s,e),i=n-t;return i<=0?n:t+i*Ch}
+ 552 ui-4         180 nI                     function nI(s,e,t=1/0){const n=oW(e,t),i=window.innerHeight*($4/100),r=n+i,o=window.innerH
+ 553 ui-4         345 aW                     function aW(s,e,t){const n=Math.min(1,Math.max(0,s)),i=z4*e,r=V4*e,o=W4*e,a=I_(n);let l,u=
+ 554 ui-4         103 lW                     function lW(s,e,t){if(!Hc(e))return 0;const n=t/2,i=al(e),r=pA(s,e);return s<Kh(e)?n:s<i?n
+ 555 ui-4         657 cW                     function cW(s,e,t,n=1/0){if(!Hc(e))return null;const i=t/2,r=Th(e),o=fA(e),a=uA(e),l=O4(e)
+ 556 ui-4         286 uW                     function uW(s,e,t,n=1/0){if(!Hc(e))return 0;const i=Th(e),r=dA(e,n),o=Kh(e),a=al(e),l=JM(e
+ 557 ui-4         359 R_                     function R_(s,e,t,n=1/0,{freezePathBlend:i=!1}={}){const r=t/2,o=uW(s,e,r,n);let a=d0(s,e,
+ 558 ui-4         170 hW                     function hW(s,e,t,n=1/0){const i=Math.max(1,window.innerHeight*.002),r=R_(s,e,t,n),o=R_(s+
+ 559 ui-4         116 dW                     function dW(s){const e=Math.min(1,Math.max(0,s)),t=.001,n=(I_(Math.min(1,e+t))-I_(e))/t;re
+ 560 ui-4          32 Gg                     function Gg(s,e){return tI(s,e)}
+ 561 ui-4         120 fW                     function fW(s,e){const n=Gg(s,e);return e>0?(Gg(s,Math.min(1,e+.001))-n)/.001:s<=Wo?0:(Gg(
+ 562 ui-4          94 pW                     function pW(s,e,t=1/0){const n=h0(s,e,t),i=d0(s,e,t),r=dW(n);return Math.abs(r)<1e-8?0:r*$
+ 563 ui-4         108 AW                     function AW(s,e,t=1/0){const n=h0(s,e,t),i=nI(s,e,t),r=d0(s,e,t),o=fW(n,i);return Math.abs
+ 564 ui-4         111 iI                     function iI(s,e,t,n=1/0,i={}){return{...R_(s,e,t,n,i),heading:hW(s,e,t,n),pitch:pW(s,e,n),
+ 565 ui-4          64 B_                     function B_(s,e,t=1/0){const n=uA(e),i=hA(e,t);return s>=n&&s<i}
+ 566 ui-4          70 gW                     function gW(s,e,t=1/0){const n=uA(e);return s<n||ZM(s,t)?!1:s<hA(e,t)}
+ 567 ui-4         142 Hc                     function Hc(s){return!(s!=null&&s.topZoneRect)||!(s!=null&&s.innerRect)||!(s!=null&&s.bott
+ 568 ui-4         123 mW                     function mW(s,e){const t=window.innerHeight,n=window.innerWidth;return{width:s.width/n*e.w
+ 569 ui-4          24 _W                     _W={class:"media__text"}
+ 570 ui-4          24 vW                     vW={class:"text__title"}
+ 571 ui-4          23 yW                     yW={class:"text__date"}
+ 572 ui-4          42 xW                     xW={key:1,class:"contentBlock__paragraph"}
+ 573 ui-4        3166 EW                     EW={__name:"ContentBlock",props:{rowsItems:{type:Array,default:null}},setup(s){const e=ue(
+ 574 ui-4          43 SW                     SW=Ht(EW,[["__scopeId","data-v-c72ef057"]])
+ 575 ui-4         111 D_                     D_={INITIAL_LOAD:{duration:2.5,ease:"expo.inOut",from:.65},PAGE_TRANSITION:{duration:2,eas
+ 576 ui-4          34 wW                     function wW(s){return s<=0?.001:s}
+ 577 ui-4          22 bW                     bW={class:"top__text"}
+ 578 ui-4        2160 TW                     TW={__name:"HeroBlock",props:{titles:{type:Array,default:null},titlesReveal:{type:Array,de
+ 579 ui-4          43 CW                     CW=Ht(TW,[["__scopeId","data-v-9ed7488d"]])
+ 580 ui-4          17 MW                     MW={class:"page"}
+ 581 ui-4         754 IW                     IW={__name:"PlaygroundView",setup(s){const e=ue(),t=(i=!1)=>{pn(()=>{var r;(r=e.value)==nu
+ 582 ui-4          43 RW                     RW=Ht(IW,[["__scopeId","data-v-0f9e78d4"]])
+ 583 ui-4           7 Pf                     Pf=null
+ 584 ui-4          41 BW                     BW=new Set(["home","about","playground"])
+ 585 ui-4          47 DW                     DW=()=>new URL("/",window.location.origin).href
+ 586 ui-4         304 Wu                     Wu=GH({history:iH("/"),routes:[{path:"/",name:"home",component:b4,meta:{seoKey:"home"}},{p
+ 587 ui-4         181 (ExpressionStatement)  Wu.beforeEach((s,e)=>{if(!BW.has(s.name))return window.location.replace(DW()),!1;Pf=e.name
+ 588 ui-4          24 LW                     LW={class:"left__title"}
+ 589 ui-4          24 PW                     PW={class:"left__infos"}
+ 590 ui-4          25 OW                     OW={class:"right__links"}
+ 591 ui-4          27 FW                     FW={class:"right__buttons"}
+ 592 ui-4          24 NW                     NW={class:"menu__links"}
+ 593 ui-4           5 kW                     kW=.3
+ 594 ui-4           4 UW                     UW=1
+ 595 ui-4           7 GW                     GW=.325
+ 596 ui-4          58 HW                     HW=".left__title, .links__link, .links__lab, .soundButton"
+ 597 ui-4        5418 QW                     QW={__name:"NavbarComponent",props:{title:{type:String,default:null},infos:{type:String,de
+ 598 ui-4          43 zW                     zW=Ht(QW,[["__scopeId","data-v-e881037d"]])
+ 599 ui-4          25 VW                     VW=s=>s.replace(/\/$/,"")
+ 600 ui-4          31 sI                     sI=VW("https://leoparpeix.com")
+ 601 ui-4          16 lS                     lS="Léo Parpeix"
+ 602 ui-4          10 WW                     WW="en_US"
+ 603 ui-4          12 YW                     YW="#083D2A"
+ 604 ui-4          18 XW                     XW="@LecornuThoma"
+ 605 ui-4          18 qW                     qW="@LecornuThoma"
+ 606 ui-4          16 jW                     jW="Léo Parpeix"
+ 607 ui-4          17 KW                     KW="/preview.jpg"
+ 608 ui-4         139 Mo                     Mo={url:`${sI}${KW}`,width:1200,height:627,type:"image/jpeg",alt:"Preview of Léo Parpeix p
+ 609 ui-4         157 JW                     JW="Portfolio of Léo Parpeix, art director and interactive designer. Explore immersive 3D 
+ 610 ui-4         492 cS                     cS={home:{title:"Léo Parpeix — Art director & interactive designer",description:JW,path:"/
+ 611 ui-4          49 ZW                     ZW=(s="/")=>`${sI}${s.startsWith("/")?s:`/${s}`}`
+ 612 ui-4          94 $W                     $W=s=>{var t;const e=((t=s.meta)==null?void 0:t.seoKey)||s.name||"home";return cS[e]??cS.h
+ 613 ui-4         203 cn                     cn=(s,e,t="name")=>{if(!e)return;let n=document.head.querySelector(`meta[${t}="${s}"]`);n|
+ 614 ui-4         318 Hg                     Hg=(s,e,{hreflang:t}={})=>{if(!e)return;const n=t!=null?`link[rel="${s}"][hreflang="${t}"]
+ 615 ui-4        1150 e5                     e5=s=>{const e=$W(s),t=ZW(e.path);document.documentElement.lang="en",document.title=e.titl
+ 616 ui-4          65 t5                     t5=()=>{const s=Gc();Jo(()=>s.fullPath,()=>e5(s),{immediate:!0})}
+ 617 ui-4          29 n5                     n5={class:"container__title"}
+ 618 ui-4          29 i5                     i5={class:"container__infos"}
+ 619 ui-4          30 s5                     s5={class:"container__bottom"}
+ 620 ui-4          29 r5                     r5={class:"bottom__progress"}
+ 621 ui-4         115 o5                     o5={class:"progress__circle",width:"8",height:"8",viewBox:"0 0 8 8",fill:"none",xmlns:"htt
+ 622 ui-4          32 a5                     a5={transform:"rotate(-90 4 4)"}
+ 623 ui-4         110 l5                     l5={ref:"progressCircleRef",class:"circle--animated",cx:"4",cy:"4",r:"3.25",stroke:"black"
+ 624 ui-4          27 c5                     c5={class:"progress__text"}
+ 625 ui-4           6 uS                     uS=1.5
+ 626 ui-4           7 u5                     u5=2.25
+ 627 ui-4        1914 h5                     h5={__name:"LoaderBlock",props:{progressText:{type:String,default:null},title:{type:String
+ 628 ui-4          31 d5                     d5={class:"videoPlayer__media"}
+ 629 ui-4          10 f5                     f5=["src"]
+ 630 ui-4          35 p5                     p5={class:"videoPlayer__closeWrap"}
+ 631 ui-4          40 A5                     A5={class:"compactPlayPause__iconTrack"}
+ 632 ui-4           5 Ol                     Ol=.3
+ 633 ui-4           6 hS                     hS=.35
+ 634 ui-4           5 dS                     dS=.6
+ 635 ui-4           5 g5                     g5=.5
+ 636 ui-4           6 m5                     m5=.35
+ 637 ui-4           6 _5                     _5=600
+ 638 ui-4           7 v5                     v5=2800
+ 639 ui-4           7 y5                     y5=1.02
+ 640 ui-4           4 Qg                     Qg=1
+ 641 ui-4           6 x5                     x5=1e3
+ 642 ui-4           5 E5                     E5=.2
+ 643 ui-4           6 S5                     S5=100
+ 644 ui-4           5 w5                     w5=.6
+ 645 ui-4           6 b5                     b5=.99
+ 646 ui-4       13320 T5                     T5={__name:"VideoPlayer",props:{url:{type:String,default:null}},setup(s,{expose:e}){const 
+ 647 ui-4          43 C5                     C5=Ht(T5,[["__scopeId","data-v-3426e408"]])
+ 648 ui-4          44 M5                     function M5(){te.emit(ce.BEE_TEXT_HIDE_ALL)}
+ 649 ui-4           4 I5                     I5=1
+ 650 ui-4           7 R5                     R5=2.25
+ 651 ui-4           8 rI                     rI=R5+I5
+ 652 ui-4           8 fS                     fS=.1+rI
+ 653 ui-4          10 pS                     pS=.225+rI
+ 654 ui-4           6 B5                     B5=500
+ 655 ui-4          61 D5                     D5={key:0,class:"pageTransitionOverlay","aria-hidden":"true"}
+ 656 ui-4        2656 L5                     L5={__name:"App",setup(s){t5();const e=ue(!1),t=ue(),n=ue(!1),i=Gc(),r=c=>c==="home"||c===
+ 657 ui-4          43 P5                     P5=Ht(L5,[["__scopeId","data-v-0bf0eb22"]])
+ 667 app+webgl     47 o8                     o8=["orbit","tab","remindScrollY","skipLoader"]
+ 668 app+webgl    382 a8                     class a8{constructor(){li(this,"params",new Map);this.searchParams=new URLSearchParams(win
+ 672 app+webgl      2 Ds                     Ds
+ 673 app+webgl      2 Ks                     Ks
+ 674 app+webgl      2 Cp                     Cp
+ 675 app+webgl      2 Mp                     Mp
+ 676 app+webgl      2 Ip                     Ip
+ 677 app+webgl      2 LI                     LI
+ 678 app+webgl      2 Rp                     Rp
+ 679 app+webgl      2 Bp                     Bp
+ 680 app+webgl   3800 l8                     class l8{constructor(){Qt(this,Ip);Qt(this,Ds,null);Qt(this,Ks,null);Qt(this,Cp,()=>{var u
+ 681 app+webgl    170 (ExpressionStatement)  Ds=new WeakMap,Ks=new WeakMap,Cp=new WeakMap,Mp=new WeakMap,Ip=new WeakSet,LI=function(){f
+ 682 app+webgl      2 Ua                     Ua
+ 683 app+webgl      2 kh                     kh
+ 684 app+webgl      2 Uh                     Uh
+ 685 app+webgl      2 Dp                     Dp
+ 686 app+webgl      2 Lp                     Lp
+ 687 app+webgl      2 Pp                     Pp
+ 688 app+webgl      2 Op                     Op
+ 689 app+webgl      2 Qw                     Qw
+ 690 app+webgl   2636 c8                     c8=(Qw=class{constructor(){Qt(this,Ua);Qt(this,kh,e=>{var t;if(this.isTouch?e.touches&&e.t
+ 691 app+webgl      2 Fp                     Fp
+ 692 app+webgl      2 Np                     Np
+ 693 app+webgl      2 Gh                     Gh
+ 694 app+webgl      2 z_                     z_
+ 695 app+webgl    771 u8                     class u8{constructor(){Qt(this,Gh);Qt(this,Fp,e=>{if(e[0].contentBoxSize){const t=Array.is
+ 696 app+webgl    255 (ExpressionStatement)  Fp=new WeakMap,Np=new WeakMap,Gh=new WeakSet,z_=function(){this.dpr=Math.min(2,window.devi
+ 697 app+webgl     65 h8                     function h8(){const s=new c8,e=new u8;return{mouse:s,viewport:e}}
+ 700 app+webgl     24 f8                     f8=new Fc(-1,1,1,-1,0,1)
+ 701 app+webgl      9 x0                     x0=new Bi
+ 702 app+webgl     62 (ExpressionStatement)  x0.setAttribute("position",new si([-1,3,0,-1,-1,0,3,-1,0],3));
+ 703 app+webgl     46 (ExpressionStatement)  x0.setAttribute("uv",new si([0,2,0,0,2,0],2));
+ 715 app+webgl     20 gA                     gA={uTime:{value:0}}
+ 716 app+webgl      4 Yl                     Yl=1
+ 717 app+webgl      4 _8                     _8=0
+ 718 app+webgl    138 bn                     function bn(s,e,t){const n=()=>{};return{c:++_8,shader:s,use:r=>{const o=r.material||r;ret
+ 719 app+webgl    469 v8                     v8=`uniform sampler2D tDiffuse; uniform float uNoiseStrength; uniform float uTime; varyin
+ 720 app+webgl     26 FS                     FS=bn(v8,"fragmentShader")
+ 721 app+webgl    128 y8                     y8=`varying vec2 vUv; void main() { vUv = uv; gl_Position = projectionMatrix * mod
+ 722 app+webgl     24 NS                     NS=bn(y8,"vertexShader")
+ 723 app+webgl      6 x8                     x8=.07
+ 724 app+webgl    245 E8                     class E8 extends En{constructor(e={}){const t={tDiffuse:{value:null},uNoiseStrength:{value
+ 725 app+webgl    291 S8                     S8=`varying vec2 vUv; uniform sampler2D tDiffuse; uniform sampler2D tVelocity; void main(
+ 726 app+webgl    125 w8                     w8=`varying vec2 vUv; void main() { gl_Position = projectionMatrix * modelViewMatrix *
+ 727 app+webgl     94 b8                     b8={uniforms:{tDiffuse:{value:null},tVelocity:{value:null}},vertexShader:w8,fragmentShader
+ 728 app+webgl   1566 T8                     T8=`precision highp float; varying vec2 vUv; uniform sampler2D tDiffuse; uniform sampler
+ 729 app+webgl    123 C8                     C8=`varying vec2 vUv; void main() { gl_Position = projectionMatrix * modelViewMatrix * v
+ 730 app+webgl    211 M8                     M8={uniforms:{tDiffuse:{value:null},tVelocity:{value:null},uResolution:{value:new st(1,1)}
+ 731 app+webgl    199 I8                     class I8 extends V_{constructor(e,t,n){super(e,t),this.layer=n}render(e,t,n,i,r){const o=t
+ 732 app+webgl    482 kS                     class kS extends Sb{constructor(e,t,{usePostDpr:n=!1}={}){super({antialias:!1,powerPrefere
+ 733 app+webgl    372 R8                     class R8 extends Xn{constructor(){super(75,I.tools.viewport.ratio,1e3,3500),te.register(th
+ 734 app+webgl     77 B8                     B8=`uniform vec3 uColor; void main() { gl_FragColor = vec4(uColor, 1.0); }`
+ 735 app+webgl     26 D8                     D8=bn(B8,"fragmentShader")
+ 736 app+webgl     94 L8                     L8=`void main() { gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0)
+ 737 app+webgl     24 P8                     P8=bn(L8,"vertexShader")
+ 738 app+webgl     74 O8                     class O8 extends En{constructor(e={}){super(e),D8.use(this),P8.use(this)}}
+ 739 app+webgl    902 F8                     F8=`precision highp float; uniform float uTime; uniform float uDragForce; uniform float u
+ 740 app+webgl     26 N8                     N8=bn(F8,"fragmentShader")
+ 741 app+webgl    823 k8                     k8=`uniform float uTime; uniform float uDragForce; uniform float uDragScaleStrength; unifo
+ 742 app+webgl     24 U8                     U8=bn(k8,"vertexShader")
+ 743 app+webgl     74 G8                     class G8 extends En{constructor(e={}){super(e),N8.use(this),U8.use(this)}}
+ 744 app+webgl      5 H8                     H8=10
+ 745 app+webgl      7 OI                     OI=1.05
+ 746 app+webgl      9 Q8                     Q8=OI*1.1
+ 747 app+webgl      7 z8                     z8=1.02
+ 748 app+webgl      7 US                     US=2e-4
+ 749 app+webgl      6 V8                     V8=.52
+ 750 app+webgl      7 W8                     W8=1600
+ 751 app+webgl      8 Y8                     Y8=.0015
+ 752 app+webgl      5 ui                     ui=.6
+ 753 app+webgl      5 GS                     GS=20
+ 754 app+webgl      5 HS                     HS=.2
+ 755 app+webgl      7 X8                     X8=5e-6
+ 756 app+webgl      7 q8                     q8=5e-6
+ 757 app+webgl      7 j8                     j8=.965
+ 758 app+webgl      6 nf                     nf=.55
+ 759 app+webgl      5 K8                     K8=.2
+ 760 app+webgl      5 J8                     J8=.9
+ 761 app+webgl      7 Z8                     Z8=.915
+ 762 app+webgl      4 $8                     $8=0
+ 763 app+webgl      5 eY                     eY=30
+ 764 app+webgl     12 tY                     tY=[0,0,0,0]
+ 765 app+webgl     53 QS                     QS=[{x:300,y:0},{x:300,y:0},{x:-300,y:0},{x:300,y:0}]
+ 766 app+webgl     16 nY                     nY=new re(1,0,0)
+ 767 app+webgl     16 iY                     iY=new re(0,1,0)
+ 768 app+webgl     16 sY                     sY=new re(0,0,1)
+ 769 app+webgl      9 zS                     zS=new Qs
+ 770 app+webgl      9 VS                     VS=new Qs
+ 771 app+webgl      9 WS                     WS=new Qs
+ 772 app+webgl      9 YS                     YS=new Qs
+ 773 app+webgl  16834 rY                     class rY extends xc{constructor(e,t){super(),te.register(this),this._mediaPlaneGeometry=e,
+ 774 app+webgl   1673 oY                     class oY extends Xn{constructor(){super(22.9,I.tools.viewport.ratio,.01,500),te.register(t
+ 775 app+webgl   2217 aY                     aY=`precision highp float; vec4 sampleTexelMaxCross(sampler2D tex, vec2 uv, vec2 resoluti
+ 776 app+webgl     26 lY                     lY=bn(aY,"fragmentShader")
+ 777 app+webgl    119 cY                     cY=`out vec2 vUv; void main() { vUv = uv; gl_Position = projectionMatrix * modelViewMat
+ 778 app+webgl     24 uY                     uY=bn(cY,"vertexShader")
+ 779 app+webgl    235 FI                     class FI extends En{constructor(e={}){const t={uTexture:{value:null},uTextureResolution:{v
+ 780 app+webgl    145 hY                     hY=`precision highp float; uniform sampler2D uTexture; in vec2 vUv; out vec4 fragColor;
+ 781 app+webgl     26 dY                     dY=bn(hY,"fragmentShader")
+ 782 app+webgl    669 fY                     fY=`in vec3 _centerposition; uniform float uTime; uniform float uWindStrength; out vec2 
+ 783 app+webgl     24 pY                     pY=bn(fY,"vertexShader")
+ 784 app+webgl    190 AY                     class AY extends En{constructor(e={}){const t={uTime:{value:0},uTexture:{value:null},...e.
+ 785 app+webgl    246 gY                     gY=`precision highp float; in vec2 vUv; uniform sampler2D uTexture; out vec4 fragColor;
+ 786 app+webgl     26 mY                     mY=bn(gY,"fragmentShader")
+ 787 app+webgl    119 _Y                     _Y=`out vec2 vUv; void main() { vUv = uv; gl_Position = projectionMatrix * modelViewMat
+ 788 app+webgl     24 vY                     vY=bn(_Y,"vertexShader")
+ 789 app+webgl    151 yY                     class yY extends En{constructor(e={}){const t={uTexture:{value:null},...e.uniforms};super(
+ 790 app+webgl    396 xY                     xY=`precision highp float; uniform float uTime; uniform vec3 uTopColor; uniform vec3 uBot
+ 791 app+webgl     26 EY                     EY=bn(xY,"fragmentShader")
+ 792 app+webgl    148 SY                     SY=`uniform float uTime; varying vec2 vUv; void main() { vUv = uv; gl_Position = pr
+ 793 app+webgl     24 wY                     wY=bn(SY,"vertexShader")
+ 794 app+webgl     74 bY                     class bY extends En{constructor(e={}){super(e),EY.use(this),wY.use(this)}}
+ 795 app+webgl    635 NI                     class NI extends Yt{constructor({topColor:e=11846347,bottomColor:t=12763054,gradientSmooth
+ 796 app+webgl   1479 TY                     TY=`precision highp float; uniform float uTime; uniform float uDeformationSpeedFactor; un
+ 797 app+webgl     26 CY                     CY=bn(TY,"fragmentShader")
+ 798 app+webgl    896 MY                     MY=`in float aRandomSpeed; in float aRandomScale; in float aRandomTextureIndex; in float a
+ 799 app+webgl     24 IY                     IY=bn(MY,"vertexShader")
+ 800 app+webgl     94 RY                     class RY extends En{constructor(e={}){super({...e,glslVersion:_c}),CY.use(this),IY.use(thi
+ 801 app+webgl    133 kI                     kI={Linear:$t,Nearest:Rn,"Nearest Mipmap Nearest":zf,"Linear Mipmap Nearest":J_,"Nearest M
+ 802 app+webgl     25 UI                     UI={Linear:$t,Nearest:Rn}
+ 803 app+webgl     44 W_                     W_={Repeat:ir,Clamp:Si,"Mirrored Repeat":nh}
+ 804 app+webgl     67 Rh                     function Rh(s){s&&(s.minFilter=$t,s.magFilter=$t,s.needsUpdate=!0)}
+ 805 app+webgl     80 BY                     BY={home:new Set(["TexBibli","TexProps","TexWalls"]),about:new Set(["TexBook"])}
+ 806 app+webgl     67 E0                     function E0(s,e){var t;return((t=BY[s])==null?void 0:t.has(e))??!1}
+ 807 app+webgl     60 GI                     function GI(s,e){return E0(s,e)?{USE_TEXEL_MAX_CROSS:""}:{}}
+ 808 app+webgl     21 Qf                     function Qf(s){Rh(s)}
+ 809 app+webgl    191 DY                     function DY(s){var i;const e=(s==null?void 0:s.image)??((i=s==null?void 0:s.source)==null?
+ 810 app+webgl    173 HI                     function HI(s,e){var i;if(!((i=s==null?void 0:s.uniforms)!=null&&i.uTextureResolution)||!e
+ 811 app+webgl    147 qo                     function qo(s,e){var n;const t=e==="min"?kI:e==="mag"?UI:W_;return((n=Object.entries(t).fi
+ 812 app+webgl    167 QI                     function QI(s){return{minFilter:s.minFilter,magFilter:s.magFilter,wrapS:s.wrapS,wrapT:s.wr
+ 813 app+webgl    390 zI                     function zI(s){var t;const e=(t=s[0])==null?void 0:t.texture;return{target:"All",minFilter
+ 814 app+webgl     64 Zh                     function Zh(s,e){return e==="All"?s:s.filter(({name:t})=>t===e)}
+ 815 app+webgl    294 S0                     function S0(s,e){const t=Zh(s,e.target)[0];if(!(t!=null&&t.texture))return;const{texture:n
+ 816 app+webgl    269 VI                     function VI(s,e){const{minFilter:t,magFilter:n,wrapS:i,wrapT:r,generateMipmaps:o,anisotrop
+ 817 app+webgl    131 WI                     function WI(s,e,t){for(const{name:n,texture:i}of Zh(s,e.target)){const r=t.get(n);r&&(Obje
+ 818 app+webgl   1931 YI                     class YI extends Yt{constructor(e){super(),this._params=e,this._texturesName=["cloud1","cl
+ 819 app+webgl   6909 LY                     class LY extends Yt{constructor(e){super(),this._params=e,this._attributes=this._setAttrib
+ 820 app+webgl   2987 PY                     PY=`uniform float uTime; uniform float uWaveStrength; uniform float uWaveSpeed; uniform fl
+ 821 app+webgl     26 OY                     OY=bn(PY,"fragmentShader")
+ 822 app+webgl    337 FY                     FY=`uniform mat4 uTextureMatrix; varying vec2 vUv; varying vec4 vUvRefraction; #include <
+ 823 app+webgl     24 NY                     NY=bn(FY,"vertexShader")
+ 824 app+webgl     74 kY                     class kY extends En{constructor(e={}){super(e),OY.use(this),NY.use(this)}}
+ 825 app+webgl   2890 UY                     class UY extends Yt{constructor(e,t){super(e),this._params=t;const n=this,i=new Xr,r=new r
+ 826 app+webgl      4 w0                     w0=3
+ 827 app+webgl     56 GY                     GY={home:{TexFloor:3},about:{TexGround:0,TexMobilier:3}}
+ 828 app+webgl     74 HY                     HY={home:new Set(["TexFloor"]),about:new Set(["TexGround","TexMobilier"])}
+ 829 app+webgl     67 aa                     function aa(s,e){var t;return((t=HY[s])==null?void 0:t.has(e))??!1}
+ 830 app+webgl     26 XI                     function XI(){return!gn()}
+ 831 app+webgl     31 Sp                     function Sp(s){return XI()?s:0}
+ 832 app+webgl     76 qI                     function qI(s,e){const t=GY[s];return t&&Object.hasOwn(t,e)?Sp(t[e]):Sp(w0)}
+ 833 app+webgl     73 jI                     function jI(s,e){return s.filter(({name:t})=>aa(e,t)).map(({name:t})=>t)}
+ 834 app+webgl     64 QY                     function QY(s,e){return e==="All"?s:s.filter(({name:t})=>t===e)}
+ 835 app+webgl    158 KI                     function KI(s,e,t){const n=Sp(e.blurRadius);for(const{name:i,material:r}of QY(s,e.target))
+ 836 app+webgl    255 JI                     function JI(s,e,t){var r,o;const n=s.filter(({name:a})=>aa(t,a)),i=e.target==="All"?n[0]:n
+ 837 app+webgl     60 ZI                     function ZI(s,e){return!aa(s,e)||!XI()?{}:{USE_HASH_BLUR:1}}
+ 838 app+webgl     10 zY                     zY=9484505
+ 839 app+webgl     11 VY                     VY=13687514
+ 840 app+webgl   5560 WY                     class WY extends pi{constructor(e){var t;super(),te.register(this),this._planeGeometry=e,t
+ 841 app+webgl    477 YY                     YY=`uniform vec3 uColor; varying float vFade; varying float vRandomOpacity; varying float
+ 842 app+webgl    477 XY                     XY=`uniform vec3 uColor; varying float vFade; varying float vRandomOpacity; varying float
+ 843 app+webgl     26 qY                     qY=bn(XY,"fragmentShader")
+ 844 app+webgl   1530 jY                     jY=`attribute float aScale; attribute float aSpeed; attribute float aOpacity; attribute ve
+ 845 app+webgl     24 KY                     KY=bn(jY,"vertexShader")
+ 846 app+webgl     74 JY                     class JY extends En{constructor(e={}){super(e),qY.use(this),KY.use(this)}}
+ 847 app+webgl   1530 ZY                     ZY=`attribute float aScale; attribute float aSpeed; attribute float aOpacity; attribute ve
+ 848 app+webgl   1686 $Y                     class $Y extends Yt{constructor(e){super(),this._params=e,this._attributes=this._setAttrib
+ 849 app+webgl      5 XS                     XS=16
+ 850 app+webgl      4 eX                     eX=4
+ 851 app+webgl      4 tX                     tX=8
+ 852 app+webgl   3373 nX                     class nX extends pi{constructor(){super(),te.register(this),this._texturesName=["TexFleur"
+ 853 app+webgl   2478 iX                     class iX extends xc{constructor(e){super(),te.register(this),this._planeGeometry=e,this._c
+ 854 app+webgl   1021 sX                     class sX extends Xn{constructor(){super(22.9,I.tools.viewport.ratio,.01,500)}setModelCamer
+ 855 app+webgl    858 rX                     class rX extends vn{constructor(){super(),te.register(this),this._rotateForceX=.2,this._ro
+ 856 app+webgl    225 oX                     class oX extends Fc{constructor(){super(-1,1,1,-1,.1,1),te.register(this),this.position.z=
+ 857 app+webgl    840 aX                     class aX extends Xn{constructor(){super(45,I.tools.viewport.ratio,.01,300),te.register(thi
+ 977 app+webgl     19 CX                     CX="pageTransition"
+ 978 app+webgl     65 MX                     function MX(s,e,t=1.08){const n=s/e;return .5*Math.sqrt(n*n+1)*t}
+ 979 app+webgl     31 pm                     pm="#include <output_fragment>"
+ 980 app+webgl     28 Am                     Am="#include <begin_vertex>"
+ 981 app+webgl    349 IX                     IX=` uniform float uTransition; uniform vec2 uResolution; uniform vec2 uViewport; float g
+ 982 app+webgl    316 RX                     RX=` vec2 pageTransitionScreenUv = gl_FragCoord.xy / uViewport; float pageTransitionVisi
+ 983 app+webgl     71 gm                     gm="gl_FragColor = vec4( color, opacity * ( 1.0 - getShadowMask() ) );"
+ 984 app+webgl    272 BX                     BX=` vec2 pageTransitionScreenUv = gl_FragCoord.xy / uViewport; float pageTransitionVisi
+ 985 app+webgl    309 DX                     DX=` if (uShadowReveal < 0.001) discard; vec2 pageTransitionScreenUv = gl_FragCoord.xy /
+ 986 app+webgl     36 LX                     LX=` transformed *= uRevealScale; `
+ 987 app+webgl    208 PX                     function PX(s){s.vertexShader.includes(Am)&&(s.vertexShader.includes("uRevealScale")||(s.v
+ 988 app+webgl    432 OX                     function OX(s,{shadowReveal:e=!1}={}){if(s.fragmentShader=` ${IX} ${e?`uniform float u
+ 989 app+webgl    810 Pc                     function Pc(s,e,t={}){var l,u;if(!s||(l=s.userData)!=null&&l.pageTransitionBound)return;co
+ 990 app+webgl     89 Sw                     function Sw(s,e){s.transparent=!0,s.depthWrite=!1,Pc(s,e,{shadowReveal:e.uShadowReveal})}
+ 991 app+webgl     79 ww                     ww="vec3 outgoingLight = totalDiffuse + totalSpecular + totalEmissiveRadiance;"
+ 992 app+webgl    196 bw                     function bw(s,e,t,n={}){Pc(s,e,{...n,beforeCompile:i=>{var r;(r=n.beforeCompile)==null||r.
+ 993 app+webgl      7 Tw                     Tw=1.25
+ 994 app+webgl      7 mm                     mm=1.25
+ 995 app+webgl      6 FX                     FX=.05
+ 996 app+webgl      6 NX                     NX=.06
+ 997 app+webgl      6 kX                     kX=.02
+ 998 app+webgl  21408 Cw                     class Cw extends vn{constructor(e,t){super(),this._pageTransitionUniforms=t,this.enterScal
+ 999 app+webgl     20 C0                     C0=M_.contentBee??{}
+1000 app+webgl     14 Mw                     Mw=C0.idle??[]
+1001 app+webgl     15 Iw                     Iw=C0.hover??[]
+1002 app+webgl     22 _m                     _m=C0.conversation??[]
+1003 app+webgl      5 UX                     UX=.4
+1004 app+webgl      6 Rw                     Rw=2.5
+1005 app+webgl      4 GX                     GX=2
+1006 app+webgl      4 HX                     HX=4
+1007 app+webgl      6 QX                     QX=300
+1008 app+webgl     11 zX                     zX="fruit2"
+1009 app+webgl     11 VX                     VX="fruit1"
+1010 app+webgl    116 i1                     function i1(s,e,t){const n=e?s.filter(i=>i!==e):s;return n.length?n[Math.floor(Math.random
+1011 app+webgl     42 WX                     function WX(s=null){return i1(Mw,s,Mw[0])}
+1012 app+webgl     42 YX                     function YX(s=null){return i1(Iw,s,Iw[0])}
+1013 app+webgl    151 XX                     function XX(s=null){const e=s?_m.filter(t=>t.id!==s):_m;return e.length?e[Math.floor(Math.
+1014 app+webgl      9 Bw                     Bw=new re
+1015 app+webgl      9 vm                     vm=new re
+1016 app+webgl      9 ym                     ym=new lr
+1017 app+webgl      5 qX                     qX=12
+1018 app+webgl      5 jX                     jX=12
+1019 app+webgl      5 KX                     KX=90
+1020 app+webgl    111 JX                     function JX(s,e,t){return vm.copy(s).project(e),{x:t.left+(vm.x*.5+.5)*t.width,y:t.top+(-v
+1021 app+webgl    397 ZX                     function ZX(s){var e,t;if(((e=s==null?void 0:s._torsoMeshes)==null?void 0:e.length)>0)retu
+1022 app+webgl    537 $X                     function $X(s,e,t){let n=1/0,i=1/0,r=-1/0,o=-1/0;for(const a of s){if(a.updateWorldMatrix(
+1023 app+webgl    367 e6                     function e6(s,e,t,n){const i=ZX(s);if(!i.length||!e||!t)return null;s.updateWorldMatrix(!0
+1024 app+webgl      5 Dw                     Dw=.3
+1025 app+webgl      6 Lw                     Lw=1.5
+1026 app+webgl      4 Pw                     Pw=1
+1027 app+webgl      5 t6                     t6=10
+1028 app+webgl      8 n6                     n6=.0085
+1029 app+webgl      4 i6                     i6=5
+1030 app+webgl     13 s6                     s6=Math.PI*.5
+1031 app+webgl     13 r6                     r6=Math.PI*.5
+1032 app+webgl      4 xm                     xm=0
+1033 app+webgl     10 o6                     o6=Math.PI
+1034 app+webgl      7 a6                     a6=.012
+1035 app+webgl      6 Ow                     Ow=.42
+1036 app+webgl  14895 l6                     class l6 extends vn{constructor(e){var t;super(),te.register(this),this._onHideAllIndicati
+1037 app+webgl   2368 c6                     c6=`varying vec2 vUv; uniform float uGlobalProgress; uniform float uScaleProgress; unifor
+1038 app+webgl     26 u6                     u6=bn(c6,"fragmentShader")
+1039 app+webgl    125 h6                     h6=`varying vec2 vUv; void main() { vUv = uv; gl_Position = projectionMatrix * modelV
+1040 app+webgl     24 d6                     d6=bn(h6,"vertexShader")
+1041 app+webgl     74 f6                     class f6 extends En{constructor(e={}){super(e),u6.use(this),d6.use(this)}}
+1042 app+webgl   1462 p6                     class p6 extends Yt{constructor(e){super(),te.register(this),this._planeGeometry=e,this._c
+1043 app+webgl    339 A6                     A6=`varying vec2 vUv; uniform float uTransition; uniform vec2 uResolution; uniform vec3 u
+1044 app+webgl     26 g6                     g6=bn(A6,"fragmentShader")
+1045 app+webgl    125 m6                     m6=`varying vec2 vUv; void main() { vUv = uv; gl_Position = projectionMatrix * modelV
+1046 app+webgl     24 _6                     _6=bn(m6,"vertexShader")
+1047 app+webgl     74 v6                     class v6 extends En{constructor(e={}){super(e),g6.use(this),_6.use(this)}}
+1048 app+webgl      4 Fw                     Fw=1
+1049 app+webgl     10 y6                     y6=Math.PI
+1050 app+webgl   2733 x6                     class x6 extends pi{constructor(e,t){super(),te.register(this),this._planeGeometry=e,this.
+1051 app+webgl      6 Nw                     Nw=.25
+1052 app+webgl   9910 E6                     class E6 extends xc{constructor(t){super();li(this,"_onLoaderRevealComplete",()=>{this._se
+1053 app+webgl   1007 S6                     class S6{constructor(){this.mouseMoved=!1,this.coords=new st,this.coords_old=new st,this.d
+1054 app+webgl      9 dc                     dc=new S6
+1055 app+webgl    457 Qc                     class Qc{constructor(e){var t;this.props=e,this.uniforms=(t=this.props.material)==null?voi
+1056 app+webgl   1157 kw                     kw=`precision highp float; uniform sampler2D velocity; uniform float dt; uniform float dis
+1057 app+webgl    238 zc                     zc=`attribute vec3 position; uniform vec2 px; uniform vec2 boundarySpace; varying vec2 uv;
+1058 app+webgl    272 w6                     w6=`attribute vec3 position; varying vec2 uv; uniform vec2 px; precision highp float; vo
+1059 app+webgl    785 b6                     class b6 extends Qc{constructor(e){super({material:{vertexShader:zc,fragmentShader:kw,unif
+1060 app+webgl    436 T6                     T6=`precision highp float; uniform sampler2D velocity; uniform float dt; uniform vec2 px; 
+1061 app+webgl    304 C6                     C6=class extends Qc{constructor(e){super({material:{vertexShader:zc,fragmentShader:T6,unif
+1062 app+webgl    275 M6                     M6=`precision highp float; uniform vec2 force; uniform vec2 center; uniform vec2 scale; u
+1063 app+webgl    273 I6                     I6=`precision highp float; attribute vec3 position; attribute vec2 uv; uniform vec2 cente
+1064 app+webgl    778 R6                     class R6 extends Qc{constructor(e){super({output:e.dst}),this.init(e)}init(e){super.init()
+1065 app+webgl    526 B6                     B6=`precision highp float; uniform sampler2D pressure; uniform sampler2D divergence; unifo
+1066 app+webgl    510 D6                     D6=class extends Qc{constructor(e){super({material:{vertexShader:zc,fragmentShader:B6,unif
+1067 app+webgl    577 L6                     L6=`precision highp float; uniform sampler2D pressure; uniform sampler2D velocity; uniform
+1068 app+webgl    433 P6                     class P6 extends Qc{constructor(e){super({material:{vertexShader:zc,fragmentShader:L6,unif
+1069 app+webgl    645 O6                     O6=`precision highp float; uniform sampler2D velocity; uniform sampler2D velocity_new; uni
+1070 app+webgl    616 F6                     class F6 extends Qc{constructor(e){super({material:{vertexShader:zc,fragmentShader:O6,unif
+1071 app+webgl      7 N6                     N6=1440
+1072 app+webgl      8 Uw                     Uw=1/120
+1073 app+webgl      7 k6                     k6=1/60
+1074 app+webgl      4 U6                     U6=8
+1075 app+webgl   3188 G6                     class G6{constructor(){this.fbos={vel_0:null,vel_1:null,vel_viscous0:null,vel_viscous1:nul
+1076 app+webgl    313 H6                     H6=`precision highp float; uniform sampler2D velocity; varying vec2 uv; void main(){ 
+1077 app+webgl  10272 Q6                     class Q6{constructor(){li(this,"_enableLightweightRender",()=>{var e,t,n;this._skipFluidEf
+1078 app+webgl   3237 Pa                     Pa=class Pa{async init(e,t,n,i){var r;this.$app=e,this.$wrapper=t,this.$topApp=n,this.$top
+1079 app+webgl     18 (ExpressionStatement)  li(Pa,"instance");
+1080 app+webgl      5 X_                     X_=Pa
+1081 app+webgl     18 I                      I=X_.getInstance()
+1095 app+webgl    421 J6                     J6=()=>{document.addEventListener("wheel",s=>{s.ctrlKey&&s.preventDefault()},{passive:!1})
+1096 app+webgl      5 (ExpressionStatement)  J6();
+1097 app+webgl    232 Z6                     Z6=()=>{try{const s="https://leoparpeix.com",e=new URL(s).hostname,{hostname:t}=window.loc
+1098 app+webgl      5 (ExpressionStatement)  Z6();
+1099 app+webgl     21 (ExpressionStatement)  Z.registerPlugin(Kn);
+1100 app+webgl     21 (ExpressionStatement)  Z.registerPlugin(Bt);
+1101 app+webgl     21 (ExpressionStatement)  Z.registerPlugin(jh);
+1102 app+webgl     23 (ExpressionStatement)  Z.config({force3D:!0});
+1103 app+webgl    166 (ExpressionStatement)  I.init(document.getElementById("webgl-app"),document.getElementById("canvas-app"),document

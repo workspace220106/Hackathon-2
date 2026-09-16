@@ -1,0 +1,1859 @@
+{
+  "ok": [
+    {
+      "path": "/favicon-32x32.png",
+      "bytes": 2670
+    },
+    {
+      "path": "/favicon-16x16.png",
+      "bytes": 1341
+    },
+    {
+      "path": "/safari-pinned-tab.svg",
+      "bytes": 125
+    },
+    {
+      "path": "/apple-touch-icon.png",
+      "bytes": 35660
+    },
+    {
+      "path": "/favicon.ico",
+      "bytes": 2670
+    },
+    {
+      "path": "/preview.jpg",
+      "bytes": 71876
+    },
+    {
+      "path": "/android-chrome-192x192.png",
+      "bytes": 39453
+    },
+    {
+      "path": "/site.webmanifest",
+      "bytes": 687
+    },
+    {
+      "path": "/android-chrome-512x512.png",
+      "bytes": 163096
+    },
+    {
+      "path": "/assets/index-BZFBO0Ol.js",
+      "bytes": 1384403,
+      "cached": true
+    },
+    {
+      "path": "/assets/index-CLH3rn1-.css",
+      "bytes": 314134,
+      "cached": true
+    },
+    {
+      "path": "/assets/fonts/monumentgrotesk-regular.woff2",
+      "bytes": 27408
+    },
+    {
+      "path": "/assets/fonts/monumentgrotesk-regular.woff",
+      "bytes": 35268
+    },
+    {
+      "path": "/assets/fonts/avantt-variable.ttf",
+      "bytes": 104204
+    },
+    {
+      "path": "/assets/models/draco/draco_wasm_wrapper.js",
+      "bytes": 74338
+    },
+    {
+      "path": "/assets/models/draco/draco_decoder.wasm",
+      "bytes": 285747
+    },
+    {
+      "path": "/assets/models/draco/draco_decoder.js",
+      "bytes": 2008730
+    },
+    {
+      "path": "/assets/basis/basis_transcoder.js",
+      "bytes": 62337
+    },
+    {
+      "path": "/assets/models/global/bee/bee_v4.glb",
+      "bytes": 137356
+    },
+    {
+      "path": "/assets/models/global/fruits/orange.glb",
+      "bytes": 334876
+    },
+    {
+      "path": "/assets/basis/basis_transcoder.wasm",
+      "bytes": 499935
+    },
+    {
+      "path": "/assets/models/global/fruits/raisin.glb",
+      "bytes": 1119096
+    },
+    {
+      "path": "/assets/models/global/flower/flower_v2.glb",
+      "bytes": 196620
+    },
+    {
+      "path": "/assets/models/home/scene_v9.glb",
+      "bytes": 141924
+    },
+    {
+      "path": "/assets/textures/home/scene-ktx/2048/TexMobilier.ktx2",
+      "bytes": 327665
+    },
+    {
+      "path": "/assets/textures/home/scene-ktx/2048/TexFleur.ktx2",
+      "bytes": 171501
+    },
+    {
+      "path": "/assets/textures/home/scene-ktx/2048/TexDecor.ktx2",
+      "bytes": 264178
+    },
+    {
+      "path": "/assets/textures/home/scene-ktx/2048/TexBibli.ktx2",
+      "bytes": 199771
+    },
+    {
+      "path": "/assets/textures/home/scene-ktx/2048/TexFloor.ktx2",
+      "bytes": 393553
+    },
+    {
+      "path": "/assets/textures/home/scene-ktx/2048/TexWalls.ktx2",
+      "bytes": 177815
+    },
+    {
+      "path": "/assets/textures/home/scene-ktx/2048/TexProps.ktx2",
+      "bytes": 210361
+    },
+    {
+      "path": "/assets/textures/home/scene-ktx/4096/TexFleur.ktx2",
+      "bytes": 481376
+    },
+    {
+      "path": "/assets/textures/home/scene-ktx/2048/TexTableaux.ktx2",
+      "bytes": 314449
+    },
+    {
+      "path": "/assets/textures/home/scene-ktx/4096/TexProps.ktx2",
+      "bytes": 590196
+    },
+    {
+      "path": "/assets/textures/home/scene-ktx/4096/TexDecor.ktx2",
+      "bytes": 937098
+    },
+    {
+      "path": "/assets/textures/home/scene-ktx/4096/TexWalls.ktx2",
+      "bytes": 572053
+    },
+    {
+      "path": "/assets/models/about/scene_v15.glb",
+      "bytes": 2336576
+    },
+    {
+      "path": "/assets/textures/about/scene-ktx/2048/TexBook.ktx2",
+      "bytes": 257342
+    },
+    {
+      "path": "/assets/textures/about/scene-ktx/2048/TexGround.ktx2",
+      "bytes": 348402
+    },
+    {
+      "path": "/assets/textures/about/scene-ktx/2048/TexRock.ktx2",
+      "bytes": 339122
+    },
+    {
+      "path": "/assets/textures/about/scene-ktx/2048/TexFleur.ktx2",
+      "bytes": 198695
+    },
+    {
+      "path": "/assets/textures/about/scene-ktx/2048/TexProps.ktx2",
+      "bytes": 215939
+    },
+    {
+      "path": "/assets/textures/home/scene-ktx/4096/TexTableaux.ktx2",
+      "bytes": 1205983
+    },
+    {
+      "path": "/assets/textures/about/scene-ktx/2048/TexMobilier.ktx2",
+      "bytes": 288710
+    },
+    {
+      "path": "/assets/textures/about/scene-ktx/2048/TexArbresBack.ktx2",
+      "bytes": 544539
+    },
+    {
+      "path": "/assets/textures/home/scene-ktx/4096/TexBibli.ktx2",
+      "bytes": 722653
+    },
+    {
+      "path": "/assets/textures/about/scene-ktx/2048/TexDecor.ktx2",
+      "bytes": 351260
+    },
+    {
+      "path": "/assets/textures/about/scene-ktx/4096/TexBook.ktx2",
+      "bytes": 769278
+    },
+    {
+      "path": "/assets/textures/about/scene-ktx/2048/TexArbresFront.ktx2",
+      "bytes": 515391
+    },
+    {
+      "path": "/assets/textures/home/scene-ktx/4096/TexMobilier.ktx2",
+      "bytes": 1237532
+    },
+    {
+      "path": "/assets/textures/home/scene-ktx/4096/TexFloor.ktx2",
+      "bytes": 1527651
+    },
+    {
+      "path": "/assets/textures/about/scene-ktx/4096/TexFleur.ktx2",
+      "bytes": 563849
+    },
+    {
+      "path": "/assets/textures/about/scene-ktx/4096/TexRock.ktx2",
+      "bytes": 1282157
+    },
+    {
+      "path": "/assets/textures/about/scene-ktx/4096/TexProps.ktx2",
+      "bytes": 651064
+    },
+    {
+      "path": "/assets/textures/about/scene-ktx/4096/TexMobilier.ktx2",
+      "bytes": 967782
+    },
+    {
+      "path": "/assets/textures/global/flower-ktx/1024/flower.ktx2",
+      "bytes": 50672
+    },
+    {
+      "path": "/assets/textures/global/flower-ktx/512/flower.ktx2",
+      "bytes": 22001
+    },
+    {
+      "path": "/assets/textures/global/bee-ktx/1024/bee.ktx2",
+      "bytes": 20725
+    },
+    {
+      "path": "/assets/textures/global/bee-ktx/512/bee.ktx2",
+      "bytes": 10724
+    },
+    {
+      "path": "/assets/textures/global/noise-ktx/512/noise.ktx2",
+      "bytes": 44178
+    },
+    {
+      "path": "/assets/textures/global/noise-ktx/256/noise.ktx2",
+      "bytes": 14275
+    },
+    {
+      "path": "/assets/textures/global/waterDeformation-ktx/512/waterDeformation.ktx2",
+      "bytes": 35687
+    },
+    {
+      "path": "/assets/textures/about/ground-ktx/512/roughness.ktx2",
+      "bytes": 31876
+    },
+    {
+      "path": "/assets/textures/about/scene-ktx/4096/TexArbresFront.ktx2",
+      "bytes": 1681580
+    },
+    {
+      "path": "/assets/textures/about/ground-ktx/512/ao.ktx2",
+      "bytes": 37605
+    },
+    {
+      "path": "/assets/textures/global/waterDeformation-ktx/1024/waterDeformation.ktx2",
+      "bytes": 116397
+    },
+    {
+      "path": "/assets/textures/about/ground-ktx/512/diffuse.ktx2",
+      "bytes": 38376
+    },
+    {
+      "path": "/assets/textures/about/ground-ktx/256/roughness.ktx2",
+      "bytes": 8911
+    },
+    {
+      "path": "/assets/textures/about/ground-ktx/256/ao.ktx2",
+      "bytes": 9485
+    },
+    {
+      "path": "/assets/textures/about/scene-ktx/4096/TexGround.ktx2",
+      "bytes": 1467703
+    },
+    {
+      "path": "/assets/textures/about/ground-ktx/256/diffuse.ktx2",
+      "bytes": 10260
+    },
+    {
+      "path": "/assets/textures/about/leaves-webp/256/leaves.webp",
+      "bytes": 5080
+    },
+    {
+      "path": "/assets/textures/about/leaves-webp/128/leaves.webp",
+      "bytes": 2220
+    },
+    {
+      "path": "/assets/textures/about/ground-webp/512/normal.webp",
+      "bytes": 91720
+    },
+    {
+      "path": "/assets/textures/about/ground-webp/512/roughness.webp",
+      "bytes": 87594
+    },
+    {
+      "path": "/assets/textures/about/ground-webp/512/diffuse.webp",
+      "bytes": 92654
+    },
+    {
+      "path": "/assets/textures/about/ground-webp/256/normal.webp",
+      "bytes": 24136
+    },
+    {
+      "path": "/assets/textures/about/ground-webp/512/ao.webp",
+      "bytes": 94060
+    },
+    {
+      "path": "/assets/textures/about/ground-webp/256/roughness.webp",
+      "bytes": 23202
+    },
+    {
+      "path": "/assets/textures/about/ground-webp/256/ao.webp",
+      "bytes": 24820
+    },
+    {
+      "path": "/assets/textures/about/scene-ktx/4096/TexDecor.ktx2",
+      "bytes": 1231548
+    },
+    {
+      "path": "/assets/textures/global/flower-webp/1024/flower.webp",
+      "bytes": 29622
+    },
+    {
+      "path": "/assets/textures/global/flower-webp/512/flower.webp",
+      "bytes": 12510
+    },
+    {
+      "path": "/assets/textures/about/ground-webp/256/diffuse.webp",
+      "bytes": 25574
+    },
+    {
+      "path": "/assets/textures/global/bee-webp/1024/bee.webp",
+      "bytes": 22140
+    },
+    {
+      "path": "/assets/textures/global/bee-webp/512/bee.webp",
+      "bytes": 10492
+    },
+    {
+      "path": "/assets/textures/global/noise-webp/256/noise.webp",
+      "bytes": 32302
+    },
+    {
+      "path": "/assets/textures/global/waterDeformation-webp/1024/waterDeformation.webp",
+      "bytes": 71262
+    },
+    {
+      "path": "/assets/textures/global/waterDeformation-webp/512/waterDeformation.webp",
+      "bytes": 30056
+    },
+    {
+      "path": "/assets/textures/global/noise-webp/512/noise.webp",
+      "bytes": 123396
+    },
+    {
+      "path": "/assets/textures/global/clouds/cloud3.png",
+      "bytes": 140239
+    },
+    {
+      "path": "/assets/textures/global/clouds/cloud1.png",
+      "bytes": 118734
+    },
+    {
+      "path": "/assets/textures/global/clouds/cloud4.png",
+      "bytes": 145765
+    },
+    {
+      "path": "/assets/textures/global/clouds/cloud6.png",
+      "bytes": 166413
+    },
+    {
+      "path": "/assets/textures/global/clouds/cloud2.png",
+      "bytes": 175054
+    },
+    {
+      "path": "/assets/textures/global/clouds/cloud5.png",
+      "bytes": 130515
+    },
+    {
+      "path": "/assets/medias/home/projects/project1-webp/2048/1.webp",
+      "bytes": 49020
+    },
+    {
+      "path": "/assets/medias/home/projects/project1-ktx/2048/2.ktx2",
+      "bytes": 67735
+    },
+    {
+      "path": "/assets/medias/home/projects/project1-ktx/2048/3.ktx2",
+      "bytes": 40510
+    },
+    {
+      "path": "/assets/medias/home/projects/project1-ktx/2048/1.ktx2",
+      "bytes": 105117
+    },
+    {
+      "path": "/assets/medias/home/projects/project1-webp/2048/2.webp",
+      "bytes": 67650
+    },
+    {
+      "path": "/assets/medias/home/projects/project1-webp/2048/3.webp",
+      "bytes": 33618
+    },
+    {
+      "path": "/assets/medias/home/projects/project1-ktx/2048/5.ktx2",
+      "bytes": 12215
+    },
+    {
+      "path": "/assets/textures/about/scene-ktx/4096/TexArbresBack.ktx2",
+      "bytes": 1773607
+    },
+    {
+      "path": "/assets/medias/home/projects/project1-webp/2048/5.webp",
+      "bytes": 8892
+    },
+    {
+      "path": "/assets/medias/home/projects/project1-ktx/2048/4.ktx2",
+      "bytes": 112529
+    },
+    {
+      "path": "/assets/medias/home/projects/project1-webp/2048/4.webp",
+      "bytes": 66782
+    },
+    {
+      "path": "/assets/medias/home/projects/project1-ktx/2048/6.ktx2",
+      "bytes": 30022
+    },
+    {
+      "path": "/assets/medias/home/projects/project1-ktx/2048/7.ktx2",
+      "bytes": 31814
+    },
+    {
+      "path": "/assets/medias/home/projects/project1-webp/2048/6.webp",
+      "bytes": 41176
+    },
+    {
+      "path": "/assets/medias/home/projects/project1-webp/2048/7.webp",
+      "bytes": 35676
+    },
+    {
+      "path": "/assets/medias/home/projects/project1-webp/2048/9.webp",
+      "bytes": 41848
+    },
+    {
+      "path": "/assets/medias/home/projects/project1-ktx/2048/10.ktx2",
+      "bytes": 79928
+    },
+    {
+      "path": "/assets/medias/home/projects/project1-webp/2048/8.webp",
+      "bytes": 59558
+    },
+    {
+      "path": "/assets/medias/home/projects/project1-ktx/2048/9.ktx2",
+      "bytes": 43327
+    },
+    {
+      "path": "/assets/medias/home/projects/project1-ktx/2048/8.ktx2",
+      "bytes": 121022
+    },
+    {
+      "path": "/assets/medias/home/projects/project1-ktx/2048/12.ktx2",
+      "bytes": 30574
+    },
+    {
+      "path": "/assets/medias/home/projects/project1-webp/2048/10.webp",
+      "bytes": 58724
+    },
+    {
+      "path": "/assets/medias/home/projects/project1-webp/2048/12.webp",
+      "bytes": 37682
+    },
+    {
+      "path": "/assets/medias/home/projects/project1-ktx/2048/11.ktx2",
+      "bytes": 109775
+    },
+    {
+      "path": "/assets/medias/home/projects/project1-webp/1024/2.webp",
+      "bytes": 33040
+    },
+    {
+      "path": "/assets/medias/home/projects/project1-ktx/1024/2.ktx2",
+      "bytes": 24069
+    },
+    {
+      "path": "/assets/medias/home/projects/project1-webp/2048/11.webp",
+      "bytes": 46204
+    },
+    {
+      "path": "/assets/medias/home/projects/project1-ktx/1024/1.ktx2",
+      "bytes": 40259
+    },
+    {
+      "path": "/assets/medias/home/projects/project1-ktx/1024/3.ktx2",
+      "bytes": 16101
+    },
+    {
+      "path": "/assets/medias/home/projects/project1-webp/1024/3.webp",
+      "bytes": 14332
+    },
+    {
+      "path": "/assets/medias/home/projects/project1-webp/1024/4.webp",
+      "bytes": 27578
+    },
+    {
+      "path": "/assets/medias/home/projects/project1-ktx/1024/4.ktx2",
+      "bytes": 42116
+    },
+    {
+      "path": "/assets/medias/home/projects/project1-ktx/1024/6.ktx2",
+      "bytes": 10436
+    },
+    {
+      "path": "/assets/medias/home/projects/project1-ktx/1024/5.ktx2",
+      "bytes": 4633
+    },
+    {
+      "path": "/assets/medias/home/projects/project1-ktx/1024/7.ktx2",
+      "bytes": 12621
+    },
+    {
+      "path": "/assets/medias/home/projects/project1-webp/1024/7.webp",
+      "bytes": 13704
+    },
+    {
+      "path": "/assets/medias/home/projects/project1-webp/1024/8.webp",
+      "bytes": 23770
+    },
+    {
+      "path": "/assets/medias/home/projects/project1-ktx/1024/8.ktx2",
+      "bytes": 45811
+    },
+    {
+      "path": "/assets/medias/home/projects/project1-webp/1024/6.webp",
+      "bytes": 18254
+    },
+    {
+      "path": "/assets/medias/home/projects/project1-webp/1024/1.webp",
+      "bytes": 20410
+    },
+    {
+      "path": "/assets/medias/home/projects/project1-ktx/1024/9.ktx2",
+      "bytes": 18490
+    },
+    {
+      "path": "/assets/medias/home/projects/project1-webp/1024/9.webp",
+      "bytes": 16852
+    },
+    {
+      "path": "/assets/medias/home/projects/project1-ktx/1024/11.ktx2",
+      "bytes": 43259
+    },
+    {
+      "path": "/assets/medias/home/projects/project1-ktx/1024/10.ktx2",
+      "bytes": 33362
+    },
+    {
+      "path": "/assets/medias/home/projects/project1-webp/1024/11.webp",
+      "bytes": 20004
+    },
+    {
+      "path": "/assets/medias/home/projects/project1-ktx/1024/12.ktx2",
+      "bytes": 11205
+    },
+    {
+      "path": "/assets/medias/home/projects/project1-webp/1024/12.webp",
+      "bytes": 16016
+    },
+    {
+      "path": "/assets/medias/home/projects/project1-webp/1024/5.webp",
+      "bytes": 3206
+    },
+    {
+      "path": "/assets/medias/home/projects/project2-ktx/2048/2.ktx2",
+      "bytes": 73850
+    },
+    {
+      "path": "/assets/medias/home/projects/project2-ktx/2048/1.ktx2",
+      "bytes": 285933
+    },
+    {
+      "path": "/assets/medias/home/projects/project2-webp/2048/3.webp",
+      "bytes": 62764
+    },
+    {
+      "path": "/assets/textures/about/scene/texMontagne.png",
+      "bytes": 1205860
+    },
+    {
+      "path": "/assets/medias/home/projects/project1-webp/1024/10.webp",
+      "bytes": 23478
+    },
+    {
+      "path": "/assets/medias/home/projects/project2-ktx/2048/3.ktx2",
+      "bytes": 123886
+    },
+    {
+      "path": "/assets/medias/home/projects/project2-ktx/2048/4.ktx2",
+      "bytes": 127338
+    },
+    {
+      "path": "/assets/medias/home/projects/project2-webp/2048/1.webp",
+      "bytes": 336844
+    },
+    {
+      "path": "/assets/medias/home/projects/project2-webp/2048/4.webp",
+      "bytes": 109106
+    },
+    {
+      "path": "/assets/medias/home/projects/project2-ktx/2048/6.ktx2",
+      "bytes": 64599
+    },
+    {
+      "path": "/assets/medias/home/projects/project2-webp/2048/6.webp",
+      "bytes": 54908
+    },
+    {
+      "path": "/assets/medias/home/projects/project2-webp/2048/2.webp",
+      "bytes": 89364
+    },
+    {
+      "path": "/assets/medias/home/projects/project2-ktx/2048/5.ktx2",
+      "bytes": 269206
+    },
+    {
+      "path": "/assets/medias/home/projects/project2-webp/2048/8.webp",
+      "bytes": 38604
+    },
+    {
+      "path": "/assets/medias/home/projects/project2-ktx/2048/8.ktx2",
+      "bytes": 45563
+    },
+    {
+      "path": "/assets/medias/home/projects/project2-ktx/2048/10.ktx2",
+      "bytes": 30304
+    },
+    {
+      "path": "/assets/medias/home/projects/project2-ktx/2048/7.ktx2",
+      "bytes": 199541
+    },
+    {
+      "path": "/assets/medias/home/projects/project2-webp/2048/9.webp",
+      "bytes": 100182
+    },
+    {
+      "path": "/assets/medias/home/projects/project2-ktx/2048/9.ktx2",
+      "bytes": 142662
+    },
+    {
+      "path": "/assets/medias/home/projects/project2-webp/2048/10.webp",
+      "bytes": 18194
+    },
+    {
+      "path": "/assets/medias/home/projects/project2-webp/2048/5.webp",
+      "bytes": 341522
+    },
+    {
+      "path": "/assets/medias/home/projects/project2-ktx/2048/11.ktx2",
+      "bytes": 33440
+    },
+    {
+      "path": "/assets/medias/home/projects/project2-webp/2048/11.webp",
+      "bytes": 40642
+    },
+    {
+      "path": "/assets/medias/home/projects/project2-ktx/1024/1.ktx2",
+      "bytes": 79563
+    },
+    {
+      "path": "/assets/medias/home/projects/project2-ktx/1024/2.ktx2",
+      "bytes": 27355
+    },
+    {
+      "path": "/assets/medias/home/projects/project2-webp/1024/2.webp",
+      "bytes": 31386
+    },
+    {
+      "path": "/assets/medias/home/projects/project2-webp/1024/1.webp",
+      "bytes": 135726
+    },
+    {
+      "path": "/assets/medias/home/projects/project2-ktx/1024/3.ktx2",
+      "bytes": 46687
+    },
+    {
+      "path": "/assets/medias/home/projects/project2-webp/2048/7.webp",
+      "bytes": 156196
+    },
+    {
+      "path": "/assets/medias/home/projects/project2-ktx/2048/12.ktx2",
+      "bytes": 284696
+    },
+    {
+      "path": "/assets/medias/home/projects/project2-webp/1024/3.webp",
+      "bytes": 25416
+    },
+    {
+      "path": "/assets/medias/home/projects/project2-ktx/1024/4.ktx2",
+      "bytes": 43094
+    },
+    {
+      "path": "/assets/medias/home/projects/project2-ktx/1024/5.ktx2",
+      "bytes": 72536
+    },
+    {
+      "path": "/assets/medias/home/projects/project2-webp/1024/4.webp",
+      "bytes": 41354
+    },
+    {
+      "path": "/assets/medias/home/projects/project2-ktx/1024/6.ktx2",
+      "bytes": 25384
+    },
+    {
+      "path": "/assets/medias/home/projects/project2-webp/1024/6.webp",
+      "bytes": 20678
+    },
+    {
+      "path": "/assets/medias/home/projects/project2-ktx/1024/7.ktx2",
+      "bytes": 65772
+    },
+    {
+      "path": "/assets/medias/home/projects/project2-webp/1024/5.webp",
+      "bytes": 107260
+    },
+    {
+      "path": "/assets/medias/home/projects/project2-webp/1024/8.webp",
+      "bytes": 15210
+    },
+    {
+      "path": "/assets/medias/home/projects/project2-ktx/1024/8.ktx2",
+      "bytes": 19424
+    },
+    {
+      "path": "/assets/medias/home/projects/project2-webp/2048/12.webp",
+      "bytes": 331968
+    },
+    {
+      "path": "/assets/medias/home/projects/project2-ktx/1024/9.ktx2",
+      "bytes": 48746
+    },
+    {
+      "path": "/assets/medias/home/projects/project2-webp/1024/7.webp",
+      "bytes": 67944
+    },
+    {
+      "path": "/assets/medias/home/projects/project2-ktx/1024/10.ktx2",
+      "bytes": 11304
+    },
+    {
+      "path": "/assets/medias/home/projects/project2-webp/1024/9.webp",
+      "bytes": 36300
+    },
+    {
+      "path": "/assets/medias/home/projects/project2-ktx/1024/11.ktx2",
+      "bytes": 13992
+    },
+    {
+      "path": "/assets/medias/home/projects/project2-webp/1024/11.webp",
+      "bytes": 17142
+    },
+    {
+      "path": "/assets/medias/home/projects/project2-ktx/1024/12.ktx2",
+      "bytes": 80751
+    },
+    {
+      "path": "/assets/medias/home/projects/project3-webp/2048/1.webp",
+      "bytes": 16914
+    },
+    {
+      "path": "/assets/medias/home/projects/project3-ktx/2048/2.ktx2",
+      "bytes": 160263
+    },
+    {
+      "path": "/assets/medias/home/projects/project2-webp/1024/12.webp",
+      "bytes": 117768
+    },
+    {
+      "path": "/assets/medias/home/projects/project3-webp/2048/2.webp",
+      "bytes": 101488
+    },
+    {
+      "path": "/assets/medias/home/projects/project3-ktx/2048/1.ktx2",
+      "bytes": 16645
+    },
+    {
+      "path": "/assets/medias/home/projects/project3-webp/2048/3.webp",
+      "bytes": 86250
+    },
+    {
+      "path": "/assets/medias/home/projects/project3-ktx/2048/3.ktx2",
+      "bytes": 101889
+    },
+    {
+      "path": "/assets/medias/home/projects/project3-ktx/2048/6.ktx2",
+      "bytes": 33638
+    },
+    {
+      "path": "/assets/medias/home/projects/project3-ktx/2048/5.ktx2",
+      "bytes": 64817
+    },
+    {
+      "path": "/assets/medias/home/projects/project2-webp/1024/10.webp",
+      "bytes": 6860
+    },
+    {
+      "path": "/assets/medias/home/projects/project3-webp/2048/5.webp",
+      "bytes": 60904
+    },
+    {
+      "path": "/assets/medias/home/projects/project3-webp/2048/6.webp",
+      "bytes": 46820
+    },
+    {
+      "path": "/assets/medias/home/projects/project3-webp/2048/4.webp",
+      "bytes": 177394
+    },
+    {
+      "path": "/assets/medias/home/projects/project3-ktx/2048/8.ktx2",
+      "bytes": 10259
+    },
+    {
+      "path": "/assets/medias/home/projects/project3-ktx/2048/4.ktx2",
+      "bytes": 259316
+    },
+    {
+      "path": "/assets/medias/home/projects/project3-webp/2048/7.webp",
+      "bytes": 102382
+    },
+    {
+      "path": "/assets/medias/home/projects/project3-webp/2048/8.webp",
+      "bytes": 11536
+    },
+    {
+      "path": "/assets/medias/home/projects/project3-ktx/2048/10.ktx2",
+      "bytes": 65113
+    },
+    {
+      "path": "/assets/medias/home/projects/project3-ktx/2048/7.ktx2",
+      "bytes": 167432
+    },
+    {
+      "path": "/assets/medias/home/projects/project3-webp/2048/9.webp",
+      "bytes": 263600
+    },
+    {
+      "path": "/assets/medias/home/projects/project3-ktx/1024/1.ktx2",
+      "bytes": 6406
+    },
+    {
+      "path": "/assets/medias/home/projects/project3-ktx/2048/9.ktx2",
+      "bytes": 251404
+    },
+    {
+      "path": "/assets/medias/home/projects/project3-webp/1024/1.webp",
+      "bytes": 6754
+    },
+    {
+      "path": "/assets/medias/home/projects/project3-ktx/2048/11.ktx2",
+      "bytes": 184222
+    },
+    {
+      "path": "/assets/medias/home/projects/project3-webp/2048/11.webp",
+      "bytes": 113420
+    },
+    {
+      "path": "/assets/medias/home/projects/project3-webp/1024/2.webp",
+      "bytes": 40486
+    },
+    {
+      "path": "/assets/medias/home/projects/project3-ktx/1024/2.ktx2",
+      "bytes": 59431
+    },
+    {
+      "path": "/assets/medias/home/projects/project3-webp/2048/10.webp",
+      "bytes": 36170
+    },
+    {
+      "path": "/assets/medias/home/projects/project3-ktx/1024/3.ktx2",
+      "bytes": 37958
+    },
+    {
+      "path": "/assets/medias/home/projects/project3-webp/1024/3.webp",
+      "bytes": 35586
+    },
+    {
+      "path": "/assets/medias/home/projects/project3-ktx/1024/5.ktx2",
+      "bytes": 25881
+    },
+    {
+      "path": "/assets/medias/home/projects/project3-ktx/1024/6.ktx2",
+      "bytes": 13428
+    },
+    {
+      "path": "/assets/medias/home/projects/project3-ktx/1024/4.ktx2",
+      "bytes": 81262
+    },
+    {
+      "path": "/assets/medias/home/projects/project3-webp/1024/6.webp",
+      "bytes": 17468
+    },
+    {
+      "path": "/assets/medias/home/projects/project3-webp/1024/5.webp",
+      "bytes": 23116
+    },
+    {
+      "path": "/assets/medias/home/projects/project3-webp/1024/4.webp",
+      "bytes": 75380
+    },
+    {
+      "path": "/assets/medias/home/projects/project3-ktx/1024/7.ktx2",
+      "bytes": 59283
+    },
+    {
+      "path": "/assets/medias/home/projects/project3-ktx/1024/8.ktx2",
+      "bytes": 4226
+    },
+    {
+      "path": "/assets/medias/home/projects/project3-webp/1024/8.webp",
+      "bytes": 4370
+    },
+    {
+      "path": "/assets/medias/home/projects/project3-webp/1024/7.webp",
+      "bytes": 41988
+    },
+    {
+      "path": "/assets/medias/home/projects/project3-ktx/1024/9.ktx2",
+      "bytes": 72704
+    },
+    {
+      "path": "/assets/medias/home/projects/project3-webp/1024/10.webp",
+      "bytes": 15582
+    },
+    {
+      "path": "/assets/medias/home/projects/project3-ktx/1024/10.ktx2",
+      "bytes": 26755
+    },
+    {
+      "path": "/assets/medias/home/projects/project3-ktx/1024/11.ktx2",
+      "bytes": 64633
+    },
+    {
+      "path": "/assets/medias/home/projects/project3-webp/1024/11.webp",
+      "bytes": 44778
+    },
+    {
+      "path": "/assets/medias/home/projects/project3-webp/1024/9.webp",
+      "bytes": 98626
+    },
+    {
+      "path": "/assets/medias/home/projects/project4-ktx/2048/3.ktx2",
+      "bytes": 30784
+    },
+    {
+      "path": "/assets/medias/home/projects/project4-ktx/2048/1.ktx2",
+      "bytes": 133108
+    },
+    {
+      "path": "/assets/medias/home/projects/project4-webp/2048/1.webp",
+      "bytes": 67972
+    },
+    {
+      "path": "/assets/medias/home/projects/project4-webp/2048/2.webp",
+      "bytes": 135176
+    },
+    {
+      "path": "/assets/medias/home/projects/project4-webp/2048/3.webp",
+      "bytes": 35642
+    },
+    {
+      "path": "/assets/medias/home/projects/project4-webp/2048/5.webp",
+      "bytes": 69060
+    },
+    {
+      "path": "/assets/medias/home/projects/project4-ktx/2048/2.ktx2",
+      "bytes": 214005
+    },
+    {
+      "path": "/assets/medias/home/projects/project4-ktx/2048/5.ktx2",
+      "bytes": 63332
+    },
+    {
+      "path": "/assets/medias/home/projects/project4-webp/2048/4.webp",
+      "bytes": 81292
+    },
+    {
+      "path": "/assets/medias/home/projects/project4-ktx/2048/4.ktx2",
+      "bytes": 117870
+    },
+    {
+      "path": "/assets/medias/home/projects/project4-webp/2048/6.webp",
+      "bytes": 185018
+    },
+    {
+      "path": "/assets/medias/home/projects/project4-webp/2048/7.webp",
+      "bytes": 103478
+    },
+    {
+      "path": "/assets/medias/home/projects/project4-ktx/2048/7.ktx2",
+      "bytes": 92033
+    },
+    {
+      "path": "/assets/medias/home/projects/project4-ktx/2048/6.ktx2",
+      "bytes": 233580
+    },
+    {
+      "path": "/assets/medias/home/projects/project4-ktx/2048/8.ktx2",
+      "bytes": 223911
+    },
+    {
+      "path": "/assets/medias/home/projects/project4-ktx/1024/1.ktx2",
+      "bytes": 47647
+    },
+    {
+      "path": "/assets/medias/home/projects/project4-ktx/2048/9.ktx2",
+      "bytes": 240126
+    },
+    {
+      "path": "/assets/medias/home/projects/project4-webp/1024/1.webp",
+      "bytes": 26966
+    },
+    {
+      "path": "/assets/medias/home/projects/project4-webp/2048/8.webp",
+      "bytes": 134550
+    },
+    {
+      "path": "/assets/medias/home/projects/project4-webp/1024/2.webp",
+      "bytes": 51176
+    },
+    {
+      "path": "/assets/medias/home/projects/project4-webp/1024/3.webp",
+      "bytes": 15230
+    },
+    {
+      "path": "/assets/medias/home/projects/project4-ktx/1024/2.ktx2",
+      "bytes": 69804
+    },
+    {
+      "path": "/assets/medias/home/projects/project4-ktx/1024/3.ktx2",
+      "bytes": 10674
+    },
+    {
+      "path": "/assets/medias/home/projects/project4-webp/2048/9.webp",
+      "bytes": 222374
+    },
+    {
+      "path": "/assets/medias/home/projects/project4-ktx/1024/4.ktx2",
+      "bytes": 43247
+    },
+    {
+      "path": "/assets/medias/home/projects/project4-webp/1024/4.webp",
+      "bytes": 32058
+    },
+    {
+      "path": "/assets/medias/home/projects/project4-ktx/1024/5.ktx2",
+      "bytes": 26011
+    },
+    {
+      "path": "/assets/medias/home/projects/project4-webp/1024/5.webp",
+      "bytes": 25942
+    },
+    {
+      "path": "/assets/medias/home/projects/project4-ktx/1024/7.ktx2",
+      "bytes": 32568
+    },
+    {
+      "path": "/assets/medias/home/projects/project4-webp/1024/7.webp",
+      "bytes": 40858
+    },
+    {
+      "path": "/assets/medias/home/projects/project4-ktx/1024/6.ktx2",
+      "bytes": 70908
+    },
+    {
+      "path": "/assets/medias/home/projects/project4-ktx/1024/8.ktx2",
+      "bytes": 73406
+    },
+    {
+      "path": "/assets/medias/home/projects/project4-webp/1024/6.webp",
+      "bytes": 75388
+    },
+    {
+      "path": "/assets/medias/home/projects/project4-webp/1024/8.webp",
+      "bytes": 58364
+    },
+    {
+      "path": "/assets/medias/home/projects/project5-webp/2048/1.webp",
+      "bytes": 86114
+    },
+    {
+      "path": "/assets/medias/home/projects/project4-ktx/1024/9.ktx2",
+      "bytes": 69566
+    },
+    {
+      "path": "/assets/medias/home/projects/project4-webp/1024/9.webp",
+      "bytes": 76984
+    },
+    {
+      "path": "/assets/medias/home/projects/project5-ktx/2048/1.ktx2",
+      "bytes": 172047
+    },
+    {
+      "path": "/assets/medias/home/projects/project5-webp/2048/3.webp",
+      "bytes": 186712
+    },
+    {
+      "path": "/assets/medias/home/projects/project5-ktx/2048/2.ktx2",
+      "bytes": 265830
+    },
+    {
+      "path": "/assets/medias/home/projects/project5-ktx/2048/3.ktx2",
+      "bytes": 239824
+    },
+    {
+      "path": "/assets/medias/home/projects/project5-ktx/2048/4.ktx2",
+      "bytes": 258177
+    },
+    {
+      "path": "/assets/medias/home/projects/project5-webp/2048/5.webp",
+      "bytes": 86610
+    },
+    {
+      "path": "/assets/medias/home/projects/project5-ktx/2048/5.ktx2",
+      "bytes": 143885
+    },
+    {
+      "path": "/assets/medias/home/projects/project5-ktx/2048/6.ktx2",
+      "bytes": 90944
+    },
+    {
+      "path": "/assets/medias/home/projects/project5-webp/2048/6.webp",
+      "bytes": 134056
+    },
+    {
+      "path": "/assets/medias/home/projects/project5-webp/2048/7.webp",
+      "bytes": 162138
+    },
+    {
+      "path": "/assets/medias/home/projects/project5-ktx/2048/8.ktx2",
+      "bytes": 148939
+    },
+    {
+      "path": "/assets/medias/home/projects/project5-webp/2048/8.webp",
+      "bytes": 105276
+    },
+    {
+      "path": "/assets/medias/home/projects/project5-webp/2048/2.webp",
+      "bytes": 479368
+    },
+    {
+      "path": "/assets/medias/home/projects/project5-ktx/2048/7.ktx2",
+      "bytes": 240460
+    },
+    {
+      "path": "/assets/medias/home/projects/project5-ktx/2048/10.ktx2",
+      "bytes": 47160
+    },
+    {
+      "path": "/assets/medias/home/projects/project5-webp/2048/4.webp",
+      "bytes": 281650
+    },
+    {
+      "path": "/assets/medias/home/projects/project5-webp/1024/1.webp",
+      "bytes": 35298
+    },
+    {
+      "path": "/assets/medias/home/projects/project5-ktx/2048/9.ktx2",
+      "bytes": 225398
+    },
+    {
+      "path": "/assets/medias/home/projects/project5-ktx/1024/1.ktx2",
+      "bytes": 60575
+    },
+    {
+      "path": "/assets/medias/home/projects/project5-webp/2048/10.webp",
+      "bytes": 46602
+    },
+    {
+      "path": "/assets/medias/home/projects/project5-ktx/1024/2.ktx2",
+      "bytes": 70420
+    },
+    {
+      "path": "/assets/medias/home/projects/project5-webp/2048/9.webp",
+      "bytes": 165230
+    },
+    {
+      "path": "/assets/medias/home/projects/project5-ktx/1024/3.ktx2",
+      "bytes": 75618
+    },
+    {
+      "path": "/assets/medias/home/projects/project5-ktx/1024/4.ktx2",
+      "bytes": 72431
+    },
+    {
+      "path": "/assets/medias/home/projects/project5-webp/1024/5.webp",
+      "bytes": 34846
+    },
+    {
+      "path": "/assets/medias/home/projects/project5-webp/1024/3.webp",
+      "bytes": 80456
+    },
+    {
+      "path": "/assets/medias/home/projects/project5-ktx/1024/5.ktx2",
+      "bytes": 50587
+    },
+    {
+      "path": "/assets/medias/home/projects/project5-webp/1024/4.webp",
+      "bytes": 101342
+    },
+    {
+      "path": "/assets/medias/home/projects/project5-ktx/1024/6.ktx2",
+      "bytes": 35079
+    },
+    {
+      "path": "/assets/medias/home/projects/project5-webp/1024/6.webp",
+      "bytes": 44594
+    },
+    {
+      "path": "/assets/medias/home/projects/project5-ktx/1024/9.ktx2",
+      "bytes": 73831
+    },
+    {
+      "path": "/assets/medias/home/projects/project5-ktx/1024/8.ktx2",
+      "bytes": 47983
+    },
+    {
+      "path": "/assets/medias/home/projects/project5-webp/1024/8.webp",
+      "bytes": 43148
+    },
+    {
+      "path": "/assets/medias/home/projects/project5-ktx/1024/7.ktx2",
+      "bytes": 76989
+    },
+    {
+      "path": "/assets/medias/home/projects/project5-webp/1024/9.webp",
+      "bytes": 74998
+    },
+    {
+      "path": "/assets/medias/home/projects/project5-ktx/1024/10.ktx2",
+      "bytes": 18832
+    },
+    {
+      "path": "/assets/medias/home/projects/project5-webp/1024/7.webp",
+      "bytes": 73540
+    },
+    {
+      "path": "/assets/medias/home/projects/project6-webp/2048/1.webp",
+      "bytes": 88604
+    },
+    {
+      "path": "/assets/medias/home/projects/project6-ktx/2048/2.ktx2",
+      "bytes": 65769
+    },
+    {
+      "path": "/assets/medias/home/projects/project5-webp/1024/2.webp",
+      "bytes": 153634
+    },
+    {
+      "path": "/assets/medias/home/projects/project6-ktx/2048/1.ktx2",
+      "bytes": 129915
+    },
+    {
+      "path": "/assets/medias/home/projects/project6-webp/2048/2.webp",
+      "bytes": 70366
+    },
+    {
+      "path": "/assets/medias/home/projects/project6-ktx/2048/4.ktx2",
+      "bytes": 41497
+    },
+    {
+      "path": "/assets/medias/home/projects/project6-webp/2048/4.webp",
+      "bytes": 31976
+    },
+    {
+      "path": "/assets/medias/home/projects/project6-webp/2048/3.webp",
+      "bytes": 106250
+    },
+    {
+      "path": "/assets/medias/home/projects/project6-ktx/2048/3.ktx2",
+      "bytes": 161208
+    },
+    {
+      "path": "/assets/medias/home/projects/project6-ktx/2048/5.ktx2",
+      "bytes": 68431
+    },
+    {
+      "path": "/assets/medias/home/projects/project6-webp/2048/5.webp",
+      "bytes": 87208
+    },
+    {
+      "path": "/assets/medias/home/projects/project5-webp/1024/10.webp",
+      "bytes": 17134
+    },
+    {
+      "path": "/assets/medias/home/projects/project6-ktx/2048/7.ktx2",
+      "bytes": 35619
+    },
+    {
+      "path": "/assets/medias/home/projects/project6-webp/2048/7.webp",
+      "bytes": 32964
+    },
+    {
+      "path": "/assets/medias/home/projects/project6-ktx/2048/9.ktx2",
+      "bytes": 50723
+    },
+    {
+      "path": "/assets/medias/home/projects/project6-webp/2048/6.webp",
+      "bytes": 133990
+    },
+    {
+      "path": "/assets/medias/home/projects/project6-webp/2048/8.webp",
+      "bytes": 70598
+    },
+    {
+      "path": "/assets/medias/home/projects/project6-ktx/2048/8.ktx2",
+      "bytes": 127771
+    },
+    {
+      "path": "/assets/medias/home/projects/project6-ktx/2048/10.ktx2",
+      "bytes": 53350
+    },
+    {
+      "path": "/assets/medias/home/projects/project6-webp/2048/10.webp",
+      "bytes": 40110
+    },
+    {
+      "path": "/assets/medias/home/projects/project6-webp/2048/9.webp",
+      "bytes": 48942
+    },
+    {
+      "path": "/assets/medias/home/projects/project6-ktx/2048/6.ktx2",
+      "bytes": 191773
+    },
+    {
+      "path": "/assets/medias/home/projects/project6-ktx/1024/1.ktx2",
+      "bytes": 48903
+    },
+    {
+      "path": "/assets/medias/home/projects/project6-ktx/1024/2.ktx2",
+      "bytes": 27701
+    },
+    {
+      "path": "/assets/medias/home/projects/project6-webp/1024/1.webp",
+      "bytes": 42326
+    },
+    {
+      "path": "/assets/medias/home/projects/project6-webp/1024/2.webp",
+      "bytes": 29344
+    },
+    {
+      "path": "/assets/medias/home/projects/project6-ktx/1024/3.ktx2",
+      "bytes": 58622
+    },
+    {
+      "path": "/assets/medias/home/projects/project6-ktx/1024/4.ktx2",
+      "bytes": 15416
+    },
+    {
+      "path": "/assets/medias/home/projects/project6-webp/1024/4.webp",
+      "bytes": 14460
+    },
+    {
+      "path": "/assets/medias/home/projects/project6-webp/1024/3.webp",
+      "bytes": 43292
+    },
+    {
+      "path": "/assets/medias/home/projects/project6-ktx/2048/11.ktx2",
+      "bytes": 149388
+    },
+    {
+      "path": "/assets/medias/home/projects/project6-ktx/1024/5.ktx2",
+      "bytes": 28432
+    },
+    {
+      "path": "/assets/medias/home/projects/project6-webp/1024/5.webp",
+      "bytes": 33336
+    },
+    {
+      "path": "/assets/medias/home/projects/project6-ktx/1024/7.ktx2",
+      "bytes": 13009
+    },
+    {
+      "path": "/assets/medias/home/projects/project6-ktx/1024/6.ktx2",
+      "bytes": 64266
+    },
+    {
+      "path": "/assets/medias/home/projects/project6-webp/1024/6.webp",
+      "bytes": 54618
+    },
+    {
+      "path": "/assets/medias/home/projects/project6-webp/1024/8.webp",
+      "bytes": 31960
+    },
+    {
+      "path": "/assets/medias/home/projects/project6-ktx/1024/8.ktx2",
+      "bytes": 48917
+    },
+    {
+      "path": "/assets/medias/home/projects/project6-ktx/1024/9.ktx2",
+      "bytes": 22217
+    },
+    {
+      "path": "/assets/medias/home/projects/project6-webp/1024/10.webp",
+      "bytes": 15966
+    },
+    {
+      "path": "/assets/medias/home/projects/project6-ktx/1024/10.ktx2",
+      "bytes": 22628
+    },
+    {
+      "path": "/assets/medias/home/projects/project6-webp/1024/9.webp",
+      "bytes": 19646
+    },
+    {
+      "path": "/assets/medias/home/projects/project6-webp/1024/11.webp",
+      "bytes": 34086
+    },
+    {
+      "path": "/assets/medias/home/projects/project6-ktx/1024/11.ktx2",
+      "bytes": 53511
+    },
+    {
+      "path": "/assets/medias/home/showreel-base/showreel-poster.webp",
+      "bytes": 18582
+    },
+    {
+      "path": "/assets/medias/home/projects/project6-webp/2048/11.webp",
+      "bytes": 73076
+    },
+    {
+      "path": "/assets/medias/home/projects/project6-webp/1024/7.webp",
+      "bytes": 15002
+    },
+    {
+      "path": "/assets/medias/home/archives-compressed/7-PortfolioGab.mp4",
+      "bytes": 34566
+    },
+    {
+      "path": "/assets/medias/home/archives-compressed/7-PortfolioGab-poster.webp",
+      "bytes": 4974
+    },
+    {
+      "path": "/assets/medias/home/archives-compressed/8-Unity-2025.mp4",
+      "bytes": 156703
+    },
+    {
+      "path": "/assets/medias/home/archives-compressed/8-Unity-2025-poster.webp",
+      "bytes": 2154
+    },
+    {
+      "path": "/assets/medias/home/archives-base/7-PortfolioGab.mp4",
+      "bytes": 409322
+    },
+    {
+      "path": "/assets/medias/home/archives-compressed/9-Pangaia.mp4",
+      "bytes": 55067
+    },
+    {
+      "path": "/assets/medias/home/archives-compressed/9-Pangaia-poster.webp",
+      "bytes": 5772
+    },
+    {
+      "path": "/assets/medias/home/archives-base/9-Pangaia.mp4",
+      "bytes": 1536094
+    },
+    {
+      "path": "/assets/medias/home/archives-compressed/11-Merrel.mp4",
+      "bytes": 213570
+    },
+    {
+      "path": "/assets/medias/home/archives-compressed/11-Merrel-poster.webp",
+      "bytes": 14506
+    },
+    {
+      "path": "/assets/medias/home/showreel-compressed/mobile/showreel.mp4",
+      "bytes": 3587707
+    },
+    {
+      "path": "/assets/medias/home/archives-compressed/13-Tougo.mp4",
+      "bytes": 142352
+    },
+    {
+      "path": "/assets/medias/home/archives-compressed/13-Tougo-poster.webp",
+      "bytes": 1004
+    },
+    {
+      "path": "/assets/medias/home/archives-base/8-Unity-2025.mp4",
+      "bytes": 4504813
+    },
+    {
+      "path": "/assets/medias/home/archives-compressed/14-DrakeHotel.mp4",
+      "bytes": 175763
+    },
+    {
+      "path": "/assets/medias/home/archives-compressed/14-DrakeHotel-poster.webp",
+      "bytes": 1422
+    },
+    {
+      "path": "/assets/medias/home/archives-base/11-Merrel.mp4",
+      "bytes": 8315175
+    },
+    {
+      "path": "/assets/medias/home/archives-compressed/15-Vooban.mp4",
+      "bytes": 159562
+    },
+    {
+      "path": "/assets/medias/home/archives-compressed/15-Vooban-poster.webp",
+      "bytes": 3058
+    },
+    {
+      "path": "/assets/medias/home/archives-base/14-DrakeHotel.mp4",
+      "bytes": 9630393
+    },
+    {
+      "path": "/assets/medias/home/archives-compressed/17-Unity-2024.mp4",
+      "bytes": 98389
+    },
+    {
+      "path": "/assets/medias/home/archives-compressed/17-Unity-2024-poster.webp",
+      "bytes": 19740
+    },
+    {
+      "path": "/assets/medias/home/archives-base/18-TheHayAdams.mp4",
+      "bytes": 1417059
+    },
+    {
+      "path": "/assets/medias/home/archives-compressed/18-TheHayAdams.mp4",
+      "bytes": 95316
+    },
+    {
+      "path": "/assets/medias/home/archives-compressed/18-TheHayAdams-poster.webp",
+      "bytes": 22128
+    },
+    {
+      "path": "/assets/medias/home/archives-base/13-Tougo.mp4",
+      "bytes": 9462155
+    },
+    {
+      "path": "/assets/medias/home/archives-base/15-Vooban.mp4",
+      "bytes": 8266402
+    },
+    {
+      "path": "/assets/medias/home/archives-compressed/19-PrisonBoss-poster.webp",
+      "bytes": 29420
+    },
+    {
+      "path": "/assets/medias/home/archives-compressed/19-PrisonBoss.mp4",
+      "bytes": 217202
+    },
+    {
+      "path": "/assets/medias/home/archives-base/17-Unity-2024.mp4",
+      "bytes": 3073192
+    },
+    {
+      "path": "/assets/medias/home/archives-compressed/20-Palosanto-poster.webp",
+      "bytes": 1158
+    },
+    {
+      "path": "/assets/medias/home/archives-compressed/20-Palosanto.mp4",
+      "bytes": 130796
+    },
+    {
+      "path": "/assets/medias/home/archives-compressed/21-Longines.mp4",
+      "bytes": 150438
+    },
+    {
+      "path": "/assets/medias/home/archives-compressed/21-Longines-poster.webp",
+      "bytes": 17390
+    },
+    {
+      "path": "/assets/medias/home/archives-base/21-Longines.mp4",
+      "bytes": 6862844
+    },
+    {
+      "path": "/assets/medias/home/archives-base/19-PrisonBoss.mp4",
+      "bytes": 9319212
+    },
+    {
+      "path": "/assets/medias/home/archives-compressed/23-ImmersiveGarden-poster.webp",
+      "bytes": 5346
+    },
+    {
+      "path": "/assets/medias/home/archives-compressed/23-ImmersiveGarden.mp4",
+      "bytes": 178480
+    },
+    {
+      "path": "/assets/medias/home/archives-compressed/24-LonginesDolceVita.mp4",
+      "bytes": 39637
+    },
+    {
+      "path": "/assets/medias/home/archives-compressed/24-LonginesDolceVita-poster.webp",
+      "bytes": 10864
+    },
+    {
+      "path": "/assets/medias/home/archives-base/24-LonginesDolceVita.mp4",
+      "bytes": 411840
+    },
+    {
+      "path": "/assets/medias/home/archives-compressed/25-Omega.mp4",
+      "bytes": 138094
+    },
+    {
+      "path": "/assets/medias/home/archives-compressed/25-Omega-poster.webp",
+      "bytes": 1558
+    },
+    {
+      "path": "/assets/medias/home/archives-base/20-Palosanto.mp4",
+      "bytes": 9092975
+    },
+    {
+      "path": "/assets/medias/home/archives-compressed/26-Aleph.mp4",
+      "bytes": 101219
+    },
+    {
+      "path": "/assets/medias/home/archives-compressed/26-Aleph-poster.webp",
+      "bytes": 1040
+    },
+    {
+      "path": "/assets/medias/home/archives-base/28-TourDeFrance.mp4",
+      "bytes": 888175
+    },
+    {
+      "path": "/assets/medias/home/archives-compressed/28-TourDeFrance.mp4",
+      "bytes": 60113
+    },
+    {
+      "path": "/assets/medias/home/archives-compressed/28-TourDeFrance-poster.webp",
+      "bytes": 13868
+    },
+    {
+      "path": "/assets/medias/home/archives-base/29-Manza.mp4",
+      "bytes": 617350
+    },
+    {
+      "path": "/assets/medias/home/archives-compressed/29-Manza.mp4",
+      "bytes": 27923
+    },
+    {
+      "path": "/assets/medias/home/archives-compressed/29-Manza-poster.webp",
+      "bytes": 12388
+    },
+    {
+      "path": "/assets/medias/home/archives-base/16-AubergerLaChatelaine.jpg",
+      "bytes": 1087829
+    },
+    {
+      "path": "/assets/medias/home/archives-compressed/16-AubergerLaChatelaine.webp",
+      "bytes": 35992
+    },
+    {
+      "path": "/assets/medias/home/archives-base/27-Omexom.jpg",
+      "bytes": 658165
+    },
+    {
+      "path": "/assets/medias/home/archives-compressed/27-Omexom.webp",
+      "bytes": 32244
+    },
+    {
+      "path": "/assets/medias/home/archives-base/dna.jpg",
+      "bytes": 17910
+    },
+    {
+      "path": "/assets/medias/home/archives-compressed/dna.webp",
+      "bytes": 1900
+    },
+    {
+      "path": "/assets/medias/home/archives-base/23-ImmersiveGarden.mp4",
+      "bytes": 9695262
+    },
+    {
+      "path": "/assets/medias/playground/2.webm",
+      "bytes": 107701
+    },
+    {
+      "path": "/assets/medias/home/archives-base/26-Aleph.mp4",
+      "bytes": 6448215
+    },
+    {
+      "path": "/assets/medias/home/archives-base/25-Omega.mp4",
+      "bytes": 7965660
+    },
+    {
+      "path": "/assets/medias/playground/4.webm",
+      "bytes": 776858
+    },
+    {
+      "path": "/assets/medias/playground/5.webm",
+      "bytes": 415415
+    },
+    {
+      "path": "/assets/medias/playground/1.webm",
+      "bytes": 2401099
+    },
+    {
+      "path": "/assets/medias/playground/3.webm",
+      "bytes": 842247
+    },
+    {
+      "path": "/assets/medias/playground/15.webm",
+      "bytes": 70599
+    },
+    {
+      "path": "/assets/medias/playground/6.jpg",
+      "bytes": 99787
+    },
+    {
+      "path": "/assets/medias/playground-webp/6.webp",
+      "bytes": 64912
+    },
+    {
+      "path": "/assets/medias/playground/7.jpg",
+      "bytes": 62942
+    },
+    {
+      "path": "/assets/medias/playground-webp/7.webp",
+      "bytes": 11670
+    },
+    {
+      "path": "/assets/medias/playground/8.jpg",
+      "bytes": 74992
+    },
+    {
+      "path": "/assets/medias/playground/9.webm",
+      "bytes": 1777896
+    },
+    {
+      "path": "/assets/medias/playground-webp/8.webp",
+      "bytes": 40064
+    },
+    {
+      "path": "/assets/medias/playground/10.jpg",
+      "bytes": 19709
+    },
+    {
+      "path": "/assets/medias/playground/12.jpg",
+      "bytes": 29836
+    },
+    {
+      "path": "/assets/medias/playground-webp/10.webp",
+      "bytes": 12898
+    },
+    {
+      "path": "/assets/medias/playground-webp/12.webp",
+      "bytes": 21108
+    },
+    {
+      "path": "/assets/medias/playground/14.webm",
+      "bytes": 1590003
+    },
+    {
+      "path": "/assets/medias/playground-webp/13.webp",
+      "bytes": 25764
+    },
+    {
+      "path": "/assets/medias/playground/13.jpg",
+      "bytes": 45330
+    },
+    {
+      "path": "/assets/medias/home/showreel-compressed/desktop/showreel.mp4",
+      "bytes": 25046399
+    },
+    {
+      "path": "/assets/medias/about/intro-webp/intro.webp",
+      "bytes": 286220
+    },
+    {
+      "path": "/assets/medias/about/content-webp/content.webp",
+      "bytes": 40384
+    },
+    {
+      "path": "/assets/sounds/compressed/fruit1.aac",
+      "bytes": 3714
+    },
+    {
+      "path": "/assets/sounds/compressed/fruit2.aac",
+      "bytes": 6453
+    },
+    {
+      "path": "/assets/medias/playground/11.webm",
+      "bytes": 2008829
+    },
+    {
+      "path": "/assets/medias/about/content/content.jpg",
+      "bytes": 296031
+    },
+    {
+      "path": "/assets/sounds/compressed/ambient.aac",
+      "bytes": 737834
+    },
+    {
+      "path": "/assets/sounds/compressed/pageTransition.aac",
+      "bytes": 54885
+    },
+    {
+      "path": "/assets/medias/about/intro/intro.jpg",
+      "bytes": 1399178
+    },
+    {
+      "path": "/assets/medias/home/showreel-base/showreel.mp4",
+      "bytes": 59275897
+    }
+  ],
+  "missing": [
+    "/mstile-150x150.png",
+    "/robots.txt",
+    "/sitemap.xml",
+    "/browserconfig.xml",
+    "/manifest.json",
+    "/assets/textures/about/ground-ktx/512/normal.ktx2",
+    "/assets/textures/about/ground-ktx/256/normal.ktx2",
+    "/assets/medias/home/showreel-compressed/desktop/showreel-poster.webp",
+    "/assets/medias/home/showreel-compressed/mobile/showreel-poster.webp",
+    "/assets/medias/playground/1.mp4",
+    "/assets/medias/playground-compressed/1.mp4",
+    "/assets/medias/playground-compressed/1-poster.webp",
+    "/assets/medias/playground/2.mp4",
+    "/assets/medias/playground-compressed/2.mp4",
+    "/assets/medias/playground-compressed/2-poster.webp",
+    "/assets/medias/playground/3.mp4",
+    "/assets/medias/playground-compressed/3.mp4",
+    "/assets/medias/playground-compressed/3-poster.webp",
+    "/assets/medias/playground/4.mp4",
+    "/assets/medias/playground-compressed/4.mp4",
+    "/assets/medias/playground-compressed/4-poster.webp",
+    "/assets/medias/playground/5.mp4",
+    "/assets/medias/playground-compressed/5.mp4",
+    "/assets/medias/playground-compressed/5-poster.webp",
+    "/assets/medias/playground/9.mp4",
+    "/assets/medias/playground-compressed/9.mp4",
+    "/assets/medias/playground-compressed/9-poster.webp",
+    "/assets/medias/playground/11.mp4",
+    "/assets/medias/playground-compressed/11.mp4",
+    "/assets/medias/playground-compressed/11-poster.webp",
+    "/assets/medias/playground/14.mp4",
+    "/assets/medias/playground-compressed/14.mp4",
+    "/assets/medias/playground-compressed/14-poster.webp",
+    "/assets/medias/playground/15.mp4",
+    "/assets/medias/playground-compressed/15.mp4",
+    "/assets/medias/playground-compressed/15-poster.webp",
+    "/assets/sounds/ambient.mp3",
+    "/assets/sounds/ambient.wav",
+    "/assets/sounds/fruit1.mp3",
+    "/assets/sounds/fruit1.wav",
+    "/assets/sounds/fruit2.mp3",
+    "/assets/sounds/fruit2.wav",
+    "/assets/sounds/pageTransition.mp3",
+    "/assets/sounds/pageTransition.wav",
+    "/playground",
+    "/about"
+  ],
+  "failed": []
+}
