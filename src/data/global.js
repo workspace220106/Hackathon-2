@@ -1,6 +1,6 @@
 const SITE_TITLE = "AI EXPO HACKATHON";
 
-const SITE_INFOS = "Art director, Interactive designer";
+const SITE_INFOS = "";
 
 // Navbar entries → routes. Add / rename entries here (labels are what the navbar shows).
 export const NAV_ROUTES = {
