@@ -36,6 +36,6 @@ a.text__link { color: var(--c-cyan); }
 /* "Team of …" / agency lines removed from project sliders and schedule rows */
 .projectBlock .top__team, .archivesBlock .items__agency { display: none !important; }
 /* reel tile: full width, below the intro text (between the copy and "Presented Domain") */
-.introBlock__bottom .bottom__video { grid-column: 3 / 13 !important; grid-row: 2; width: 100% !important; height: auto !important; aspect-ratio: 16 / 9 !important; margin: 4.5rem 0 0 !important; }
+.introBlock__bottom .bottom__video { grid-column: 3 / 13 !important; grid-row: 2; width: 100% !important; height: auto !important; aspect-ratio: 21 / 8 !important; margin: 4.5rem 0 0 !important; }
 .introBlock__bottom .bottom__showreelHint { grid-row: 3; }
 @media screen and (max-width: 1025px) { .introBlock__bottom .bottom__video { grid-column: 1 / 13 !important; margin: 2.5rem 1.4285714286rem 0 !important; width: calc(100% - 2.8571428571rem) !important; } }
