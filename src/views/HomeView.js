@@ -24,9 +24,7 @@ import {
 import ScheduleTimeline from '../components/ScheduleTimeline.vue';
 import AboutBlock from '../components/AboutBlock.vue';
 import ProblemStatementsBlock from '../components/ProblemStatementsBlock.vue';
-import {
-  FooterBlock
-} from '../components/FooterBlock.js';
+import OrganisedByFooter from '../components/OrganisedByFooter.vue';
 import {
   HeaderBlock
 } from '../components/HeaderBlock.js';
@@ -91,7 +89,7 @@ const HomeViewSfc = {
       app.firstReveal && (a(!0), app.firstReveal = !1)
     }), emitter.on(EVENTS.SHOW_HOME_PAGE, () => {
       a(!1)
-    }), (l, u) => (openBlock(), createElementBlock("div", E4, [createVNode(ImprintsLayer, { zones: [".heroBlock", ".introBlock", ".aboutBlock", ".psBlock", ".footerBlock"], count: 12 }), createVNode(HeaderBlock, mergeProps({
+    }), (l, u) => (openBlock(), createElementBlock("div", E4, [createVNode(ImprintsLayer, { zones: [".heroBlock", ".introBlock", ".aboutBlock", ".psBlock", ".scheduleBlock", ".organisedByFooter"], count: 12 }), createVNode(HeaderBlock, mergeProps({
       ref_key: "headerBlockRef",
       ref: t
     }, unref(homeData).header), null, 16), createVNode(HomeHeroBlock, normalizeProps(guardReactiveProps(unref(homeData).hero)), null, 16), createVNode(HomeIntroBlock, normalizeProps(guardReactiveProps(unref(homeData).intro)), null, 16), createVNode(AboutBlock), createElementVNode("div", S4, [(openBlock(!0), createElementBlock(Fragment, null, renderList(unref(homeData).projects, (h, c) => (openBlock(), createElementBlock(Fragment, {
@@ -113,9 +111,7 @@ const HomeViewSfc = {
       ref: n
     }, {
       ref_for: !0
-    }, h), null, 16)) : createCommentVNode("", !0)], 64))), 128))]), createVNode(ProblemStatementsBlock), createVNode(ScheduleTimeline, { title: unref(homeData).archives.title, items: unref(homeData).archives.items }), createVNode(FooterBlock, mergeProps({
-      theme: "white"
-    }, unref(globalData).footer), null, 16)]))
+    }, h), null, 16)) : createCommentVNode("", !0)], 64))), 128))]), createVNode(ProblemStatementsBlock), createVNode(ScheduleTimeline, { title: unref(homeData).archives.title, items: unref(homeData).archives.items }), createVNode(OrganisedByFooter)]))
   }
 };
 
