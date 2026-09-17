@@ -1,4 +1,4 @@
-const SITE_TITLE = "AI EXPO HACKATHON";
+const SITE_TITLE = "HACK ON TRACKS";
 
 const SITE_INFOS = "";
 

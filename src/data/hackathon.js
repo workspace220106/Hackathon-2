@@ -5,7 +5,7 @@
 
 export const about = {
   eyebrow: 'About the hackathon',
-  title: ['AI Summit', '2026'],
+  title: ['HACK ON TRACKS', '2026'],
   lead: 'A two-stage AI hackathon across four domains — Cybersecurity, FinTech / BFSI, General AI / GenAI and Blockchain × AI. Round 1 is an online idea sprint; the shortlisted teams come back for a 24-hour offline build.',
   theme: '"AI that doesn\'t just generate answers — it understands context, makes decisions, coordinates real-world actions, and can be trusted."',
   organiser: {

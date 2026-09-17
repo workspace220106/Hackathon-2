@@ -41,7 +41,7 @@ export const homeData = {
   },
   hero: {
     // placeholder copy — same reveal animations / fonts as the original
-    titles: ["AI Summit", "2026", "Hackathon"],
+    titles: ["HACK ON TRACKS", "2026", "Hackathon"],
     titlesReveal: ["Ideate.", "Build.", "Verify."],
     indication: "(Click to fuel the train)",
     city: "",
@@ -163,7 +163,7 @@ export const homeData = {
       type: "09:00 – 10:00",
       roles: "",
       date: "Day 1",
-      agency: { name: "AI EXPO HACKATHON" },
+      agency: { name: "HACK ON TRACKS" },
       infos: ["Teams arrive, badges, seating.", "Timings will be confirmed with the Round 2 shortlist."],
       media: { url: DNA_PLACEHOLDER_IMAGE, isVideo: !1 }
     },
@@ -172,7 +172,7 @@ export const homeData = {
       type: "10:00 – 10:45",
       roles: "",
       date: "Day 1",
-      agency: { name: "AI EXPO HACKATHON" },
+      agency: { name: "HACK ON TRACKS" },
       infos: ["Welcome, rules, problem statements reveal.", "Timings will be confirmed with the Round 2 shortlist."],
       media: { url: DNA_PLACEHOLDER_IMAGE, isVideo: !1 }
     },
@@ -181,7 +181,7 @@ export const homeData = {
       type: "11:00",
       roles: "",
       date: "Day 1",
-      agency: { name: "AI EXPO HACKATHON" },
+      agency: { name: "HACK ON TRACKS" },
       infos: ["Build phase starts.", "Timings will be confirmed with the Round 2 shortlist."],
       media: { url: DNA_PLACEHOLDER_IMAGE, isVideo: !1 }
     },
@@ -190,7 +190,7 @@ export const homeData = {
       type: "15:00 – 17:00",
       roles: "",
       date: "Day 1",
-      agency: { name: "AI EXPO HACKATHON" },
+      agency: { name: "HACK ON TRACKS" },
       infos: ["Mentors visit every team.", "Timings will be confirmed with the Round 2 shortlist."],
       media: { url: DNA_PLACEHOLDER_IMAGE, isVideo: !1 }
     },
@@ -199,7 +199,7 @@ export const homeData = {
       type: "20:00",
       roles: "",
       date: "Day 1",
-      agency: { name: "AI EXPO HACKATHON" },
+      agency: { name: "HACK ON TRACKS" },
       infos: ["Food, music, breaks.", "Timings will be confirmed with the Round 2 shortlist."],
       media: { url: DNA_PLACEHOLDER_IMAGE, isVideo: !1 }
     },
@@ -208,7 +208,7 @@ export const homeData = {
       type: "00:00",
       roles: "",
       date: "Day 1",
-      agency: { name: "AI EXPO HACKATHON" },
+      agency: { name: "HACK ON TRACKS" },
       infos: ["Progress snapshot from each team.", "Timings will be confirmed with the Round 2 shortlist."],
       media: { url: DNA_PLACEHOLDER_IMAGE, isVideo: !1 }
     },
@@ -217,7 +217,7 @@ export const homeData = {
       type: "09:00 – 11:00",
       roles: "",
       date: "Day 2",
-      agency: { name: "AI EXPO HACKATHON" },
+      agency: { name: "HACK ON TRACKS" },
       infos: ["Final guidance before submissions.", "Timings will be confirmed with the Round 2 shortlist."],
       media: { url: DNA_PLACEHOLDER_IMAGE, isVideo: !1 }
     },
@@ -226,7 +226,7 @@ export const homeData = {
       type: "13:00",
       roles: "",
       date: "Day 2",
-      agency: { name: "AI EXPO HACKATHON" },
+      agency: { name: "HACK ON TRACKS" },
       infos: ["Repos, decks and demos locked.", "Timings will be confirmed with the Round 2 shortlist."],
       media: { url: DNA_PLACEHOLDER_IMAGE, isVideo: !1 }
     },
@@ -235,7 +235,7 @@ export const homeData = {
       type: "14:00 – 17:00",
       roles: "",
       date: "Day 2",
-      agency: { name: "AI EXPO HACKATHON" },
+      agency: { name: "HACK ON TRACKS" },
       infos: ["5-minute pitch + Q&A per team.", "Timings will be confirmed with the Round 2 shortlist."],
       media: { url: DNA_PLACEHOLDER_IMAGE, isVideo: !1 }
     },
@@ -244,7 +244,7 @@ export const homeData = {
       type: "17:00 – 18:00",
       roles: "",
       date: "Day 2",
-      agency: { name: "AI EXPO HACKATHON" },
+      agency: { name: "HACK ON TRACKS" },
       infos: ["Scoring and shortlisting.", "Timings will be confirmed with the Round 2 shortlist."],
       media: { url: DNA_PLACEHOLDER_IMAGE, isVideo: !1 }
     },
@@ -253,7 +253,7 @@ export const homeData = {
       type: "18:00 – 19:00",
       roles: "",
       date: "Day 2",
-      agency: { name: "AI EXPO HACKATHON" },
+      agency: { name: "HACK ON TRACKS" },
       infos: ["Winners announced, closing notes.", "Timings will be confirmed with the Round 2 shortlist."],
       media: { url: DNA_PLACEHOLDER_IMAGE, isVideo: !1 }
     }

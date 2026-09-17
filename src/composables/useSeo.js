@@ -9,7 +9,7 @@ const stripTrailingSlash = s => s.replace(/\/$/, "");
 
 const SITE_URL = stripTrailingSlash("https://leoparpeix.com");
 
-const SITE_NAME = "Léo Parpeix";
+const SITE_NAME = "Hack on tracks";
 
 const SITE_LOCALE = "en_US";
 
@@ -19,7 +19,7 @@ const TWITTER_SITE = "@LecornuThoma";
 
 const TWITTER_CREATOR = "@LecornuThoma";
 
-const AUTHOR = "Léo Parpeix";
+const AUTHOR = "AI EXPO HACKATHON";
 
 const PREVIEW_IMAGE_PATH = "/preview.jpg";
 
@@ -28,14 +28,14 @@ const PREVIEW_IMAGE = {
   width: 1200,
   height: 627,
   type: "image/jpeg",
-  alt: "Preview of Léo Parpeix portfolio — art direction and interactive design"
+  alt: "Preview of Hack on tracks — AI Expo Hackathon"
 };
 
-const DEFAULT_DESCRIPTION = "Portfolio of Léo Parpeix, art director and interactive designer. Explore immersive 3D experiences, creative projects, and a distinctive visual universe.";
+const DEFAULT_DESCRIPTION = "Hack on tracks — AI Expo Hackathon. Four domains, two rounds, one 24-hour build.";
 
 const SEO_PAGES = {
   home: {
-    title: "Léo Parpeix — Art director & interactive designer",
+    title: "Hack on tracks",
     description: DEFAULT_DESCRIPTION,
     path: "/"
   },

@@ -1,7 +1,7 @@
 {
-	"name": "Léo Parpeix",
-	"short_name": "Léo Parpeix",
-	"description": "Portfolio of Léo Parpeix — art director and interactive designer",
+	"name": "Hack on tracks",
+	"short_name": "Hack on tracks",
+	"description": "Hack on tracks — AI Expo Hackathon",
 	"start_url": "/",
 	"scope": "/",
 	"display": "standalone",
