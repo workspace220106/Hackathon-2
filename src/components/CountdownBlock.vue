@@ -2,6 +2,7 @@
 import { computed, onMounted, onUnmounted, ref } from 'vue';
 import { HACKATHON_START, HACKATHON_DATES_LABEL } from '../data/hackathon.js';
 import { useScrollReveal } from '../composables/useScrollReveal.js';
+import SpraySplash from './SpraySplash.vue';
 
 // Live countdown to HACKATHON_START (src/data/hackathon.js), drawn as four
 // spray-painted tiles. Ticks once a second; shows "Now boarding" once the date
@@ -19,10 +20,10 @@ const pad = (n) => String(n).padStart(2, '0');
 const tiles = computed(() => {
   const s = Math.floor(left.value / 1000);
   return [
-    { label: 'Days', value: pad(Math.floor(s / 86400)), tilt: -3, color: '#FF5A2E' },
-    { label: 'Hours', value: pad(Math.floor((s % 86400) / 3600)), tilt: 2, color: '#FFC300' },
-    { label: 'Min', value: pad(Math.floor((s % 3600) / 60)), tilt: -2, color: '#00E5D0' },
-    { label: 'Sec', value: pad(s % 60), tilt: 3, color: '#4FC3F7' },
+    { label: 'Days', value: pad(Math.floor(s / 86400)), tilt: -3, color: '#FF5A2E', accent: '#FF3FA4', seed: 11 },
+    { label: 'Hours', value: pad(Math.floor((s % 86400) / 3600)), tilt: 2, color: '#FFC300', accent: '#8DE21C', seed: 23 },
+    { label: 'Min', value: pad(Math.floor((s % 3600) / 60)), tilt: -2, color: '#00E5D0', accent: '#2E8BFF', seed: 37 },
+    { label: 'Sec', value: pad(s % 60), tilt: 3, color: '#B04CFF', accent: '#FF3FA4', seed: 41 },
   ];
 });
 
@@ -43,11 +44,7 @@ onUnmounted(() => clearInterval(timer));
 
       <ol class="countdownBlock__tiles fade" aria-live="polite">
         <li v-for="t in tiles" :key="t.label" class="tile" :style="{ '--tilt': t.tilt + 'deg', '--c': t.color }">
-          <svg class="tile__splat" viewBox="0 0 200 200" aria-hidden="true">
-            <path d="M28 40 C36 14 84 8 118 16 C150 22 186 30 190 66 C194 96 176 118 178 146 C180 174 150 190 118 186 C88 182 62 194 40 178 C14 160 6 128 12 100 C16 78 20 60 28 40 Z" fill="var(--c)" />
-            <path class="tile__drip" d="M52 176 c0 14 -2 30 2 40 c4 6 10 0 8 -12 c-2 -10 0 -20 -2 -28 z M132 182 c0 10 -1 22 3 28 c4 4 8 -2 6 -10 c-2 -8 0 -12 -1 -18 z" fill="var(--c)" />
-            <circle cx="20" cy="150" r="5" fill="var(--c)" /><circle cx="184" cy="42" r="4" fill="var(--c)" /><circle cx="176" cy="172" r="3" fill="var(--c)" /><circle cx="30" cy="22" r="3" fill="var(--c)" />
-          </svg>
+          <SpraySplash class="tile__splat" :color="t.color" :accent="t.accent" :seed="t.seed" :rough=".55" />
           <span class="tile__value">{{ t.value }}</span>
           <span class="tile__label">{{ t.label }}</span>
         </li>
@@ -66,11 +63,10 @@ onUnmounted(() => clearInterval(timer));
 .countdownBlock__title { font-family: title; font-weight: 500; letter-spacing: -.02em; line-height: .9; text-transform: uppercase; color: var(--c-hazard); font-size: clamp(44px, 7vw, 120px); margin-bottom: 3rem; }
 
 .countdownBlock__tiles { display: flex; justify-content: center; gap: clamp(10px, 2.2vw, 36px); flex-wrap: wrap; }
-.tile { position: relative; width: clamp(120px, 15vw, 210px); aspect-ratio: 1; display: grid; place-content: center; transform: rotate(var(--tilt)); }
-.tile__splat { position: absolute; inset: -6% -6% -18% -6%; width: 112%; height: 124%; filter: drop-shadow(0 6px 0 rgba(27, 42, 74, .18)); }
-.tile__drip { opacity: .9; }
-.tile__value { position: relative; font-family: 'Rubik Spray Paint', 'Permanent Marker', Impact, sans-serif; font-size: clamp(44px, 6vw, 88px); line-height: 1; color: var(--c-navy); text-shadow: 3px 3px 0 rgba(255, 255, 255, .55); font-variant-numeric: tabular-nums; }
-.tile__label { position: relative; margin-top: .2em; font-family: title; font-weight: 500; text-transform: uppercase; letter-spacing: .12em; font-size: clamp(11px, 1vw, 15px); color: var(--c-navy); }
+.tile { position: relative; width: clamp(120px, 14vw, 200px); aspect-ratio: 4 / 3; display: grid; place-content: center; transform: rotate(var(--tilt)); }
+.tile__splat { inset: -12% -10% -20% -10%; width: 120%; height: 132%; }
+.tile__value { position: relative; font-family: 'Rubik Spray Paint', 'Permanent Marker', Impact, sans-serif; font-size: clamp(44px, 6vw, 88px); line-height: 1; color: #fff; -webkit-text-stroke: 2px var(--c-navy); paint-order: stroke fill; text-shadow: 4px 4px 0 var(--c-navy); font-variant-numeric: tabular-nums; }
+.tile__label { position: relative; margin-top: .25em; font-family: 'Rubik Spray Paint', 'Permanent Marker', Impact, sans-serif; text-transform: uppercase; letter-spacing: .1em; font-size: clamp(12px, 1.1vw, 17px); color: var(--c-navy); }
 
 @media (max-width: 700px) {
   .countdownBlock { padding: 4rem 1rem 2rem; }

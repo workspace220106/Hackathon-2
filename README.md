@@ -103,7 +103,7 @@ the hero copy ("Driven by detail…"), the daisy sculpture and the studio room i
   `src/components/PrizesBlock.vue` + `src/components/prizes/prizeStage.js` render the three Subway Surfers
   characters (`public/assets/models/global/characters/{tricky,ninja,tagbot}/`, static OBJs — no rig, so
   "waving" is an idle bob/sway + hop-and-spin on hover) and show the price tag on hover; amounts / order in
-  `prizes`. `src/components/SponsorsBlock.vue` draws six spray patches from `sponsors` — fill `logo` / `name` /
+  `prizes`. `src/components/SponsorsBlock.vue` draws six spray patches from `sponsors`; both use `src/components/SpraySplash.vue` (procedural imprint-style splash: halo, rough edge, outline, drips, speckles — `color` / `accent` / `seed` / `rough` props) — fill `logo` / `name` /
   `url` per slot and the placeholder is replaced by the image.
 * **Create account** (`/signup`, `src/views/SignupView.vue`) and **Teams** (`/teams`, `src/views/TeamsView.vue`,
   login required). Team cards (name, domain, status, progress bar, expandable problem statement / members /

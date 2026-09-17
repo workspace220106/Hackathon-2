@@ -68,7 +68,7 @@ const HomeViewSfc = {
     }), emitter.on(EVENTS.SHOW_HOME_PAGE, () => {
       a(!1)
     }), (l, u) => (openBlock(), createElementBlock("div", E4, [
-      createVNode(ImprintsLayer, { zones: [".heroBlock", ".introBlock", ".aboutBlock", ".scheduleBlock", ".countdownBlock", ".sponsorsBlock", ".footerBlock"], count: 12 }),
+      createVNode(ImprintsLayer, { zones: [".heroBlock", ".introBlock", ".aboutBlock", ".scheduleBlock", ".footerBlock"], count: 12 }),
       createVNode(HeaderBlock, mergeProps({
         ref_key: "headerBlockRef",
         ref: t
