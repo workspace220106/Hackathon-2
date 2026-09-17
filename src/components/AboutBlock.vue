@@ -51,17 +51,6 @@ onMounted(() => requestAnimationFrame(arm));
           <p class="principle__text">{{ p.text }}</p>
         </li>
       </ul>
-
-      <footer class="aboutOrg" data-reveal>
-        <p class="aboutOrg__label fade">Organised by</p>
-        <h3 class="aboutOrg__name reveal"><span>{{ about.organiser.name }}</span></h3>
-        <p class="aboutOrg__college fade">{{ about.organiser.college }}</p>
-        <p class="aboutOrg__links fade">
-          <a class="aboutOrg__link" :href="'mailto:' + about.organiser.email">{{ about.organiser.email }}</a>
-          <a class="aboutOrg__link" :href="about.organiser.instagram" target="_blank" rel="noopener">Instagram</a>
-          <a class="aboutOrg__link" :href="about.organiser.linkedin" target="_blank" rel="noopener">LinkedIn</a>
-        </p>
-      </footer>
     </div>
   </section>
 </template>
@@ -99,18 +88,10 @@ onMounted(() => requestAnimationFrame(arm));
 .aboutTheme__text { font-family: title, sans-serif; font-weight: 500; font-size: clamp(1.3rem, 2.4vw, 2.1rem); line-height: 1.15; letter-spacing: -.01em; margin: 0 0 .8rem; }
 .aboutTheme__by { margin: 0; font-size: .78rem; text-transform: uppercase; letter-spacing: .08em; opacity: .6; }
 
-.aboutPrinciples { list-style: none; margin: 0 0 3.5rem; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+.aboutPrinciples { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
 .principle { padding: 1.2rem 1.3rem; border-radius: 1rem; background: #fff; border: 1.5px solid rgba(27, 42, 74, .12); }
 .principle__title { font-family: title, sans-serif; font-weight: 600; font-size: 1.15rem; margin: 0 0 .45rem; color: var(--c-hazard); }
 .principle__text { margin: 0; font-size: .88rem; line-height: 1.45; opacity: .85; }
-
-.aboutOrg { border-top: 1.5px solid rgba(27, 42, 74, .15); padding-top: 2rem; }
-.aboutOrg__label { font-size: .7857142857rem; letter-spacing: .04em; text-transform: uppercase; margin: 0 0 .5rem; color: var(--c-orange); }
-.aboutOrg__name { font-family: title, sans-serif; font-weight: 600; font-size: clamp(1.5rem, 3vw, 2.6rem); line-height: 1.05; letter-spacing: -.02em; margin: 0 0 .3rem; }
-.aboutOrg__college { margin: 0 0 1rem; font-size: 1rem; opacity: .8; }
-.aboutOrg__links { display: flex; flex-wrap: wrap; gap: .6rem 1.5rem; margin: 0; }
-.aboutOrg__link { font-size: .95rem; text-decoration: underline; text-underline-offset: .2em; transition: color .25s ease; }
-.aboutOrg__link:hover { color: var(--c-cyan); }
 
 @media (max-width: 900px) {
   .aboutBlock { padding: 5rem 1rem 3rem; }
