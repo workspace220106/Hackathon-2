@@ -11,11 +11,11 @@ const props = defineProps({
   // Imprints are distributed across these zones proportionally to their height.
   // Empty array = the whole page.
   zones: { type: Array, default: () => [] },
-  count: { type: Number, default: 8 }, // images repeat (cycled) beyond the 7 unique ones
+  count: { type: Number, default: 12 }, // images repeat (cycled) beyond the 7 unique ones
 });
 
 const IMPRINTS = Array.from({ length: 7 }, (_, i) => `/assets/imprints/imprint-${i + 1}.webp`);
-const OPACITY = 0.8;
+const OPACITY = 0.92;
 const PARALLAX = 0.12; // fraction of scroll delta the imprints lag behind
 
 const rootRef = ref(null);
@@ -23,11 +23,11 @@ const items = ref([]);
 
 // pseudo-random but stable layout (left/right alternation, rotation, size)
 // x is % of page width (negative / >40 pushes the piece off the left / right edge), w in vw
-// pieces hug the left/right margins (x ≈ -15 or ≈ 80) so the centre column stays clean
+// x < -30 or x > 60 = mostly off the edge (only partly visible)
 const LAYOUT = [
-  { x: -14, w: 34, r: -6 }, { x: 80, w: 32, r: 5 }, { x: -18, w: 30, r: 4 },
-  { x: 82, w: 34, r: -5 }, { x: -12, w: 32, r: 7 }, { x: 84, w: 30, r: -6 }, { x: -16, w: 34, r: 3 },
-  { x: 80, w: 32, r: 4 }, { x: -14, w: 30, r: -4 }, { x: 82, w: 34, r: 6 }, { x: -18, w: 32, r: -5 }, { x: 84, w: 30, r: 3 },
+  { x: -22, w: 50, r: -6 }, { x: 58, w: 49, r: 5 }, { x: -42, w: 48, r: 4 },
+  { x: 50, w: 50, r: -5 }, { x: -18, w: 49, r: 7 }, { x: 66, w: 48, r: -6 }, { x: -40, w: 50, r: 3 },
+  { x: 54, w: 46, r: 4 }, { x: -24, w: 49, r: -4 }, { x: 68, w: 50, r: 6 }, { x: -44, w: 46, r: -5 }, { x: 48, w: 49, r: 3 },
 ];
 
 function layout() {
@@ -42,8 +42,8 @@ function layout() {
     .filter((z) => z.height > 0);
   if (!zones.length) zones = [{ top: 0, height: page.scrollHeight }];
   const n = props.count;
-  const imprintH = (w) => Math.min(window.innerWidth * w / 100, 640) * 0.55;
-  const avgH = imprintH(32);
+  const imprintH = (w) => Math.min(window.innerWidth * w / 100, 980) * 0.55;
+  const avgH = imprintH(49);
   // capacity per zone (imprints may overlap a little), then distribute proportionally within capacity
   const caps = zones.map((z) => Math.max(1, Math.round(z.height / (avgH * 0.35))));
   const total = zones.reduce((a, z) => a + z.height, 0);
@@ -93,5 +93,5 @@ onUnmounted(() => { emitter.off(EVENTS.RESIZE, layout); emitter.off(EVENTS.LAYOU
 
 <style scoped>
 .imprints { position: absolute; inset: 0; z-index: -1; pointer-events: none; overflow: hidden; }
-.imprints__item { position: absolute; max-width: 640px; min-width: 220px; height: auto; will-change: transform; filter: saturate(1.05) drop-shadow(0 6px 18px rgba(27, 42, 74, .08)); }
+.imprints__item { position: absolute; max-width: 980px; min-width: 300px; height: auto; will-change: transform; filter: saturate(1.05) drop-shadow(0 6px 18px rgba(27, 42, 74, .08)); }
 </style>
