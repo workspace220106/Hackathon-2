@@ -168,7 +168,7 @@ onUnmounted(() => { app.trackBee = null; unScroll?.(); ro?.disconnect(); emitter
   .timeline__line, .timeline__fill { width: 28px; margin-left: -14px; }
   .timeline__fill { margin-left: 0; }
   .entry { grid-template-columns: 1fr 36px 1fr; column-gap: .9rem; padding: 2rem 0; }
-  .entry__time strong { font-size: clamp(22px, 7vw, 34px); }
+  .entry__time strong { font-size: clamp(17px, 5.4vw, 30px); letter-spacing: -.03em; }
   .entry__name { font-size: clamp(17px, 4.6vw, 22px); margin-bottom: .4rem; }
   .entry__info { font-size: 13px; }
   .entry__day { font-size: .65rem; }

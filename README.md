@@ -76,6 +76,11 @@ the hero copy ("Driven by detail…"), the daisy sculpture and the studio room i
   On desktop the 3D train leaves its free flight and rides the rails while the section is under the viewport
   centre — the component publishes the marker's screen position in `app.trackBee`, consumed by
   `WebGL._updateTrackBee()` (the old Playground "content bee" slot). Tune `MARKER_AT` / `LIVE_RANGE` in the component.
+* **Hackathon content** lives in `src/data/hackathon.js` (about copy, rounds, principles, organiser, the four
+  Round 1 *online* problem statements in `onlinePS`, and the eight Round 2 *offline* ones in `offlinePS` — the
+  offline list is stored but **not rendered yet**). Rendered by `src/components/AboutBlock.vue` (after the intro)
+  and `src/components/ProblemStatementsBlock.vue` (expandable cards, before the schedule). The footer's original
+  "Credits" popup is removed (`creditsBtn: ""` in `src/data/global.js` + CSS) — the About section replaces it.
 * **Page transition** (between routes) now plays the guard clip (`FRAME_CLIPS.guard`) inside the
   growing circle instead of the green disc + daisy: `src/webgl/objects/FlowerGroup.js` (`createTransitionVideo`).
 * **Graffiti imprints** on the white background: `src/components/ImprintsLayer.vue`

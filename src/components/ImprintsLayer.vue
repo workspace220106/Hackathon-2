@@ -7,11 +7,10 @@ import { emitter, EVENTS } from '../core/events.js';
 // content (pointer-events: none), scroll with the page and drift a little slower
 // than it (parallax). Tweak IMPRINTS / OPACITY / PARALLAX to taste.
 const props = defineProps({
-  // CSS selectors (inside .page) of the white sections the imprints may cover.
-  // Imprints are distributed across these zones proportionally to their height.
-  // Empty array = the whole page.
+  // CSS selectors (inside .page) of the white sections the imprints may cover. Empty array = the whole page.
+  // Inside a zone a piece is only placed where it does not touch any text or media (see layout()).
   zones: { type: Array, default: () => [] },
-  count: { type: Number, default: 12 }, // images repeat (cycled) beyond the 7 unique ones
+  count: { type: Number, default: 12 }, // upper bound — fewer are placed when there is no free room
 });
 
 const IMPRINTS = Array.from({ length: 7 }, (_, i) => `/assets/imprints/imprint-${i + 1}.webp`);
@@ -42,28 +41,51 @@ function layout() {
     .filter((z) => z.height > 0);
   if (!zones.length) zones = [{ top: 0, height: page.scrollHeight }];
   const n = props.count;
-  const imprintH = (w) => Math.min(window.innerWidth * w / 100, 980) * 0.55;
-  const avgH = imprintH(49);
-  // capacity per zone = how many fit stacked without touching each other
-  const caps = zones.map((z) => Math.max(1, Math.floor(z.height / (avgH * 1.1))));
-  const total = zones.reduce((a, z) => a + z.height, 0);
-  let counts = zones.map((z, i) => Math.min(caps[i], Math.max(1, Math.round((z.height / total) * n))));
-  let sum = counts.reduce((a, b) => a + b, 0);
-  for (let i = 0; sum < n && i < zones.length * 4; i++) { const zi = i % zones.length; if (counts[zi] < caps[zi]) { counts[zi]++; sum++; } }
-  while (sum > n) { const zi = counts.indexOf(Math.max(...counts)); counts[zi]--; sum--; }
+  const vw = window.innerWidth;
+  const imprintW = (w) => Math.min(vw * w / 100, 980);
+  const imprintH = (w) => imprintW(w) * 0.55;
+  // everything a piece must stay clear of: visible text and media inside the zones (+ padding)
+  const PAD = 28;
+  const pageRect = page.getBoundingClientRect();
+  const content = [...page.querySelectorAll('h1,h2,h3,h4,p,span,a,button,strong,li,img,video,canvas,svg,input,textarea,label')]
+    .filter((el) => !el.closest('.imprints') && (el.children.length === 0 || /^(IMG|VIDEO|CANVAS|SVG)$/.test(el.tagName)))
+    .filter((el) => { const cs = getComputedStyle(el); return cs.display !== 'none' && cs.visibility !== 'hidden'; })
+    .map((el) => { const r = el.getBoundingClientRect(); return { l: r.left - pageRect.left - PAD, t: r.top - pageTop - PAD, r: r.right - pageRect.left + PAD, b: r.bottom - pageTop + PAD }; })
+    .filter((r) => r.r - r.l > 2 * PAD + 4 && r.b - r.t > 2 * PAD + 4);
+  const hits = (box) => content.some((c) => box.l < c.r && box.r > c.l && box.t < c.b && box.b > c.t);
+  const placed = [];
+  const clashes = (box) => placed.some((c) => box.l < c.r + PAD && box.r > c.l - PAD && box.t < c.b + PAD && box.b > c.t - PAD);
+  // walk the zones top→bottom; at each step try the piece at full size, then smaller, on its
+  // side / the other side / centred, and take the first placement that touches nothing
   const out = [];
   let k = 0;
-  zones.forEach((z, zi) => {
-    const c = counts[zi];
-    const slot = z.height / c;
-    for (let j = 0; j < c && k < n; j++, k++) {
+  const STEP = 36, SCALES = [1, 0.8, 0.62, 0.48];
+  // the fixed navbar covers the first ~110px of a section when it lands at the top of the viewport
+  const NAV_INSET = 110;
+  for (const z of zones) {
+    let y = z.top + NAV_INSET;
+    while (out.length < n && y < z.top + z.height) {
       const l = LAYOUT[k % LAYOUT.length];
-      // centred in an equal slot, clamped so the piece never leaves its white zone
-      const h = imprintH(l.w);
-      const top = Math.max(z.top, Math.min(z.top + z.height - h, z.top + slot * j + (slot - h) / 2));
-      out.push({ src: IMPRINTS[k % IMPRINTS.length], top, x: l.x, w: l.w, r: l.r, speed: PARALLAX * (0.6 + (k % 3) * 0.3) });
+      let hit = null;
+      for (const sc of SCALES) {
+        const wv = l.w * sc, w = imprintW(wv), h = imprintH(wv);
+        if (y + h > z.top + z.height) continue;
+        const xs = l.x < 50 ? [3, 100 - wv - 3, 50 - wv / 2] : [100 - wv - 3, 3, 50 - wv / 2];
+        for (const xp of xs) {
+          const left = vw * xp / 100;
+          const box = { l: left, t: y, r: left + w, b: y + h };
+          if (!hits(box) && !clashes(box)) { hit = { box, xp, wv, h }; break; }
+        }
+        if (hit) break;
+      }
+      if (hit) {
+        out.push({ src: IMPRINTS[k % IMPRINTS.length], top: y, x: hit.xp, w: hit.wv, r: l.r, speed: PARALLAX * (0.6 + (k % 3) * 0.3) });
+        placed.push(hit.box); k++; y += hit.h * 0.5;
+      } else {
+        y += STEP;
+      }
     }
-  });
+  }
   items.value = out;
 }
 let unScroll = null;
@@ -102,5 +124,5 @@ onUnmounted(() => { emitter.off(EVENTS.RESIZE, layout); emitter.off(EVENTS.LAYOU
 
 <style scoped>
 .imprints { position: absolute; inset: 0; z-index: -1; pointer-events: none; overflow: hidden; }
-.imprints__item { position: absolute; max-width: 980px; min-width: 300px; height: auto; will-change: transform; filter: saturate(1.05) drop-shadow(0 6px 18px rgba(27, 42, 74, .08)); }
+.imprints__item { position: absolute; max-width: 980px; height: auto; will-change: transform; filter: saturate(1.05) drop-shadow(0 6px 18px rgba(27, 42, 74, .08)); }
 </style>

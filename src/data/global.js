@@ -28,8 +28,8 @@ const orientationData = {
 const footerData = {
   titles: ["Let's create", "a remarkable", "journey"],
   titlesReveal: ["your gateway", "to excitement", "starts here !"],
-  date: "Spring 2021",
-  creditsBtn: "Credits",
+  date: "2026",
+  creditsBtn: "", // credits popup removed — the "About us" section on the home page replaces it
   networks: [{
     name: "Instagram",
     url: "https://www.instagram.com/aidl_fcrit/"
@@ -39,18 +39,11 @@ const footerData = {
     name: "Linkedin",
     url: "https://www.linkedin.com/company/artificial-intelligence-and-deep-learning-club-fcrit/"
   }],
-  copyright: "© 2024",
-  infos: "about this Portfolio",
-  smallTexts: [
-    ["A huge shout-out to <a target='_blank' class='text__link' href='https://twitter.com/LecornuThoma'>Thoma Lecornu</a>,", "who jumped onto this project with me."],
-    ["His personality and determination", "were, for sure, one of the key elements", "in the success of this portfolio."],
-    ["And, a big shout-out to <a target='_blank' class='text__link' href='https://www.instagram.com/vic.rou'>Victor</a>, <a target='_blank' class='text__link' href='https://www.linkedin.com/in/felix-sikora/'>Félix</a>", "and <a target='_blank' class='text__link' href='https://www.instagram.com/lucas_gssr/'>Lucas</a> for their patience and 3D", "crazy skills !"]
-  ],
-  bigTexts: ["My goal was to strike the right balance between an immersive 3D experience and a clean 2D environment, allowing visitors to explore my projects in a single scroll and understand my skill set in under 10 seconds.", "I built the concept around the moustache daisy, a symbol that reflects both my personality and my creative approach. As the experience unfolds, you'll discover a character meticulously sculpted in an artist's workshop, one that exudes the beauty of nature, or one that becomes a strange and playful magical object."],
-  credits: {
-    name: "Thoma Lecornu",
-    link: "https://twitter.com/LecornuThoma"
-  }
+  copyright: "© 2026",
+  infos: "",
+  smallTexts: [],
+  bigTexts: [],
+  credits: null
 };
 
 export const globalData = {

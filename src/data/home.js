@@ -41,8 +41,8 @@ export const homeData = {
   },
   hero: {
     // placeholder copy — same reveal animations / fonts as the original
-    titles: ["To be", "added", "here"],
-    titlesReveal: ["Coming", "very", "soon"],
+    titles: ["AI Summit", "2026", "Hackathon"],
+    titlesReveal: ["Ideate.", "Build.", "Verify."],
     indication: "(Click to fuel the train)",
     city: "",
     textAgency: [],
@@ -50,8 +50,8 @@ export const homeData = {
     agencies: []
   },
   intro: {
-    bigTexts: ["To be added here.", "To be added here."],
-    smallTexts: ["To be added here.", "To be added here."],
+    bigTexts: ["Four domains. Two rounds.", "One 24-hour build."],
+    smallTexts: ["Round 1 is an online idea sprint on Unstop — one problem statement per domain, judged on understanding, architecture and originality.", "Shortlisted teams return for a 24-hour offline build where only evidence, correctness and robustness count."],
     urlReel: assetPaths.medias.home.showreel,
     cursorIndication: "Watch Reel"
   },
@@ -61,9 +61,9 @@ export const homeData = {
     sectionType: "slider",
     projectIndex: 0,
     mediasUrl: projectMediaUrls.project1,
-    name: "CORE ML",
+    name: "GENERAL AI / GENAI",
     type: "",
-    date: "2023",
+    date: "PS 3 · Info Verification",
     team: {
       text: "Team of 2",
       agency: {
@@ -72,17 +72,17 @@ export const homeData = {
       }
     },
     roles: {
-      text: "Roles",
-      items: ["Art Director", "UI & Interactive Designer"]
+      text: "Theme",
+      items: ["Emergency response", "Marketplaces", "Information trust", "Agent safety", "Industrial vision"]
     }
   }, {
     cursorIndication: "Drag",
     sectionType: "slider",
     projectIndex: 1,
     mediasUrl: projectMediaUrls.project2,
-    name: "FINTECH",
+    name: "FINTECH / BFSI AI",
     type: "",
-    date: "2025",
+    date: "PS 1 · Super App",
     team: {
       text: "Team of 3",
       agency: {
@@ -90,12 +90,12 @@ export const homeData = {
       }
     },
     roles: {
-      text: "Roles",
-      items: ["Art Director", "UI & Interactive Designer"]
+      text: "Theme",
+      items: ["Investing", "Banking engagement", "Rural finance", "Trade finance", "Wealth-building"]
     }
   },  {
     sectionType: "webgl",
-    textLines: ["Focus on", "innovation and", "user-centered", "design."],
+    textLines: ["AI that", "understands,", "decides and", "can be trusted."],
     cameraParams: {
       scrollRangePosition: {
         x: 0,
@@ -123,9 +123,9 @@ export const homeData = {
     sectionType: "slider",
     projectIndex: 2,
     mediasUrl: projectMediaUrls.project4,
-    name: "BLOCKCHAIN",
+    name: "BLOCKCHAIN × AI",
     type: "",
-    date: "2025",
+    date: "PS-01A · Pay-and-Earn",
     team: {
       text: "Team of 4",
       agency: {
@@ -134,17 +134,17 @@ export const homeData = {
       }
     },
     roles: {
-      text: "Roles",
-      items: ["Art Director", "UI & Interactive Designer"]
+      text: "Theme",
+      items: ["DeFi payments-as-yield", "On-chain data intelligence", "AI-grounded chain research"]
     }
   }, {
     cursorIndication: "Drag",
     sectionType: "slider",
     projectIndex: 3,
     mediasUrl: projectMediaUrls.project5,
-    name: "CYBERSECURITY",
+    name: "CYBERSECURITY & AI",
     type: "",
-    date: "2023",
+    date: "PS 1 · The Verified Fix",
     team: {
       text: "Team of 5",
       agency: {
@@ -153,8 +153,8 @@ export const homeData = {
       }
     },
     roles: {
-      text: "Roles",
-      items: ["Art Director", "UI, 3D & Interactive Designer"]
+      text: "Theme",
+      items: ["Vulnerability discovery", "Verified patching", "Intrusion detection"]
     }
   }, ],
   archives: {
@@ -164,100 +164,100 @@ export const homeData = {
     {
       name: "Registration & check-in",
       type: "09:00 – 10:00",
-      roles: "To be added here",
+      roles: "",
       date: "Day 1",
       agency: { name: "AI EXPO HACKATHON" },
-      infos: ["Teams arrive, badges, seating.", "Details to be added here."],
+      infos: ["Teams arrive, badges, seating.", "Timings will be confirmed with the Round 2 shortlist."],
       media: { url: DNA_PLACEHOLDER_IMAGE, isVideo: !1 }
     },
     {
       name: "Opening ceremony",
       type: "10:00 – 10:45",
-      roles: "To be added here",
+      roles: "",
       date: "Day 1",
       agency: { name: "AI EXPO HACKATHON" },
-      infos: ["Welcome, rules, problem statements reveal.", "Details to be added here."],
+      infos: ["Welcome, rules, problem statements reveal.", "Timings will be confirmed with the Round 2 shortlist."],
       media: { url: DNA_PLACEHOLDER_IMAGE, isVideo: !1 }
     },
     {
       name: "Hacking begins",
       type: "11:00",
-      roles: "To be added here",
+      roles: "",
       date: "Day 1",
       agency: { name: "AI EXPO HACKATHON" },
-      infos: ["Build phase starts.", "Details to be added here."],
+      infos: ["Build phase starts.", "Timings will be confirmed with the Round 2 shortlist."],
       media: { url: DNA_PLACEHOLDER_IMAGE, isVideo: !1 }
     },
     {
       name: "Mentor round 1",
       type: "15:00 – 17:00",
-      roles: "To be added here",
+      roles: "",
       date: "Day 1",
       agency: { name: "AI EXPO HACKATHON" },
-      infos: ["Mentors visit every team.", "Details to be added here."],
+      infos: ["Mentors visit every team.", "Timings will be confirmed with the Round 2 shortlist."],
       media: { url: DNA_PLACEHOLDER_IMAGE, isVideo: !1 }
     },
     {
       name: "Dinner & networking",
       type: "20:00",
-      roles: "To be added here",
+      roles: "",
       date: "Day 1",
       agency: { name: "AI EXPO HACKATHON" },
-      infos: ["Food, music, breaks.", "Details to be added here."],
+      infos: ["Food, music, breaks.", "Timings will be confirmed with the Round 2 shortlist."],
       media: { url: DNA_PLACEHOLDER_IMAGE, isVideo: !1 }
     },
     {
       name: "Midnight checkpoint",
       type: "00:00",
-      roles: "To be added here",
+      roles: "",
       date: "Day 1",
       agency: { name: "AI EXPO HACKATHON" },
-      infos: ["Progress snapshot from each team.", "Details to be added here."],
+      infos: ["Progress snapshot from each team.", "Timings will be confirmed with the Round 2 shortlist."],
       media: { url: DNA_PLACEHOLDER_IMAGE, isVideo: !1 }
     },
     {
       name: "Mentor round 2",
       type: "09:00 – 11:00",
-      roles: "To be added here",
+      roles: "",
       date: "Day 2",
       agency: { name: "AI EXPO HACKATHON" },
-      infos: ["Final guidance before submissions.", "Details to be added here."],
+      infos: ["Final guidance before submissions.", "Timings will be confirmed with the Round 2 shortlist."],
       media: { url: DNA_PLACEHOLDER_IMAGE, isVideo: !1 }
     },
     {
       name: "Submissions close",
       type: "13:00",
-      roles: "To be added here",
+      roles: "",
       date: "Day 2",
       agency: { name: "AI EXPO HACKATHON" },
-      infos: ["Repos, decks and demos locked.", "Details to be added here."],
+      infos: ["Repos, decks and demos locked.", "Timings will be confirmed with the Round 2 shortlist."],
       media: { url: DNA_PLACEHOLDER_IMAGE, isVideo: !1 }
     },
     {
       name: "Team presentations",
       type: "14:00 – 17:00",
-      roles: "To be added here",
+      roles: "",
       date: "Day 2",
       agency: { name: "AI EXPO HACKATHON" },
-      infos: ["5-minute pitch + Q&A per team.", "Details to be added here."],
+      infos: ["5-minute pitch + Q&A per team.", "Timings will be confirmed with the Round 2 shortlist."],
       media: { url: DNA_PLACEHOLDER_IMAGE, isVideo: !1 }
     },
     {
       name: "Jury deliberation",
       type: "17:00 – 18:00",
-      roles: "To be added here",
+      roles: "",
       date: "Day 2",
       agency: { name: "AI EXPO HACKATHON" },
-      infos: ["Scoring and shortlisting.", "Details to be added here."],
+      infos: ["Scoring and shortlisting.", "Timings will be confirmed with the Round 2 shortlist."],
       media: { url: DNA_PLACEHOLDER_IMAGE, isVideo: !1 }
     },
     {
       name: "Awards & closing",
       type: "18:00 – 19:00",
-      roles: "To be added here",
+      roles: "",
       date: "Day 2",
       agency: { name: "AI EXPO HACKATHON" },
-      infos: ["Winners announced, closing notes.", "Details to be added here."],
+      infos: ["Winners announced, closing notes.", "Timings will be confirmed with the Round 2 shortlist."],
       media: { url: DNA_PLACEHOLDER_IMAGE, isVideo: !1 }
     }
     ]
