@@ -22,7 +22,6 @@ import TrainDoorsBlock from '../components/TrainDoorsBlock.vue';
 import CountdownBlock from '../components/CountdownBlock.vue';
 import PrizesBlock from '../components/PrizesBlock.vue';
 import SponsorsBlock from '../components/SponsorsBlock.vue';
-import OrganisedByFooter from '../components/OrganisedByFooter.vue';
 import {
   FooterBlock
 } from '../components/FooterBlock.js';
@@ -69,7 +68,7 @@ const HomeViewSfc = {
     }), emitter.on(EVENTS.SHOW_HOME_PAGE, () => {
       a(!1)
     }), (l, u) => (openBlock(), createElementBlock("div", E4, [
-      createVNode(ImprintsLayer, { zones: [".heroBlock", ".introBlock", ".aboutBlock", ".scheduleBlock", ".countdownBlock", ".sponsorsBlock", ".organisedByFooter", ".footerBlock"], count: 12 }),
+      createVNode(ImprintsLayer, { zones: [".heroBlock", ".introBlock", ".aboutBlock", ".scheduleBlock", ".countdownBlock", ".sponsorsBlock", ".footerBlock"], count: 12 }),
       createVNode(HeaderBlock, mergeProps({
         ref_key: "headerBlockRef",
         ref: t
@@ -82,7 +81,6 @@ const HomeViewSfc = {
       createVNode(CountdownBlock),
       createVNode(PrizesBlock),
       createVNode(SponsorsBlock),
-      createVNode(OrganisedByFooter),
       createVNode(FooterBlock, mergeProps({ theme: "white" }, unref(globalData).footer), null, 16)
     ]))
   }
