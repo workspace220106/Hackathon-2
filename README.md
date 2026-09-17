@@ -87,6 +87,15 @@ the hero copy ("Driven by detail…"), the daisy sculpture and the studio room i
   (`public/assets/imprints/imprint-1..7.webp`, wall backgrounds keyed out by `scripts/cutout-imprints.mjs`).
   They are only placed inside the white sections passed as `zones` (home: hero titles, intro, footer — never over
   the project sliders, the animation section or the archives). Size/rotation in `LAYOUT`, `OPACITY`, `PARALLAX`.
+* **Problem statements = train doors** (2026-09-18): `src/components/TrainDoorsBlock.vue` replaces the
+  expandable cards (`ProblemStatementsBlock.vue` is kept but unused). A pinned 100vh stage inside a 600vh section
+  (500vh on phones); scroll progress → `src/components/train/trainDoorsLayout.js` (`layout(p)`, tested by
+  `node scripts/test-train-layout.mjs`) → the SVG train in `src/components/train/TrainSvg.vue`. Tune `PHASES` /
+  `SLOT` there, palette + graffiti placement in `TrainSvg.vue`, text panel sizes in `TrainDoorsBlock.vue`.
+  "Expected solution" = `strong`, else `mvp`, else the `flow` chain. The stage is pinned with JS (`data-pin`)
+  because `main.app` has `overflow-x: hidden`, which breaks `position: sticky`; don't put a CSS `filter` on the
+  train wrapper (Chrome drops the whole stage to black). The section overlaps the Timeline by 100vh
+  (`margin-bottom: -100vh`) so the exiting train reveals it. Spray font: Rubik Spray Paint (Google Fonts, `index.html`).
 * **Create account** (`/signup`, `src/views/SignupView.vue`) and **Teams** (`/teams`, `src/views/TeamsView.vue`,
   login required). Team cards (name, domain, status, progress bar, expandable problem statement / members /
   mentor / stack / milestones / notes) come from `src/data/teams.js` — swap in your API data with the same shape.
