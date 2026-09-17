@@ -58,6 +58,7 @@ export function getPsCardTexture(domainIndex, blockIndex) {
   texture.minFilter = LinearFilter;
   texture.magFilter = LinearFilter;
   texture.generateMipmaps = false;
+  texture.flipY = false;
 
   textureCache.set(key, texture);
   return texture;
