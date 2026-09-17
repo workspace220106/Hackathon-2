@@ -50,11 +50,11 @@ import {
 const App = class App {
   async init(e, t, n, i) {
     var r;
-    this.$app = e, this.$wrapper = t, this.$topApp = n, this.$topWrapper = i, this.isOnHeader = !0, this.showFooterBee = !1, this.showPlaygroundContentBee = !1, this.playgroundContentBeeLayout = null, this.playgroundContentBeeBlockStartScroll = 0, this.playgroundContentBeeSuppressHeroUntilScrollReset = !1, this.playgroundContentBeeEnd = 0, this.playgroundContentBeeHideEnd = 0, this.playgroundFooterBeeStart = 0, this.firstReveal = !0, this.firstClick = !0, this.isLoaderRevealComplete = !1, this.toggleColorUI = !1, this.forceWhiteNavbarUI = !1, this.urlParams = new URLParams, this.skipLoader = this.urlParams.has("skipLoader"), this.isTouch = isTouch(), this.isTabletWidth = isTabletWidth(), this.hasNoSmoothScroll = this.isTabletWidth || this.isTouch, this._scrollSaveRaf = null, this.lenis = this._createLenis(), this.vueApp = this._createVueApp(), this.core = createCore(), this.tools = createTools(), this.webgl = new WebGL, this.soundController = new SoundController, (r = this.debug) == null || r.mapping.init(), this.vueApp.mount("#vue-app"), await this.load()
+    this.$app = e, this.$wrapper = t, this.$topApp = n, this.$topWrapper = i, this.isOnHeader = !0, this.showFooterBee = !1, this.showPlaygroundContentBee = !1, this.trackBee = null, this.playgroundContentBeeLayout = null, this.playgroundContentBeeBlockStartScroll = 0, this.playgroundContentBeeSuppressHeroUntilScrollReset = !1, this.playgroundContentBeeEnd = 0, this.playgroundContentBeeHideEnd = 0, this.playgroundFooterBeeStart = 0, this.firstReveal = !0, this.firstClick = !0, this.isLoaderRevealComplete = !1, this.toggleColorUI = !1, this.forceWhiteNavbarUI = !1, this.urlParams = new URLParams, this.skipLoader = this.urlParams.has("skipLoader"), this.isTouch = isTouch(), this.isTabletWidth = isTabletWidth(), this.hasNoSmoothScroll = this.isTouch, this._scrollSaveRaf = null, this.lenis = this._createLenis(), this.vueApp = this._createVueApp(), this.core = createCore(), this.tools = createTools(), this.webgl = new WebGL, this.soundController = new SoundController, (r = this.debug) == null || r.mapping.init(), this.vueApp.mount("#vue-app"), await this.load()
   }
   _createLenis() {
     const e = new Lenis({
-      lerp: isTabletWidth() ? 1 : .085,
+      lerp: isTouch() ? 1 : .085,
       smooth: !0,
       mouseMultiplier: 1,
       smoothTouch: !1,

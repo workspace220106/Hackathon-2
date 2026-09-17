@@ -25,7 +25,7 @@ export function usesHashBlur(s, e) {
 }
 
 function isDesktopBlur() {
-  return !isTabletWidth()
+  return !0 // blur on every width
 }
 
 export function blurRadiusForDevice(s) {

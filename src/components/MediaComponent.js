@@ -191,7 +191,7 @@ const MediaComponentSfc = {
           O = mapRangeClamped(w, [R, N], [1, 0]) * e.parallaxScaleAmount,
           Y = mapRangeClamped(w, [R, B], [0, 1]) * e.parallaxRotateAmount,
           G = mapRangeClamped(w, [R, B], [-1, 1]) * e.parallaxPositionAmount;
-        t.value && (e.hasParallaxScale && (t.value.style.transform = `scale(${1-O})`), e.hasParallaxPosition && !isTabletWidth() && (t.value.style.transform = `translate3d(0, ${G}px, 0)`), e.hasParallaxScale && e.hasParallaxPosition && (t.value.style.transform = `scale(${1-O}) translate3d(0, ${G}px, 0)`), e.hasParallaxRotation && (t.value.style.transform = `rotate(${Y}deg)`));
+        t.value && (e.hasParallaxScale && (t.value.style.transform = `scale(${1-O})`), e.hasParallaxPosition && (t.value.style.transform = `translate3d(0, ${G}px, 0)`), e.hasParallaxScale && e.hasParallaxPosition && (t.value.style.transform = `scale(${1-O}) translate3d(0, ${G}px, 0)`), e.hasParallaxRotation && (t.value.style.transform = `rotate(${Y}deg)`));
         const z = p();
         z && (e.hasParallaxScale ? z.style.transform = `translate3d(0, ${k}%, 0) scale(${1*e.scaleOffsetAmount+O})` : z.style.transform = `translate3d(0, ${k}%, 0) scale(${1*e.scaleOffsetAmount})`)
       },

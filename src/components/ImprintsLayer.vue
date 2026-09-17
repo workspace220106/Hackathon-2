@@ -23,11 +23,11 @@ const items = ref([]);
 
 // pseudo-random but stable layout (left/right alternation, rotation, size)
 // x is % of page width (negative / >40 pushes the piece off the left / right edge), w in vw
-// x < -30 or x > 60 = mostly off the edge (only partly visible)
+// every piece sits fully inside the page: left ones start at x≈3%, right ones end ≈3% before the edge
 const LAYOUT = [
-  { x: -22, w: 50, r: -6 }, { x: 58, w: 49, r: 5 }, { x: -42, w: 48, r: 4 },
-  { x: 50, w: 50, r: -5 }, { x: -18, w: 49, r: 7 }, { x: 66, w: 48, r: -6 }, { x: -40, w: 50, r: 3 },
-  { x: 54, w: 46, r: 4 }, { x: -24, w: 49, r: -4 }, { x: 68, w: 50, r: 6 }, { x: -44, w: 46, r: -5 }, { x: 48, w: 49, r: 3 },
+  { x: 3, w: 50, r: -6 }, { x: 48, w: 49, r: 5 }, { x: 4, w: 48, r: 4 },
+  { x: 47, w: 50, r: -5 }, { x: 3, w: 49, r: 7 }, { x: 49, w: 48, r: -6 }, { x: 4, w: 50, r: 3 },
+  { x: 50, w: 46, r: 4 }, { x: 3, w: 49, r: -4 }, { x: 47, w: 50, r: 6 }, { x: 5, w: 46, r: -5 }, { x: 48, w: 49, r: 3 },
 ];
 
 function layout() {
@@ -44,8 +44,8 @@ function layout() {
   const n = props.count;
   const imprintH = (w) => Math.min(window.innerWidth * w / 100, 980) * 0.55;
   const avgH = imprintH(49);
-  // capacity per zone (imprints may overlap a little), then distribute proportionally within capacity
-  const caps = zones.map((z) => Math.max(1, Math.round(z.height / (avgH * 0.35))));
+  // capacity per zone = how many fit stacked without touching each other
+  const caps = zones.map((z) => Math.max(1, Math.floor(z.height / (avgH * 1.1))));
   const total = zones.reduce((a, z) => a + z.height, 0);
   let counts = zones.map((z, i) => Math.min(caps[i], Math.max(1, Math.round((z.height / total) * n))));
   let sum = counts.reduce((a, b) => a + b, 0);
@@ -58,7 +58,9 @@ function layout() {
     const slot = z.height / c;
     for (let j = 0; j < c && k < n; j++, k++) {
       const l = LAYOUT[k % LAYOUT.length];
-      const top = z.top + slot * j + (slot - imprintH(l.w)) / 2; // centred in an equal slot
+      // centred in an equal slot, clamped so the piece never leaves its white zone
+      const h = imprintH(l.w);
+      const top = Math.max(z.top, Math.min(z.top + z.height - h, z.top + slot * j + (slot - h) / 2));
       out.push({ src: IMPRINTS[k % IMPRINTS.length], top, x: l.x, w: l.w, r: l.r, speed: PARALLAX * (0.6 + (k % 3) * 0.3) });
     }
   });
@@ -68,7 +70,14 @@ let unScroll = null;
 const onScrolled = (y) => {
   const els = rootRef.value?.children;
   if (!els) return;
-  for (let i = 0; i < els.length; i++) els[i].style.transform = `translate3d(0, ${(-y * items.value[i].speed).toFixed(1)}px, 0) rotate(${items.value[i].r}deg)`;
+  // parallax relative to each piece's own spot: 0 when it is centred in the viewport,
+  // so it lags a little while on screen but never drifts out of its white zone
+  const mid = y + window.innerHeight / 2;
+  for (let i = 0; i < els.length; i++) {
+    const it = items.value[i];
+    const off = (mid - (it.top + els[i].offsetHeight / 2)) * it.speed;
+    els[i].style.transform = `translate3d(0, ${(-off).toFixed(1)}px, 0) rotate(${it.r}deg)`;
+  }
 };
 let ro = null;
 onMounted(() => {

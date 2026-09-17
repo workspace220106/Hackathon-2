@@ -323,7 +323,7 @@ export class Bee extends Object3D {
     isTouch() || this._updateHoverFromPointer(e, t)
   }
   onTick() {
-    if (!isTouch()) {
+    { // ambient teasers run on touch too (hover ones still need a pointer)
       if (!this.visible) {
         this._isHovered && (this._isHovered = !1, this._onHoverLeave()), this._stopAmbientTeasers({
           hideGenericText: !0

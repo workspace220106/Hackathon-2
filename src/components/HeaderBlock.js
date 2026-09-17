@@ -164,10 +164,6 @@ const HeaderBlockSfc = {
         const T = i.value,
           C = r.value;
         if (!T || !(C != null && C.height)) return;
-        if (isTabletWidth()) {
-          T.style.transform = "", T.style.opacity = "1", T.style.willChange = "";
-          return
-        }
         const x = clamp(S / C.height, 0, 1);
         if (x <= 0) {
           T.style.transform = "", T.style.opacity = "", T.style.willChange = "";

@@ -50,7 +50,7 @@ const BeeTextIndicationSfc = {
       d = ref(),
       f = ref(!1),
       A = ref(!1),
-      m = () => !isTabletWidth() && !isTouch(),
+      m = () => !0 /* bee texts on every device */,
       g = () => l.value === "top" ? "50% 100%" : "50% 0%",
       p = () => {
         if (!h.value) return "translate(-100%, -100%)";

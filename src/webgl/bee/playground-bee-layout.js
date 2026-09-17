@@ -6,7 +6,7 @@ import {
 } from '../../utils/dom.js';
 
 export function bh() {
-  return !isTabletWidth()
+  return !0 // the train rides the schedule track at every width (was desktop-only)
 }
 
 function kg(s) {

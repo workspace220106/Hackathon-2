@@ -71,6 +71,11 @@ the hero copy ("Driven by detail…"), the daisy sculpture and the studio room i
   Volume: `params.volume` there. Sound starts on the first click (browser autoplay rules), toggle with the navbar button.
 * **Coins** replace the orange/grapes the train chases: `src/webgl/objects/CoinModel.js`
   (`public/assets/models/global/coin/`), spin speed `COIN_SPIN_SPEED`, size `COIN_SIZE`.
+* **Schedule** is a scroll-driven railway timeline (`src/components/ScheduleTimeline.vue`, data from
+  `homeData.archives.items`): rails fill in as you scroll, entries alternate sides and light up at the marker.
+  On desktop the 3D train leaves its free flight and rides the rails while the section is under the viewport
+  centre — the component publishes the marker's screen position in `app.trackBee`, consumed by
+  `WebGL._updateTrackBee()` (the old Playground "content bee" slot). Tune `MARKER_AT` / `LIVE_RANGE` in the component.
 * **Page transition** (between routes) now plays the guard clip (`FRAME_CLIPS.guard`) inside the
   growing circle instead of the green disc + daisy: `src/webgl/objects/FlowerGroup.js` (`createTransitionVideo`).
 * **Graffiti imprints** on the white background: `src/components/ImprintsLayer.vue`

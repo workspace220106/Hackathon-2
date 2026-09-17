@@ -127,7 +127,7 @@ export class WebGL {
       var e, t, n;
       this._skipFluidEffects = !1, this._usesFluidEffects() && ((n = (t = (e = this.finalPass) == null ? void 0 : e.material) == null ? void 0 : t.uniforms) != null && n.tVelocity) && this.simulation && (this.finalPass.material.uniforms.tVelocity.value = this.simulation.fbos.vel_0.texture)
     });
-    emitter.register(this), this._disableSimulation = isTouch() && isTabletWidth(), this._skipFluidEffects = !1, this.isPlaygroundPageActive = !1, this.isHomeAboutGroupsRenderActive = !1, this._headerScrollRect = null, this._webglSectionScrollRect = null, this._pageTransitionHidingGroups = !1, this._pageTransitionForceGroupsRender = !1, this._playgroundContentBeeLockedActive = !1, this._webglSectionRevealLocked = !1, this._webglSectionRevealSnapshot = null, this._webglSectionRevealListenersReady = !1, this._initialShaderPrewarmActive = !1, this._disableSimulation && (this.emptyVelocityTexture = this._createEmptyVelocityTexture());
+    emitter.register(this), this._disableSimulation = !1 /* fluid sim on every device (Mouse.js handles touch) */, this._skipFluidEffects = !1, this.isPlaygroundPageActive = !1, this.isHomeAboutGroupsRenderActive = !1, this._headerScrollRect = null, this._webglSectionScrollRect = null, this._pageTransitionHidingGroups = !1, this._pageTransitionForceGroupsRender = !1, this._playgroundContentBeeLockedActive = !1, this._webglSectionRevealLocked = !1, this._webglSectionRevealSnapshot = null, this._webglSectionRevealListenersReady = !1, this._initialShaderPrewarmActive = !1, this._disableSimulation && (this.emptyVelocityTexture = this._createEmptyVelocityTexture());
     const e = new PlaneGeometry(1, 1, 1, 1);
     this._createFluidRender(e), this._createMainRender(e), this._createInterfaceRender(e), this.topRenderer = new Renderer(!0, !0, {
       usePostDpr: !0
@@ -294,7 +294,27 @@ export class WebGL {
       r = t * n;
     this.mainCompRenderTarget.setSize(i, r), this.aaRenderTarget.setSize(i, r), this._mainCompResolution.set(i, r), this.fxaaPass.material.uniforms.resolution.value.set(1 / i, 1 / r), this.smaaPass.setSize(i, r), this.fluidHashBlurPass.material.uniforms.uResolution.value.set(i, r), this.effectComposer.setSize(e, t), this.effectComposer.setPixelRatio(n), this._usesFluidEffects() && ((o = this.simulation) == null || o.resize(e, t), this.output.material.uniforms.boundarySpace.value.set(this.simulation.cellScale.x, this.simulation.cellScale.y))
   }
-  _updatePlaygroundContentBeeState() {
+  /**
+   * Schedule track mode (components/ScheduleTimeline.vue): the timeline publishes the
+   * screen position of its marker in `app.trackBee`; the content train is shown there,
+   * gliding in from the side and following the marker down the rails.
+   */
+  _updateTrackBee(e) {
+    const t = app.trackBee, n = this.topScene, i = this.topCamera;
+    if (!t || !t.active) { this._trackBeeWasActive = !1; return !1 }
+    const r = i.dimensions,
+      o = (t.x / window.innerWidth - .5) * r.width + i.position.x,
+      a = (.5 - t.y / window.innerHeight) * r.height + i.position.y,
+      l = n.contentBeeGroup.position;
+    this._trackBeeWasActive || (this._trackBeeWasActive = !0, l.set(o + r.width * .55, a + r.height * .15, 0), n._contentShadowMesh.scale.set(r.width, r.height * 2, 1e-5));
+    const u = 1 - Math.exp(-5 * e);
+    l.x += (o - l.x) * u, l.y += (a - l.y) * u, l.z = 0;
+    n.setPageTransitionGroupToScrollCamera(i.position.y);
+    // heading 0 = along the track (the bee flips it by itself when the scroll direction changes)
+    n.contentBeeObject.setPathMotion({ heading: 0, pitch: 0, landPitch: 0, landSkyZ: 0, skyZ: .12 });
+    return app.showPlaygroundContentBee = !0, !0
+  }
+  _updatePlaygroundContentBeeState(dt = 1 / 60) {
     var i;
     if (!bh()) {
       app.showPlaygroundContentBee = !1;
@@ -308,6 +328,7 @@ export class WebGL {
       app.showPlaygroundContentBee = this._playgroundContentBeeLockedActive;
       return
     }
+    if (this._updateTrackBee(dt)) return;
     if (!this.isPlaygroundPageActive) {
       app.showPlaygroundContentBee = !1;
       return
@@ -326,7 +347,7 @@ export class WebGL {
     dt: t
   }) {
     var i;
-    sharedUniforms.uTime.value = e, this._usesFluidEffects() && fluidMouse.update(), app.isLoaderRevealComplete ? (this._updatePlaygroundContentBeeState(), this.topScene.syncBeeVisibility()) : this.topScene.hideBeesUntilLoaderReveal(), this.topRenderer.render(this.topScene, this.topCamera);
+    sharedUniforms.uTime.value = e, this._usesFluidEffects() && fluidMouse.update(), app.isLoaderRevealComplete ? (this._updatePlaygroundContentBeeState(t), this.topScene.syncBeeVisibility()) : this.topScene.hideBeesUntilLoaderReveal(), this.topRenderer.render(this.topScene, this.topCamera);
     const n = ((i = app.lenis) == null ? void 0 : i.animatedScroll) ?? 0;
     this._updateHomeAboutGroupsScrollActive(n), this._renderMainPipeline(t)
   }

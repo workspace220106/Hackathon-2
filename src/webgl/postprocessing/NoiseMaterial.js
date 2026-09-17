@@ -53,7 +53,7 @@ export class NoiseMaterial extends ShaderMaterial {
         value: null
       },
       uNoiseStrength: {
-        value: isTabletWidth() ? 0 : NOISE_STRENGTH
+        value: NOISE_STRENGTH
       },
       uTime: sharedUniforms.uTime,
       ...e.uniforms

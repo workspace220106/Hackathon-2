@@ -48,7 +48,7 @@ const ParallaxWrapperSfc = {
         n.value = new DOMRect(u.x, u.y + h, u.width, u.height)
       },
       o = () => {
-        if (t.value && !isTabletWidth() && r(t.value), app.lenis) {
+        if (t.value && r(t.value), app.lenis) {
           a(app.lenis.animatedScroll);
           return
         }
@@ -56,7 +56,7 @@ const ParallaxWrapperSfc = {
       },
       a = l => {
         if (!t.value || !n.value) return;
-        if (isTabletWidth() || !isRectNearViewport(l, n.value)) {
+        if (!isRectNearViewport(l, n.value)) {
           t.value.style.transform = "";
           return
         }
