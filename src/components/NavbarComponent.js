@@ -133,13 +133,38 @@ const NavbarSfc = {
       g = Q => {
         // "Work" is the site title (always goes home, even when it is not in the navbar links)
         const target = NAV_ROUTES[Q] ?? (Q === "Work" ? { path: "/", name: "home" } : null);
-        target && (A.value = target.name, router.push(target.path))
+        if (!target) return;
+        if (target.anchor) {
+          // section link: scroll if already on the page, otherwise go there and scroll once it has rendered
+          if (x.path === target.path) scrollToAnchor(target.anchor);
+          else {
+            A.value = target.name;
+            router.push(target.path).then(() => {
+              let tries = 0;
+              const wait = () => {
+                const el = document.querySelector(target.anchor);
+                if (el && app.isLoaderRevealComplete) scrollToAnchor(target.anchor, !0);
+                else if (tries++ < 120) setTimeout(wait, 100);
+              };
+              wait();
+            });
+          }
+          O();
+          return;
+        }
+        A.value = target.name, router.push(target.path)
+      },
+      scrollToAnchor = (sel, immediate = !1) => {
+        const el = document.querySelector(sel);
+        if (!el) return;
+        const y = el.getBoundingClientRect().top + window.scrollY + 2;
+        app.lenis ? app.lenis.scrollTo(y, { immediate, duration: 1.4 }) : window.scrollTo({ top: y, behavior: immediate ? "auto" : "smooth" })
       },
       p = Q => {
         const M = x.name,
           ne = x.path;
         const target = NAV_ROUTES[Q];
-        return !!target && (M === target.name || ne === target.path)
+        return !!target && !target.anchor && (M === target.name || ne === target.path)
       },
       _ = () => {
         window.location.href = `mailto:${m.contact}`

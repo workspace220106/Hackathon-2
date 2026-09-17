@@ -4,6 +4,12 @@ const SITE_INFOS = "";
 
 // Navbar entries → routes. Add / rename entries here (labels are what the navbar shows).
 export const NAV_ROUTES = {
+  // `anchor` entries scroll to a section of the home page (navigating home first if needed)
+  Domains: { path: "/", name: "home", anchor: ".trainBlock" },
+  Schedule: { path: "/", name: "home", anchor: ".scheduleBlock" },
+  Prizes: { path: "/", name: "home", anchor: ".prizesBlock" },
+  Sponsors: { path: "/", name: "home", anchor: ".sponsorsBlock" },
+  "About us": { path: "/", name: "home", anchor: ".aboutBlock" },
   Login: { path: "/login", name: "login" },
   // Work: { path: "/", name: "home" },
   // Teams: { path: "/teams", name: "teams" },
@@ -29,7 +35,7 @@ const footerData = {
   titles: ["Let's create", "a remarkable", "journey"],
   titlesReveal: ["your gateway", "to excitement", "starts here !"],
   date: "2026",
-  creditsBtn: "Credits",
+  creditsBtn: "About Us",
   networks: [{
     name: "Instagram",
     url: "https://www.instagram.com/aidl_fcrit/"
@@ -46,7 +52,7 @@ const footerData = {
     ["A huge shout-out to the core team,", "mentors and volunteers who keep", "the trains running on time."],
     ["Get in touch at", "<a class='text__link' href='mailto:fcrit.aidlofficial26@gmail.com'>fcrit.aidlofficial26@gmail.com</a>", "or on <a target='_blank' class='text__link' href='https://www.linkedin.com/company/artificial-intelligence-and-deep-learning-club-fcrit/'>LinkedIn</a>."]
   ],
-  bigTexts: ["<span class='popup__colTitle'>About us</span>Hack on Tracks is the AI Summit 2026 hackathon: four domains, two rounds, one subway line. Round 1 is an online idea sprint on Unstop; the shortlisted teams come back to campus for a 24-hour offline build.", "The website was built as a single-scroll experience — a graffiti train that rolls through the four problem statements, a railway timeline for the schedule, and a 3D train that follows you along the way. Experience and interaction design inspired by Léo Parpeix's portfolio."],
+  bigTexts: ["<span class='popup__colTitle'>About us</span>Hack on Tracks is the AI Summit 2026 hackathon: four domains, two rounds, one subway line. Round 1 is an online idea sprint on Unstop; the shortlisted teams come back to campus for a 24-hour offline build.", "The website was built as a single-scroll experience — a graffiti train that rolls through the four problem statements, a railway timeline for the schedule, and a 3D train that follows you along the way."],
   credits: {
     name: "AIDL Club, FCRIT",
     link: "https://www.instagram.com/aidl_fcrit/"

@@ -108,4 +108,4 @@ the hero copy ("Driven by detail…"), the daisy sculpture and the studio room i
 * **Create account** (`/signup`, `src/views/SignupView.vue`) and **Teams** (`/teams`, `src/views/TeamsView.vue`,
   login required). Team cards (name, domain, status, progress bar, expandable problem statement / members /
   mentor / stack / milestones / notes) come from `src/data/teams.js` — swap in your API data with the same shape.
-  Cards reveal on scroll (`src/composables/useScrollReveal.js`); the navbar now shows Work · Teams · Login.
+  Cards reveal on scroll (`src/composables/useScrollReveal.js`); the navbar shows Domains · Schedule · Prizes · Sponsors · About us · Login (section entries carry an `anchor` in `NAV_ROUTES`, `src/data/global.js`, and smooth-scroll there — navigating home first if needed).

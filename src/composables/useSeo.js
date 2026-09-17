@@ -7,7 +7,8 @@ import {
 
 const stripTrailingSlash = s => s.replace(/\/$/, "");
 
-const SITE_URL = stripTrailingSlash("https://leoparpeix.com");
+// no fixed domain yet — canonical / og:url follow wherever the site is deployed
+const SITE_URL = stripTrailingSlash(typeof window !== "undefined" ? window.location.origin : "");
 
 const SITE_NAME = "Hack on tracks";
 
@@ -15,9 +16,9 @@ const SITE_LOCALE = "en_US";
 
 const THEME_COLOR = "#083D2A";
 
-const TWITTER_SITE = "@LecornuThoma";
+const TWITTER_SITE = "";
 
-const TWITTER_CREATOR = "@LecornuThoma";
+const TWITTER_CREATOR = "";
 
 const AUTHOR = "AI EXPO HACKATHON";
 
