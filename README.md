@@ -81,7 +81,7 @@ the hero copy ("Driven by detail…"), the daisy sculpture and the studio room i
   offline list is stored but **not rendered yet**). Rendered by `src/components/AboutBlock.vue` (after the intro)
   and `src/components/ProblemStatementsBlock.vue` (expandable cards, before the schedule). The original `FooterBlock`
   (bottom-left "Credits" button + yellow popup, copy in `footerData` in `src/data/global.js`) is the page ending
-  again (restored 2026-09-18); `OrganisedByFooter.vue` is kept on disk but unused.
+  again (restored 2026-09-18); `OrganisedByFooter.vue` ("Organised by" block) sits between Sponsors and the footer.
 * **Page transition** (between routes) now plays the guard clip (`FRAME_CLIPS.guard`) inside the
   growing circle instead of the green disc + daisy: `src/webgl/objects/FlowerGroup.js` (`createTransitionVideo`).
 * **Graffiti imprints** on the white background: `src/components/ImprintsLayer.vue`
