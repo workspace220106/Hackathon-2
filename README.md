@@ -79,8 +79,9 @@ the hero copy ("Driven by detail…"), the daisy sculpture and the studio room i
 * **Hackathon content** lives in `src/data/hackathon.js` (about copy, rounds, principles, organiser, the four
   Round 1 *online* problem statements in `onlinePS`, and the eight Round 2 *offline* ones in `offlinePS` — the
   offline list is stored but **not rendered yet**). Rendered by `src/components/AboutBlock.vue` (after the intro)
-  and `src/components/ProblemStatementsBlock.vue` (expandable cards, before the schedule). The footer's original
-  "Credits" popup is removed (`creditsBtn: ""` in `src/data/global.js` + CSS) — the About section replaces it.
+  and `src/components/ProblemStatementsBlock.vue` (expandable cards, before the schedule). The original `FooterBlock`
+  (bottom-left "Credits" button + yellow popup, copy in `footerData` in `src/data/global.js`) is the page ending
+  again (restored 2026-09-18); `OrganisedByFooter.vue` is kept on disk but unused.
 * **Page transition** (between routes) now plays the guard clip (`FRAME_CLIPS.guard`) inside the
   growing circle instead of the green disc + daisy: `src/webgl/objects/FlowerGroup.js` (`createTransitionVideo`).
 * **Graffiti imprints** on the white background: `src/components/ImprintsLayer.vue`

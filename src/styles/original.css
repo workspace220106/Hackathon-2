@@ -43,5 +43,3 @@ a.text__link { color: var(--c-cyan); }
 .navbarBlock .left__infos, .navbarBlock__menu .menu__infos, .loaderBlock .container__infos { display: none !important; }
 /* intro copy was tucked under the hero title on tablets (margin-top:-140px) — keep it clear of the title */
 @media screen and (max-width: 1025px) { .introBlock { margin-top: 0 !important; } }
-/* credits popup removed (replaced by the About section) */
-.footerBlock .bottom__credits, .footerBlock__popup { display: none !important; }
