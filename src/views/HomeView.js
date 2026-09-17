@@ -34,7 +34,9 @@ import {
 import {
   HomeIntroBlock
 } from '../components/home/IntroBlock.js';
-import ProjectBlock from '../components/ProjectBlock.vue';
+import {
+  ProjectBlock
+} from '../components/ProjectBlock.js';
 import {
   WebglSectionBlock
 } from '../components/WebglSectionBlock.js';

@@ -7,48 +7,6 @@ import {
 const CARD_W = 1024;
 const CARD_H = 1365;
 
-/**
- * Renders a rich, high-resolution Canvas representation of a Problem Statement block
- * matching the hackathon UI screenshots.
- */
-function drawCard(domainIndex, blockIndex) {
-  const canvas = document.createElement('canvas');
-  canvas.width = CARD_W;
-  canvas.height = CARD_H;
-  const ctx = canvas.getContext('2d');
-  if (!ctx) return canvas;
-
-  // Background
-  ctx.fillStyle = '#f8f9fc';
-  ctx.fillRect(0, 0, CARD_W, CARD_H);
-
-  // Main Card Container (white with rounded corners & shadow)
-  const mx = 32, my = 32, mw = CARD_W - 64, mh = CARD_H - 64, r = 28;
-  ctx.save();
-  ctx.fillStyle = '#ffffff';
-  ctx.shadowColor = 'rgba(27, 42, 74, 0.08)';
-  ctx.shadowBlur = 24;
-  ctx.shadowOffsetY = 8;
-  roundRect(ctx, mx, my, mw, mh, r);
-  ctx.fill();
-  ctx.shadowColor = 'transparent';
-  ctx.strokeStyle = 'rgba(27, 42, 74, 0.12)';
-  ctx.lineWidth = 1.5;
-  ctx.stroke();
-  ctx.restore();
-
-  // Draw specific block content
-  ctx.save();
-  ctx.translate(mx + 44, my + 44);
-  const contentW = mw - 88;
-
-  const cards = getCardData(domainIndex, blockIndex);
-  renderCardContent(ctx, cards, contentW);
-  ctx.restore();
-
-  return canvas;
-}
-
 function roundRect(ctx, x, y, w, h, r) {
   ctx.beginPath();
   ctx.moveTo(x + r, y);
@@ -71,188 +29,283 @@ function wrapText(ctx, text, x, y, maxWidth, lineHeight) {
     const testLine = line + words[n] + ' ';
     const metrics = ctx.measureText(testLine);
     if (metrics.width > maxWidth && n > 0) {
-      ctx.fillText(line, x, curY);
+      ctx.fillText(line.trim(), x, curY);
       line = words[n] + ' ';
       curY += lineHeight;
     } else {
       line = testLine;
     }
   }
-  ctx.fillText(line, x, curY);
+  ctx.fillText(line.trim(), x, curY);
   return curY + lineHeight;
 }
 
-function renderCardContent(ctx, card, w) {
+function drawCard(domainIndex, blockIndex) {
+  const canvas = document.createElement('canvas');
+  canvas.width = CARD_W;
+  canvas.height = CARD_H;
+  const ctx = canvas.getContext('2d');
+  if (!ctx) return canvas;
+
+  // Background behind card
+  ctx.fillStyle = '#f1f3f9';
+  ctx.fillRect(0, 0, CARD_W, CARD_H);
+
+  // Main Card Container (White with rounded corners & clean border)
+  const mx = 28, my = 28, mw = CARD_W - 56, mh = CARD_H - 56, r = 26;
+  ctx.save();
+  ctx.fillStyle = '#ffffff';
+  ctx.shadowColor = 'rgba(27, 42, 74, 0.08)';
+  ctx.shadowBlur = 28;
+  ctx.shadowOffsetY = 10;
+  roundRect(ctx, mx, my, mw, mh, r);
+  ctx.fill();
+  ctx.shadowColor = 'transparent';
+  ctx.strokeStyle = 'rgba(27, 42, 74, 0.14)';
+  ctx.lineWidth = 2;
+  ctx.stroke();
+  ctx.restore();
+
+  // Content Area
+  ctx.save();
+  const padX = mx + 48;
+  const padY = my + 48;
+  const contentW = mw - 96;
+  ctx.translate(padX, padY);
+
+  const data = getCardData(domainIndex, blockIndex);
+  renderDataToCanvas(ctx, data, contentW, mh - 96);
+  ctx.restore();
+
+  return canvas;
+}
+
+function renderDataToCanvas(ctx, card, w, maxH) {
   let y = 10;
 
-  // Header tag: Number & Domain Tag
-  ctx.font = '600 20px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
-  ctx.fillStyle = 'rgba(27, 42, 74, 0.4)';
+  // Top domain tag & block number
+  ctx.font = '700 20px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+  ctx.fillStyle = 'rgba(27, 42, 74, 0.45)';
   ctx.fillText(card.num, 0, y);
 
-  ctx.fillStyle = '#ff5a2e'; // hazard/orange
-  ctx.fillText(card.tag, 60, y);
-  y += 42;
+  ctx.fillStyle = '#ff5a2e'; // hazard orange
+  ctx.fillText(card.tag, 54, y);
+  y += 44;
 
-  // Main Title
-  ctx.font = '700 42px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+  // Title
+  ctx.font = '700 44px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
   ctx.fillStyle = '#1b2a4a';
-  y = wrapText(ctx, card.title, 0, y, w, 48) - 10;
+  y = wrapText(ctx, card.title, 0, y, w, 52) + 2;
 
   // Subtitle
   if (card.subtitle) {
-    ctx.font = '400 22px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+    ctx.font = '400 23px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
     ctx.fillStyle = 'rgba(27, 42, 74, 0.65)';
-    y = wrapText(ctx, card.subtitle, 0, y, w, 28) + 6;
+    y = wrapText(ctx, card.subtitle, 0, y, w, 32) + 12;
   }
 
-  // Divider
-  ctx.strokeStyle = 'rgba(27, 42, 74, 0.08)';
-  ctx.lineWidth = 1;
+  // Divider line
+  ctx.strokeStyle = 'rgba(27, 42, 74, 0.1)';
+  ctx.lineWidth = 1.5;
   ctx.beginPath();
   ctx.moveTo(0, y);
   ctx.lineTo(w, y);
   ctx.stroke();
-  y += 34;
+  y += 36;
 
-  // Hook (if present)
+  // Hook quote box (if present)
   if (card.hook) {
-    ctx.font = '600 28px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
-    ctx.fillStyle = '#ff5a2e';
-    y = wrapText(ctx, card.hook, 0, y, w, 36) + 16;
+    ctx.save();
+    ctx.font = '600 26px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+    ctx.fillStyle = 'rgba(255, 90, 46, 0.08)';
+    roundRect(ctx, 0, y - 6, w, 92, 14);
+    ctx.fill();
+    ctx.strokeStyle = 'rgba(255, 90, 46, 0.3)';
+    ctx.lineWidth = 1.5;
+    ctx.stroke();
+
+    ctx.fillStyle = '#ea580c';
+    wrapText(ctx, card.hook, 20, y + 34, w - 40, 34);
+    ctx.restore();
+    y += 114;
   }
 
-  // Sections
+  // Render Sections
   if (card.sections) {
     for (const sec of card.sections) {
       if (sec.type === 'text') {
-        ctx.font = '700 17px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
-        ctx.fillStyle = 'rgba(27, 42, 74, 0.5)';
-        ctx.fillText(sec.title.toUpperCase(), 0, y);
-        y += 28;
+        ctx.font = '700 18px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+        ctx.fillStyle = 'rgba(27, 42, 74, 0.55)';
+        ctx.fillText(sec.label.toUpperCase(), 0, y);
+        y += 30;
 
-        ctx.font = '400 21px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+        ctx.font = '400 23px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
         ctx.fillStyle = '#243356';
-        y = wrapText(ctx, sec.content, 0, y, w, 30) + 14;
+        y = wrapText(ctx, sec.body, 0, y, w, 35) + 24;
       } else if (sec.type === 'steps') {
-        ctx.font = '700 17px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
-        ctx.fillStyle = 'rgba(27, 42, 74, 0.5)';
-        ctx.fillText(sec.title.toUpperCase(), 0, y);
-        y += 26;
+        ctx.font = '700 18px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+        ctx.fillStyle = 'rgba(27, 42, 74, 0.55)';
+        ctx.fillText(sec.label.toUpperCase(), 0, y);
+        y += 30;
 
         for (let i = 0; i < sec.items.length; i++) {
           const step = sec.items[i];
-          // Yellow circular number
+          // Yellow Badge
           ctx.save();
-          ctx.fillStyle = '#ffb800';
+          ctx.fillStyle = '#f59e0b';
           ctx.beginPath();
-          ctx.arc(16, y - 6, 14, 0, Math.PI * 2);
+          ctx.arc(18, y - 6, 16, 0, Math.PI * 2);
           ctx.fill();
           ctx.fillStyle = '#ffffff';
-          ctx.font = '700 15px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+          ctx.font = '700 17px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
           ctx.textAlign = 'center';
           ctx.textBaseline = 'middle';
-          ctx.fillText(String(i + 1), 16, y - 6);
+          ctx.fillText(String(i + 1), 18, y - 6);
           ctx.restore();
 
-          // Step label
-          ctx.font = '500 20px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+          // Step Text
+          ctx.font = '500 22px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
           ctx.fillStyle = '#1b2a4a';
-          ctx.fillText(step, 44, y);
-          y += 38;
+          y = wrapText(ctx, step, 48, y, w - 48, 30) + 12;
         }
-        y += 10;
+        y += 12;
       } else if (sec.type === 'bullets') {
-        ctx.font = '700 17px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
-        ctx.fillStyle = 'rgba(27, 42, 74, 0.5)';
-        ctx.fillText(sec.title.toUpperCase(), 0, y);
-        y += 26;
+        ctx.font = '700 18px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+        ctx.fillStyle = 'rgba(27, 42, 74, 0.55)';
+        ctx.fillText(sec.label.toUpperCase(), 0, y);
+        y += 30;
 
         for (const item of sec.items) {
           // Cyan dot
           ctx.fillStyle = '#00c4cc';
           ctx.beginPath();
-          ctx.arc(10, y - 7, 5.5, 0, Math.PI * 2);
+          ctx.arc(10, y - 8, 7, 0, Math.PI * 2);
           ctx.fill();
 
-          ctx.font = '400 20px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+          ctx.font = '400 23px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
           ctx.fillStyle = '#243356';
-          y = wrapText(ctx, item, 28, y, w - 28, 28) + 6;
+          y = wrapText(ctx, item, 32, y, w - 32, 34) + 14;
         }
-        y += 8;
+        y += 12;
       } else if (sec.type === 'badges') {
-        ctx.font = '700 17px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
-        ctx.fillStyle = 'rgba(27, 42, 74, 0.5)';
-        ctx.fillText(sec.title.toUpperCase(), 0, y);
-        y += 28;
+        ctx.font = '700 18px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+        ctx.fillStyle = 'rgba(27, 42, 74, 0.55)';
+        ctx.fillText(sec.label.toUpperCase(), 0, y);
+        y += 32;
 
         let curX = 0;
         for (const badge of sec.items) {
-          ctx.font = '600 18px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+          ctx.font = '600 20px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
           const textW = ctx.measureText(badge).width;
-          const bw = textW + 28, bh = 38;
-          if (curX + bw > w) { curX = 0; y += 46; }
+          const bw = textW + 32, bh = 44;
+          if (curX + bw > w) { curX = 0; y += 56; }
 
-          ctx.fillStyle = '#38bdf8';
-          roundRect(ctx, curX, y - 24, bw, bh, 19);
+          ctx.fillStyle = '#e0f2fe';
+          roundRect(ctx, curX, y - 28, bw, bh, 22);
           ctx.fill();
+          ctx.strokeStyle = '#bae6fd';
+          ctx.lineWidth = 1;
+          ctx.stroke();
 
-          ctx.fillStyle = '#ffffff';
-          ctx.fillText(badge, curX + 14, y);
+          ctx.fillStyle = '#0369a1';
+          ctx.fillText(badge, curX + 16, y);
           curX += bw + 14;
         }
-        y += 44;
-      } else if (sec.type === 'box') {
-        ctx.font = '700 17px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+        y += 54;
+      } else if (sec.type === 'pitch') {
+        // Weak Pitch Box
+        ctx.font = '700 16px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
         ctx.fillStyle = 'rgba(27, 42, 74, 0.5)';
-        ctx.fillText(sec.title.toUpperCase(), 0, y);
-        y += 18;
-
-        const boxY = y;
-        ctx.font = 'italic 500 20px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
-        
-        // Measure height first
-        ctx.save();
-        ctx.fillStyle = sec.bg || '#f1f5f9';
-        const boxH = 90;
-        roundRect(ctx, 0, boxY, w, boxH, 16);
-        ctx.fill();
-        ctx.restore();
-
-        ctx.fillStyle = sec.color || '#1b2a4a';
-        wrapText(ctx, sec.content, 20, boxY + 34, w - 40, 28);
-        y += boxH + 20;
-      } else if (sec.type === 'table') {
-        ctx.font = '700 17px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
-        ctx.fillStyle = 'rgba(27, 42, 74, 0.5)';
-        ctx.fillText(sec.title.toUpperCase(), 0, y);
+        ctx.fillText('WEAK PITCH', 0, y);
         y += 24;
 
-        for (const [label, score] of sec.rows) {
-          ctx.font = '400 20px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
-          ctx.fillStyle = '#243356';
-          ctx.fillText(label, 0, y);
+        ctx.save();
+        ctx.fillStyle = '#f8fafc';
+        roundRect(ctx, 0, y - 6, w, 84, 14);
+        ctx.fill();
+        ctx.strokeStyle = '#e2e8f0';
+        ctx.stroke();
+        ctx.font = 'italic 500 22px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+        ctx.fillStyle = '#64748b';
+        wrapText(ctx, sec.weak, 20, y + 32, w - 40, 28);
+        ctx.restore();
+        y += 114;
 
-          ctx.font = '700 20px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
-          ctx.fillStyle = '#1b2a4a';
+        // Strong Pitch Box
+        ctx.font = '700 16px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+        ctx.fillStyle = 'rgba(27, 42, 74, 0.5)';
+        ctx.fillText('STRONG PITCH', 0, y);
+        y += 24;
+
+        ctx.save();
+        ctx.fillStyle = '#e6fffa';
+        roundRect(ctx, 0, y - 6, w, 110, 14);
+        ctx.fill();
+        ctx.strokeStyle = '#b2f5ea';
+        ctx.stroke();
+        ctx.font = 'italic 600 22px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+        ctx.fillStyle = '#0d9488';
+        wrapText(ctx, sec.strong, 20, y + 34, w - 40, 32);
+        ctx.restore();
+        y += 136;
+      } else if (sec.type === 'warning') {
+        ctx.font = '700 18px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+        ctx.fillStyle = 'rgba(27, 42, 74, 0.55)';
+        ctx.fillText(sec.label.toUpperCase(), 0, y);
+        y += 28;
+
+        ctx.save();
+        ctx.fillStyle = '#fef2f2';
+        roundRect(ctx, 0, y - 6, w, 100, 14);
+        ctx.fill();
+        ctx.strokeStyle = '#fca5a5';
+        ctx.stroke();
+
+        ctx.font = '600 22px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+        ctx.fillStyle = '#b91c1c';
+        wrapText(ctx, sec.body, 20, y + 34, w - 40, 32);
+        ctx.restore();
+        y += 126;
+      } else if (sec.type === 'table') {
+        ctx.font = '700 18px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+        ctx.fillStyle = 'rgba(27, 42, 74, 0.55)';
+        ctx.fillText(sec.label.toUpperCase(), 0, y);
+        y += 28;
+
+        for (const [crit, score] of sec.rows) {
+          ctx.font = '400 23px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+          ctx.fillStyle = '#1e293b';
+          ctx.fillText(crit, 0, y);
+
+          ctx.font = '700 24px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+          ctx.fillStyle = '#ff5a2e';
           ctx.textAlign = 'right';
           ctx.fillText(String(score), w, y);
           ctx.textAlign = 'left';
 
-          y += 34;
+          ctx.strokeStyle = 'rgba(27, 42, 74, 0.07)';
+          ctx.lineWidth = 1;
+          ctx.beginPath();
+          ctx.moveTo(0, y + 10);
+          ctx.lineTo(w, y + 10);
+          ctx.stroke();
+
+          y += 44;
         }
-        y += 8;
+        y += 12;
       }
     }
   }
+
+  // Subtle bottom footer line on card
+  ctx.save();
+  ctx.font = '600 16px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+  ctx.fillStyle = 'rgba(27, 42, 74, 0.35)';
+  ctx.fillText('AI EXPO HACKATHON · ROUND 1 IDEA SPRINT', 0, maxH - 12);
+  ctx.restore();
 }
 
 function getCardData(domainIdx, blockIdx) {
-  // Domain 0: GENERAL AI / GENAI (PS 3)
-  // Domain 1: FINTECH / BFSI AI (PS 1)
-  // Domain 2: BLOCKCHAIN × AI (PS-01A)
-  // Domain 3: CYBERSECURITY & AI (PS 1)
-
   const DOMAIN_HEADERS = [
     { num: '03', tag: 'GENERAL AI / GENAI INNOVATION · PS 3' },
     { num: '02', tag: 'FINTECH / BFSI AI · PS 1' },
@@ -267,40 +320,41 @@ function getCardData(domainIdx, blockIdx) {
     if (blockIdx === 0) {
       return {
         ...header,
-        title: 'Trustworthy Digital Information Verification',
+        title: 'Trustworthy Digital Info Verification',
         subtitle: 'Claim verification for forwarded messages, screenshots, voice notes, PDFs & URLs',
         hook: 'You receive a message on WhatsApp. It sounds convincing. But is it actually true?',
         sections: [
-          { type: 'text', title: 'The Problem', content: 'An accessible system that takes a forwarded WhatsApp message, screenshot, voice note, PDF or URL and verifies its claims against authoritative sources — explaining the result in plain, local-language terms instead of a binary true / false.' },
+          { type: 'text', label: 'The Problem', body: 'An accessible system that takes a forwarded WhatsApp message, screenshot, voice note, PDF or URL and verifies its claims against authoritative sources — explaining the result in plain, local-language terms instead of a binary true / false.' },
+          { type: 'text', label: 'Worked Example', body: 'A viral message forwarding an alleged government circular is analyzed: claims are extracted, cross-referenced with gazette repositories, and labeled with uncertainty metrics and source citations.' },
         ],
       };
     }
     if (blockIdx === 1) {
       return {
         ...header,
-        title: 'Worked Example & Multi-Verdict',
-        subtitle: 'Nuanced, evidence-based verification outcomes',
+        title: '5 Multi-Verdict Categories',
+        subtitle: 'Nuanced, evidence-based fact verification taxonomy',
         sections: [
-          { type: 'text', title: 'Worked Example', content: 'Verification outcomes are deliberately not binary: Verified · Contradicted · Partially supported · Outdated · Insufficient evidence.' },
-          { type: 'badges', title: 'Verdict Categories', items: ['Verified', 'Contradicted', 'Partially Supported', 'Outdated', 'Insufficient Evidence'] },
+          { type: 'badges', label: 'Standard Verdict Outcomes', items: ['Verified', 'Contradicted', 'Partially Supported', 'Outdated', 'Insufficient Evidence'] },
+          { type: 'text', label: 'Grounding Guarantee', body: 'Important claims must be strictly grounded in retrieved evidence. Retrieved facts are systematically kept separate from AI-generated explanations to eliminate hallucinations and biased synthesis.' },
         ],
       };
     }
     if (blockIdx === 2) {
       return {
         ...header,
-        title: 'Verification Workflow',
-        subtitle: 'From multimodal ingestion to uncertainty explanation',
+        title: 'Verification Architecture',
+        subtitle: '7-Step multimodal reasoning pipeline',
         sections: [
           {
             type: 'steps',
-            title: 'Workflow',
+            label: 'Processing Pipeline',
             items: [
               'Submit content (message, image, audio, PDF, URL)',
-              'Extract verifiable claims',
-              'Decide what needs verification',
+              'Extract verifiable claims via multimodal parsing',
+              'Decide what needs verification vs opinion filtering',
               'Search authoritative sources & live indexes',
-              'Retrieve evidence with source ranking',
+              'Retrieve evidence with dense cross-encoder ranking',
               'Compare claim vs retrieved evidence',
               'Explain with references and confidence calibration',
             ],
@@ -316,12 +370,12 @@ function getCardData(domainIdx, blockIdx) {
         sections: [
           {
             type: 'bullets',
-            title: 'Core Principles',
+            label: 'Core Guardrails',
             items: [
               'The model must not answer from its own internal knowledge.',
               'Important claims must be strictly grounded in retrieved evidence.',
               'Retrieved facts kept separate from AI-generated explanation.',
-              'Multimodality: Speech-to-text, OCR, RAG, multilingual ranking, contradiction detection.',
+              'Speech-to-text, multilingual LLMs, RAG, trusted-source ranking, contradiction detection.',
             ],
           },
         ],
@@ -334,7 +388,7 @@ function getCardData(domainIdx, blockIdx) {
       sections: [
         {
           type: 'table',
-          title: 'Rubric Criteria',
+          label: 'Scoring Breakdown',
           rows: [
             ['Problem understanding & clarity', '15%'],
             ['Innovation & originality', '20%'],
@@ -354,22 +408,22 @@ function getCardData(domainIdx, blockIdx) {
     if (blockIdx === 0) {
       return {
         ...header,
-        title: 'Super App',
-        subtitle: 'Unified multi-asset investing & awareness',
+        title: 'Super App: Multi-Asset Investing',
+        subtitle: 'Unified multi-asset investing & investor awareness',
         hook: 'Every holding in one place — and a reason behind every number.',
         sections: [
-          { type: 'text', title: 'The Problem', content: 'Retail investors\' holdings are fragmented across brokers and depositories with no consolidated view, and participation stays narrow (mostly equities) because alternates like REITs, InvITs and bonds are poorly understood.' },
+          { type: 'text', label: 'The Problem', body: 'Retail investors\' holdings are fragmented across brokers and depositories with no consolidated view, and participation stays narrow (mostly equities) because alternates like REITs, InvITs and bonds are poorly understood.' },
         ],
       };
     }
     if (blockIdx === 1) {
       return {
         ...header,
-        title: 'Worked Example & Scope',
+        title: 'Worked Example & MVP Scope',
         subtitle: 'Intelligent allocation gap detection and education',
         sections: [
-          { type: 'text', title: 'Worked Example', content: 'A consolidated dashboard across linked accounts flags "0% fixed income" → plain-language education explains why that matters → a suitability check gates access before the user can actually invest in the new asset class.' },
-          { type: 'text', title: 'MVP Scope', content: 'Mock import from 2–3 sources into one dashboard · allocation + gap-flag view · one interactive explainer module · suitability questionnaire gating a demo "invest" action.' },
+          { type: 'text', label: 'Worked Example', body: 'A consolidated dashboard across linked accounts flags "0% fixed income" → plain-language education explains why that matters → a suitability check gates access before the user can actually invest in the new asset class.' },
+          { type: 'text', label: 'MVP Scope', body: 'Mock import from 2–3 sources into one dashboard · allocation + gap-flag view · one interactive explainer module · suitability questionnaire gating a demo "invest" action.' },
         ],
       };
     }
@@ -377,11 +431,11 @@ function getCardData(domainIdx, blockIdx) {
       return {
         ...header,
         title: 'Unified Investment Workflow',
-        subtitle: 'Account aggregation to multi-asset execution',
+        subtitle: 'From Account Aggregator consent to execution',
         sections: [
           {
             type: 'steps',
-            title: 'Workflow',
+            label: '8-Step Multi-Asset Pipeline',
             items: [
               'Investor accounts ingestion',
               'Account Aggregator / CAS / API ingestion',
@@ -404,7 +458,7 @@ function getCardData(domainIdx, blockIdx) {
         sections: [
           {
             type: 'bullets',
-            title: 'Design Principles',
+            label: 'Design Principles',
             items: [
               'Consent-first data access (Account Aggregator model).',
               'No dark patterns — education must precede any cross-sell.',
@@ -422,7 +476,7 @@ function getCardData(domainIdx, blockIdx) {
       sections: [
         {
           type: 'bullets',
-          title: 'Evaluation Points',
+          label: 'Key Evaluation Points',
           items: [
             'Problem understanding & market depth in Indian retail finance.',
             'Architecture on paper: Account Aggregator, security & data models.',
@@ -439,11 +493,11 @@ function getCardData(domainIdx, blockIdx) {
     if (blockIdx === 0) {
       return {
         ...header,
-        title: 'Pay-and-Earn',
-        subtitle: 'DeFi · Payments',
+        title: 'Pay-and-Earn: DeFi Payments',
+        subtitle: 'Making everyday payments generate sustainable returns',
         hook: 'Can ordinary payments themselves generate returns?',
         sections: [
-          { type: 'text', title: 'The Problem', content: 'Earning yield in DeFi needs active management and know-how, so money sits idle between payments. Design a payment system where eligible everyday transactions can earn potential returns, while staying transparent, secure, sustainable and simple to use.' },
+          { type: 'text', label: 'The Problem', body: 'Earning yield in DeFi needs active management and know-how, so money sits idle between payments. Design a payment system where eligible everyday transactions can earn potential returns, while staying transparent, secure, sustainable and simple to use.' },
         ],
       };
     }
@@ -453,8 +507,8 @@ function getCardData(domainIdx, blockIdx) {
         title: 'Format & Non-Negotiable Rule',
         subtitle: 'Rules of participation & safety constraints',
         sections: [
-          { type: 'text', title: 'Format', content: 'Because this PS is judged online, submissions are evaluated as a recorded demo + repo + deck rather than a live on-site build. Every team must explain its reward / economic model in one slide.' },
-          { type: 'box', title: 'Regulatory Rule', content: 'Non-negotiable: no design may promise or imply guaranteed financial returns.', bg: '#fef2f2', color: '#dc2626' },
+          { type: 'text', label: 'Submission Format', body: 'Because this PS is judged online, submissions are evaluated as a recorded demo + repo + deck rather than a live on-site build. Every team must explain its reward / economic model in one slide.' },
+          { type: 'warning', label: 'Mandatory Rule', body: 'Non-negotiable: no design may promise or imply guaranteed financial returns. Real yield must be clearly separated from promotional incentives.' },
         ],
       };
     }
@@ -466,7 +520,7 @@ function getCardData(domainIdx, blockIdx) {
         sections: [
           {
             type: 'steps',
-            title: 'Workflow',
+            label: 'Workflow Pipeline',
             items: [
               'Everyday payment initiation',
               'Eligibility & compliance check',
@@ -486,7 +540,7 @@ function getCardData(domainIdx, blockIdx) {
         sections: [
           {
             type: 'bullets',
-            title: 'Design Principles',
+            label: 'Design Principles',
             items: [
               'Blockchain payments with built-in incentives.',
               'Risk-aware design for different users and risk appetites.',
@@ -504,10 +558,10 @@ function getCardData(domainIdx, blockIdx) {
       sections: [
         {
           type: 'bullets',
-          title: 'Key Criteria',
+          label: 'Key Criteria',
           items: [
             'Problem understanding & economic model transparency.',
-            'Architecture on paper: Smart contract hygiene, AI routing, oracles.',
+            'Architecture on paper: Smart contracts, AI routing, oracles.',
             'Innovation, sustainable yield mechanisms and risk management.',
             'Security audit awareness and gas optimization.',
           ],
@@ -524,8 +578,8 @@ function getCardData(domainIdx, blockIdx) {
       subtitle: 'Automated vulnerability detection and verified patching',
       hook: 'Fix the flaw — and prove you didn\'t break the feature.',
       sections: [
-        { type: 'text', title: 'The Problem', content: 'Given a document portal with a suspected unauthorized-access flaw, build an AI-assisted system that reproduces the vulnerability as a failing test, locates the root cause, proposes a minimal patch, and verifies the patch fixes the security issue without breaking legitimate functionality.' },
-        { type: 'text', title: 'Worked Example', content: 'Asha can download Ravi\'s private file (bad). A naive fix that blocks all downloads is equally bad — it also blocks Asha\'s own files. The correct patch must pass all four cases: own document (allow), other\'s private document (deny), explicitly shared document (allow), signed-out visitor (deny).' },
+        { type: 'text', label: 'The Problem', body: 'Given a document portal with a suspected unauthorized-access flaw, build an AI-assisted system that reproduces the vulnerability as a failing test, locates the root cause, proposes a minimal patch, and verifies the patch fixes the security issue without breaking legitimate functionality.' },
+        { type: 'text', label: 'Worked Example', body: 'Asha can download Ravi\'s private file (bad). A naive fix that blocks all downloads is equally bad — it also blocks Asha\'s own files. The correct patch must pass all four cases: own document (allow), other\'s private document (deny), explicitly shared document (allow), signed-out visitor (deny).' },
       ],
     };
   }
@@ -537,7 +591,7 @@ function getCardData(domainIdx, blockIdx) {
       sections: [
         {
           type: 'steps',
-          title: 'Workflow',
+          label: 'Pipeline Steps',
           items: [
             'Input: source code + security policy + test suite',
             'Reproduce vulnerability as a failing test case',
@@ -559,7 +613,7 @@ function getCardData(domainIdx, blockIdx) {
       sections: [
         {
           type: 'bullets',
-          title: 'Why It\'s Hard',
+          label: 'Why It\'s Hard',
           items: [
             'Telling a real security finding from a scanner false-positive.',
             'Finding the root cause across multiple interconnected files.',
@@ -567,7 +621,7 @@ function getCardData(domainIdx, blockIdx) {
             'Testing independently of the model that wrote the patch.',
           ],
         },
-        { type: 'badges', title: 'Existing Baselines', items: ['GitHub Copilot Autofix', 'ATLANTIS (DARPA AIxCC)'] },
+        { type: 'badges', label: 'Existing Baselines', items: ['GitHub Copilot Autofix', 'ATLANTIS (DARPA AIxCC)'] },
       ],
     };
   }
@@ -577,8 +631,11 @@ function getCardData(domainIdx, blockIdx) {
       title: 'Weak Pitch vs Strong Pitch',
       subtitle: 'Demonstrating verification over claims',
       sections: [
-        { type: 'box', title: 'Weak Pitch', content: '"An LLM fixes the code."', bg: '#f1f5f9', color: '#64748b' },
-        { type: 'box', title: 'Strong Pitch', content: '"A reproducing test establishes the failure; independent security and functional tests evaluate the correction."', bg: '#e0f7fa', color: '#00695c' },
+        {
+          type: 'pitch',
+          weak: '"An LLM fixes the code."',
+          strong: '"A reproducing test establishes the failure; independent security and functional tests evaluate the correction."',
+        },
       ],
     };
   }
@@ -589,7 +646,7 @@ function getCardData(domainIdx, blockIdx) {
     sections: [
       {
         type: 'table',
-        title: 'Judging Breakdown',
+        label: 'Judging Breakdown',
         rows: [
           ['Problem understanding & formulation', '20'],
           ['Research on existing solutions', '15'],
@@ -607,9 +664,6 @@ function getCardData(domainIdx, blockIdx) {
 
 const textureCache = new Map();
 
-/**
- * Gets or creates a Three.js CanvasTexture for a specific domain slider and block index.
- */
 export function getPsCardTexture(domainIndex, blockIndex) {
   const key = `${domainIndex}_${blockIndex}`;
   if (textureCache.has(key)) return textureCache.get(key);
