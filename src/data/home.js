@@ -65,10 +65,9 @@ export const homeData = {
     type: "",
     date: "PS 3 · Info Verification",
     team: {
-      text: "Team of 2",
+      text: "Round 1",
       agency: {
-        name: "@ImmersiveGarden",
-        url: "https://immersive-g.com"
+        name: "Online Idea Sprint"
       }
     },
     roles: {
@@ -84,9 +83,9 @@ export const homeData = {
     type: "",
     date: "PS 1 · Super App",
     team: {
-      text: "Team of 3",
+      text: "Round 1",
       agency: {
-        name: "Personal Research"
+        name: "Online Idea Sprint"
       }
     },
     roles: {
@@ -127,10 +126,9 @@ export const homeData = {
     type: "",
     date: "PS-01A · Pay-and-Earn",
     team: {
-      text: "Team of 4",
+      text: "Round 1",
       agency: {
-        name: "@Locomotive",
-        url: "https://locomotive.ca"
+        name: "Online Idea Sprint"
       }
     },
     roles: {
@@ -146,10 +144,9 @@ export const homeData = {
     type: "",
     date: "PS 1 · The Verified Fix",
     team: {
-      text: "Team of 5",
+      text: "Round 1",
       agency: {
-        name: "@ImmersiveGarden",
-        url: "https://immersive-g.com"
+        name: "Online Idea Sprint"
       }
     },
     roles: {

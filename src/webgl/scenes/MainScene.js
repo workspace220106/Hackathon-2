@@ -17,6 +17,9 @@ import {
   sliderOptions
 } from '../../config/slider.js';
 import {
+  getPsCardTexture
+} from '../../utils/PsCardRenderer.js';
+import {
   app
 } from '../../core/App.js';
 import {
@@ -287,9 +290,8 @@ export class MainScene extends Scene {
     const i = this._measureLayoutRect(e),
       r = new Mesh(this._mediaPlaneGeometry);
     r.layers.set(TOP_LAYER), this._projects[n].add(r), r.position.x = i.left - window.innerWidth / 2 + i.width / 2, r.position.y = -i.top + window.innerHeight / 2 - i.height / 2, r.scale.set(i.width, i.height, 1);
-    const o = app.core.assetsManager.get(`homeProject${PROJECT_TEXTURE_SET[n] ?? n+1}_${t+1}`),
-      a = o.source.data.width,
-      l = o.source.data.height;
+    const o = getPsCardTexture(n, t);
+    const a = 1024, l = 1365;
     if (o) {
       const h = this._createSliderMediaMaterial(t % 2);
       h.uniforms.uTexture.value = o, h.uniforms.uPlaneSizes.value.set(i.width, i.height), h.uniforms.uTextureSizes.value.set(a, l), r.material = h, this._setMeshParallaxX(r)

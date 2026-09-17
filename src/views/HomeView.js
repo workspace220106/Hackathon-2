@@ -23,7 +23,6 @@ import {
 } from 'vue-router';
 import ScheduleTimeline from '../components/ScheduleTimeline.vue';
 import AboutBlock from '../components/AboutBlock.vue';
-import ProblemStatementsBlock from '../components/ProblemStatementsBlock.vue';
 import OrganisedByFooter from '../components/OrganisedByFooter.vue';
 import {
   HeaderBlock
@@ -111,7 +110,7 @@ const HomeViewSfc = {
       ref: n
     }, {
       ref_for: !0
-    }, h), null, 16)) : createCommentVNode("", !0)], 64))), 128))]), createVNode(ProblemStatementsBlock), createVNode(ScheduleTimeline, { title: unref(homeData).archives.title, items: unref(homeData).archives.items }), createVNode(OrganisedByFooter)]))
+    }, h), null, 16)) : createCommentVNode("", !0)], 64))), 128))]), createVNode(ScheduleTimeline, { title: unref(homeData).archives.title, items: unref(homeData).archives.items }), createVNode(OrganisedByFooter)]))
   }
 };
 
