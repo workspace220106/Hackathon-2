@@ -246,7 +246,7 @@ export class MainScene extends Scene {
           value: 0
         },
         uCoverBleed: {
-          value: isTabletWidth() ? Q8 : OI
+          value: 1.0
         },
         uDragScaleStrength: {
           value: 75e-6
@@ -291,7 +291,7 @@ export class MainScene extends Scene {
       r = new Mesh(this._mediaPlaneGeometry);
     r.layers.set(TOP_LAYER), this._projects[n].add(r), r.position.x = i.left - window.innerWidth / 2 + i.width / 2, r.position.y = -i.top + window.innerHeight / 2 - i.height / 2, r.scale.set(i.width, i.height, 1);
     const o = getPsCardTexture(n, t);
-    const a = 1024, l = 1365;
+    const a = 1294, l = 595;
     if (o) {
       const h = this._createSliderMediaMaterial(t % 2);
       h.uniforms.uTexture.value = o, h.uniforms.uPlaneSizes.value.set(i.width, i.height), h.uniforms.uTextureSizes.value.set(a, l), r.material = h, this._setMeshParallaxX(r)
