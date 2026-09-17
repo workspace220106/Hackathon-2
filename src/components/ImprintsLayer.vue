@@ -11,11 +11,11 @@ const props = defineProps({
   // Imprints are distributed across these zones proportionally to their height.
   // Empty array = the whole page.
   zones: { type: Array, default: () => [] },
-  count: { type: Number, default: 12 }, // images repeat (cycled) beyond the 7 unique ones
+  count: { type: Number, default: 8 }, // images repeat (cycled) beyond the 7 unique ones
 });
 
 const IMPRINTS = Array.from({ length: 7 }, (_, i) => `/assets/imprints/imprint-${i + 1}.webp`);
-const OPACITY = 0.92;
+const OPACITY = 0.8;
 const PARALLAX = 0.12; // fraction of scroll delta the imprints lag behind
 
 const rootRef = ref(null);
@@ -23,11 +23,11 @@ const items = ref([]);
 
 // pseudo-random but stable layout (left/right alternation, rotation, size)
 // x is % of page width (negative / >40 pushes the piece off the left / right edge), w in vw
-// x < -30 or x > 60 = mostly off the edge (only partly visible)
+// pieces hug the left/right margins (x ≈ -15 or ≈ 80) so the centre column stays clean
 const LAYOUT = [
-  { x: -22, w: 72, r: -6 }, { x: 58, w: 70, r: 5 }, { x: -42, w: 68, r: 4 },
-  { x: 50, w: 72, r: -5 }, { x: -18, w: 70, r: 7 }, { x: 66, w: 68, r: -6 }, { x: -40, w: 72, r: 3 },
-  { x: 54, w: 66, r: 4 }, { x: -24, w: 70, r: -4 }, { x: 68, w: 72, r: 6 }, { x: -44, w: 66, r: -5 }, { x: 48, w: 70, r: 3 },
+  { x: -14, w: 34, r: -6 }, { x: 80, w: 32, r: 5 }, { x: -18, w: 30, r: 4 },
+  { x: 82, w: 34, r: -5 }, { x: -12, w: 32, r: 7 }, { x: 84, w: 30, r: -6 }, { x: -16, w: 34, r: 3 },
+  { x: 80, w: 32, r: 4 }, { x: -14, w: 30, r: -4 }, { x: 82, w: 34, r: 6 }, { x: -18, w: 32, r: -5 }, { x: 84, w: 30, r: 3 },
 ];
 
 function layout() {
@@ -42,8 +42,8 @@ function layout() {
     .filter((z) => z.height > 0);
   if (!zones.length) zones = [{ top: 0, height: page.scrollHeight }];
   const n = props.count;
-  const imprintH = (w) => Math.min(window.innerWidth * w / 100, 1400) * 0.55;
-  const avgH = imprintH(70);
+  const imprintH = (w) => Math.min(window.innerWidth * w / 100, 640) * 0.55;
+  const avgH = imprintH(32);
   // capacity per zone (imprints may overlap a little), then distribute proportionally within capacity
   const caps = zones.map((z) => Math.max(1, Math.round(z.height / (avgH * 0.35))));
   const total = zones.reduce((a, z) => a + z.height, 0);
@@ -58,7 +58,7 @@ function layout() {
     const slot = z.height / c;
     for (let j = 0; j < c && k < n; j++, k++) {
       const l = LAYOUT[k % LAYOUT.length];
-      const top = z.top + slot * j + Math.max(0, (slot - imprintH(l.w)) / 2);
+      const top = z.top + slot * j + (slot - imprintH(l.w)) / 2; // centred in an equal slot
       out.push({ src: IMPRINTS[k % IMPRINTS.length], top, x: l.x, w: l.w, r: l.r, speed: PARALLAX * (0.6 + (k % 3) * 0.3) });
     }
   });
@@ -93,5 +93,5 @@ onUnmounted(() => { emitter.off(EVENTS.RESIZE, layout); emitter.off(EVENTS.LAYOU
 
 <style scoped>
 .imprints { position: absolute; inset: 0; z-index: -1; pointer-events: none; overflow: hidden; }
-.imprints__item { position: absolute; max-width: 1400px; min-width: 360px; height: auto; will-change: transform; filter: saturate(1.05) drop-shadow(0 6px 18px rgba(27, 42, 74, .08)); }
+.imprints__item { position: absolute; max-width: 640px; min-width: 220px; height: auto; will-change: transform; filter: saturate(1.05) drop-shadow(0 6px 18px rgba(27, 42, 74, .08)); }
 </style>

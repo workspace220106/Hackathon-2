@@ -1,13 +1,16 @@
 import {
+  CanvasTexture,
   GLSL3,
   LinearFilter,
   Mesh,
   PlaneGeometry,
   SRGBColorSpace,
   ShaderMaterial,
-  VideoTexture,
   Vector2
 } from 'three';
+import {
+  FrameSequence
+} from '../../utils/FrameSequence.js';
 
 // Fragment shader: samples the video and masks it with rounded corners + a
 // soft edge so the panel reads as a screen rather than a hard rectangle.
@@ -76,30 +79,18 @@ export class HeroVideoMaterial extends ShaderMaterial {
  */
 export class HeroVideoPlane extends Mesh {
   constructor({
-    src,
+    frames,
     height = 4,
     cornerRadius = 0.08,
   } = {}) {
-    const video = document.createElement('video');
-    video.src = src;
-    video.muted = true;
-    video.loop = true;
-    video.playsInline = true;
-    video.preload = 'auto';
-    video.crossOrigin = 'anonymous';
-    video.setAttribute('muted', '');
-    video.setAttribute('playsinline', '');
-    // Chrome pauses "background" (detached) videos to save power, which would freeze the
-    // texture — keep the element in the DOM, just invisible.
-    Object.assign(video.style, { position: 'fixed', left: '0', top: '0', width: '2px', height: '2px', opacity: '0.01', pointerEvents: 'none', zIndex: '-1' });
-    video.setAttribute('aria-hidden', 'true');
-    (document.getElementById('webgl-app') || document.body).appendChild(video);
-
-    const texture = new VideoTexture(video);
+    // JPG frame sequence painted on a canvas (the mp4 wouldn't decode); see src/utils/FrameSequence.js
+    const video = new FrameSequence(frames);
+    const texture = new CanvasTexture(video.canvas);
     texture.colorSpace = SRGBColorSpace;
     texture.minFilter = LinearFilter;
     texture.magFilter = LinearFilter;
     texture.generateMipmaps = false;
+    video.onFrame = () => { texture.needsUpdate = true; };
 
     super(new PlaneGeometry(1, 1), new HeroVideoMaterial({ uniforms: { uTexture: { value: texture }, uRadius: { value: cornerRadius } } }));
     this.name = 'HeroVideoPlane';
@@ -109,11 +100,13 @@ export class HeroVideoPlane extends Mesh {
     this.videoAspect = 16 / 9;
     this.frustumCulled = false;
     this._resize(this.videoAspect);
-    video.addEventListener('loadedmetadata', () => {
-      this.videoAspect = video.videoWidth / video.videoHeight;
+    video.onReady = () => {
+      // the GL texture was allocated at the placeholder size — drop it so three re-uploads at full size
+      texture.dispose();
+      this.videoAspect = video.aspect;
       this.material.uniforms.uVideoAspect.value = this.videoAspect;
       if (!this._fit) this._resize(this.videoAspect);
-    });
+    };
   }
   _resize(aspect) {
     const h = this.panelHeight, w = h * aspect;
@@ -135,23 +128,15 @@ export class HeroVideoPlane extends Mesh {
     this.setSize(w, h);
   }
   play() {
-    const p = this.video.play();
-    if (p && p.catch) p.catch(() => {});
+    this.video.play();
   }
-  /** Muted autoplay; if the browser still blocks it, retry on the first user interaction. */
+  /** Canvas playback is never blocked by autoplay policy; just resume if the tab was hidden. */
   autoplay() {
-    const tryPlay = () => this.video.play().then(() => true).catch((err) => { if (import.meta.env.DEV) console.warn('[HeroVideoPlane] play() rejected:', err?.name, err?.message); return false; });
-    tryPlay().then((ok) => {
-      if (ok) return;
-      const retry = () => { tryPlay(); window.removeEventListener('pointerdown', retry, true); window.removeEventListener('keydown', retry, true); };
-      window.addEventListener('pointerdown', retry, true);
-      window.addEventListener('keydown', retry, true);
-    });
-    document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'visible' && this.video.paused) tryPlay(); });
+    this.video.play();
+    document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'visible' && this.video.paused) this.video.play(); });
   }
   dispose() {
-    this.video.pause();
-    this.video.remove();
+    this.video.dispose();
     this.texture.dispose();
     this.material.dispose();
     this.geometry.dispose();

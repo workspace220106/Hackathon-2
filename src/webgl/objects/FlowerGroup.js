@@ -5,11 +5,15 @@ import {
   Color,
   LinearFilter,
   SRGBColorSpace,
-  VideoTexture,
+  CanvasTexture,
   Group,
   Mesh,
   MeshBasicMaterial
 } from 'three';
+import {
+  FrameSequence,
+  FRAME_CLIPS
+} from '../../utils/FrameSequence.js';
 import {
   resumeMediaAutoplay
 } from '../../composables/useMediaAutoplay.js';
@@ -32,19 +36,15 @@ const FLOWER_A = 1;
 const FLOWER_PI = Math.PI;
 
 // Page-transition cover: the original showed a dark green disc with a spinning daisy.
-// It now plays the "guard" video inside the same growing circle mask (flower hidden).
-const TRANSITION_VIDEO_SRC = '/assets/medias/loader/guard.mp4';
-
+// It now plays the "guard" clip inside the same growing circle mask (flower hidden).
+// The clip is a JPG frame sequence (public/assets/medias/frames/guard) painted on a canvas.
 function createTransitionVideo() {
-  const video = document.createElement('video');
-  video.src = TRANSITION_VIDEO_SRC;
-  video.muted = true; video.loop = true; video.playsInline = true; video.preload = 'auto';
-  video.setAttribute('muted', ''); video.setAttribute('playsinline', ''); video.setAttribute('aria-hidden', 'true');
-  Object.assign(video.style, { position: 'fixed', left: '0', top: '0', width: '2px', height: '2px', opacity: '0.01', pointerEvents: 'none', zIndex: '-1' });
-  (document.getElementById('webgl-top-app') || document.body).appendChild(video);
-  const texture = new VideoTexture(video);
+  const video = new FrameSequence(FRAME_CLIPS.guard);
+  const texture = new CanvasTexture(video.canvas);
   texture.colorSpace = SRGBColorSpace;
   texture.minFilter = LinearFilter; texture.magFilter = LinearFilter; texture.generateMipmaps = false;
+  video.onFrame = () => { texture.needsUpdate = true; };
+  video.onReady = () => { texture.dispose(); }; // re-allocate the GL texture at the real frame size
   return { video, texture };
 }
 
@@ -99,7 +99,7 @@ export class FlowerGroup extends Group {
       }),
       t = new Mesh(this._planeGeometry, e);
     const v = this._transitionVideo.video;
-    v.addEventListener('loadedmetadata', () => { e.uniforms.uVideoAspect.value = v.videoWidth / v.videoHeight });
+    v.ready.then(() => { e.uniforms.uVideoAspect.value = v.aspect });
     return t.scale.set(this._cameraDimensions.width, this._cameraDimensions.height, 1e-5), t.renderOrder = FLOWER_A, this.add(t), t
   }
   _startContinuousFlowerSpin() {
@@ -112,7 +112,7 @@ export class FlowerGroup extends Group {
     })
   }
   hide(e) {
-    this._transitionVideo && (this._transitionVideo.video.currentTime = 0, this._transitionVideo.video.play().catch(() => {}));
+    this._transitionVideo && (this._transitionVideo.video.currentTime = 0, this._transitionVideo.video.play());
     const t = gsap.timeline(),
       {
         width: n,

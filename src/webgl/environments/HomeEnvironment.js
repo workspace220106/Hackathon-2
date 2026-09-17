@@ -26,6 +26,9 @@ import {
   HeroVideoPlane
 } from '../objects/HeroVideoPlane.js';
 import {
+  FRAME_CLIPS
+} from '../../utils/FrameSequence.js';
+import {
   ParticlesSimple
 } from '../objects/ParticlesSimple.js';
 import {
@@ -59,7 +62,8 @@ const HOME_PARTICLES_B = 8;
 // The studio room (scene_v9.glb) is replaced by a full-bleed video panel: the panel
 // sits where the daisy stood (x ≈ 2.84) and is sized to cover the camera's view, so the
 // original scroll-driven camera move (forward along -X) becomes a zoom into the video.
-const HERO_VIDEO_SRC = '/assets/medias/hero/runner.mp4';
+// hero clip = JPG frame sequence in public/assets/medias/frames/hero (see FRAME_CLIPS)
+const HERO_VIDEO_FRAMES = FRAME_CLIPS.hero;
 const FLOWER_MESH_NAME = 'TexFleur';
 const HERO_VIDEO_OVERSCAN = 1.06;
 
@@ -167,7 +171,7 @@ export class HomeEnvironment extends Group {
       center = { x: (b.min.x + b.max.x) / 2, y: (b.min.y + b.max.y) / 2, z: (b.min.z + b.max.z) / 2 };
       height = b.max.y - b.min.y;
     }
-    const panel = new HeroVideoPlane({ src: HERO_VIDEO_SRC, height, cornerRadius: 0 });
+    const panel = new HeroVideoPlane({ frames: HERO_VIDEO_FRAMES, height, cornerRadius: 0 });
     // centred on the camera axis (camera looks down -X from the GLB "camera" node)
     const camNode = app.core.assetsManager.get("homeModel").getObjectByName("camera");
     panel.position.set(center.x, camNode ? camNode.position.y : center.y, camNode ? camNode.position.z : center.z);

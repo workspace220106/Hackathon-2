@@ -125,7 +125,7 @@ const HomeIntroBlockSfc = {
           "parallax-mask-amount": unref(isTabletWidth)() ? 8 : 10,
           "parallax-scale-amount": .1,
           "has-parallax-position": !0,
-          "parallax-position-amount": -75,
+          "parallax-position-amount": -24, // small drift only — keeps the tile centred in its slot
           onMouseenter: r,
           onMouseleave: o,
           onClick: a

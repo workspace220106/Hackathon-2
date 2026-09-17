@@ -12,6 +12,7 @@ import {
   createElementVNode,
   createVNode,
   nextTick,
+  onBeforeUnmount,
   onMounted,
   openBlock,
   ref,
@@ -36,8 +37,14 @@ import {
   GridWrapper
 } from './GridWrapper.js';
 
-// Background video shown while the site loads (see also src/styles/original.css → .loaderBlock__video)
-const LOADER_VIDEO_SRC = '/assets/medias/loader/intro.mp4';
+import {
+  FrameSequence,
+  FRAME_CLIPS
+} from '../utils/FrameSequence.js';
+
+// Background clip shown while the site loads: a JPG frame sequence painted onto a <canvas>
+// (see also src/styles/original.css → .loaderBlock__video)
+const LOADER_VIDEO_FRAMES = FRAME_CLIPS.loader;
 
 const n5 = {
   class: "container__title"
@@ -115,6 +122,17 @@ export const LoaderBlock = {
       r = ref(),
       o = ref(),
       a = ref();
+    // frame sequence → the loader's own <canvas> (the site's canvas element, so CSS cover-fit applies)
+    let loaderClip = null;
+    const startLoaderClip = (canvas) => {
+      if (app.skipLoader) return;
+      loaderClip = new FrameSequence(LOADER_VIDEO_FRAMES);
+      const ctx = canvas.getContext("2d");
+      loaderClip.onReady = (c) => { canvas.width = c.width; canvas.height = c.height };
+      loaderClip.onFrame = (c) => { ctx.drawImage(c.canvas, 0, 0) };
+      loaderClip.play();
+    };
+    onBeforeUnmount(() => { loaderClip && loaderClip.dispose() });
     onMounted(async () => {
       if (await nextTick(), app.skipLoader) {
         gsap.set(n.value, {
@@ -168,22 +186,18 @@ export const LoaderBlock = {
       }, 0), u.to(n.value, {
         opacity: 0,
         duration: .35,
-        ease: "power2.out"
+        ease: "power2.out",
+        onComplete: () => { loaderClip && loaderClip.dispose(); loaderClip = null }
       }, 0)
     }), (u, h) => (openBlock(), createElementBlock("div", {
       ref_key: "loaderBlockRef",
       ref: n,
       class: "loaderBlock"
-    }, [createElementVNode("video", {
+    }, [createElementVNode("canvas", {
       class: "loaderBlock__video",
-      src: LOADER_VIDEO_SRC,
-      autoplay: "",
-      muted: "",
-      loop: "",
-      playsinline: "",
       "aria-hidden": "true",
-      onVnodeMounted: ({ el }) => { el.muted = !0; const p = el.play(); p && p.catch && p.catch(() => {}) }
-    }, null, 8, ["src"]), createElementVNode("div", { class: "loaderBlock__scrim", "aria-hidden": "true" }), createVNode(GridWrapper, {
+      onVnodeMounted: ({ el }) => { startLoaderClip(el) }
+    }), createElementVNode("div", { class: "loaderBlock__scrim", "aria-hidden": "true" }), createVNode(GridWrapper, {
       class: "loaderBlock__container"
     }, {
       default: withCtx(() => [createElementVNode("div", n5, [createElementVNode("h2", {
