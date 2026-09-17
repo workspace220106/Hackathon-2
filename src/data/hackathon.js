@@ -171,3 +171,30 @@ export const offlinePS = [
 ];
 
 export const domainById = (id) => DOMAINS.find((d) => d.id === id);
+
+// ---------------------------------------------------------------------------
+// Event date, prizes and sponsors (added 2026-09-18)
+
+// Offline 24-hour build: 8–9 October 2026. The countdown targets the start; the
+// time of day is an assumption (09:00 IST) — change it here when it's confirmed.
+export const HACKATHON_START = '2026-10-08T09:00:00+05:30';
+export const HACKATHON_DATES_LABEL = '8 – 9 October 2026';
+
+// Prize podium: one Subway Surfers character per place (OBJ + texture under
+// public/assets/models/global/characters/). `spin` = idle sway in radians.
+export const prizes = [
+  { place: '1st', amount: '₹50,000', label: 'Winner', character: 'tricky', obj: '/assets/models/global/characters/tricky/Tricky.obj', texture: '/assets/models/global/characters/tricky/avatar_tricky.png', color: '#FF5A2E' },
+  { place: '2nd', amount: '₹30,000', label: 'Runner-up', character: 'ninja', obj: '/assets/models/global/characters/ninja/Ninja.obj', texture: '/assets/models/global/characters/ninja/avatar_ninja.png', color: '#00E5D0' },
+  { place: '3rd', amount: '₹20,000', label: 'Second runner-up', character: 'tagbot', obj: '/assets/models/global/characters/tagbot/Tagbot.obj', texture: '/assets/models/global/characters/tagbot/avatar_tag.png', color: '#FFC300' },
+];
+
+// Six sponsor slots. Fill `logo` (image path, e.g. '/assets/sponsors/acme.png') and
+// `name` / `url`; an empty slot renders as a spray-paint patch with a placeholder.
+export const sponsors = [
+  { name: '', logo: '', url: '' },
+  { name: '', logo: '', url: '' },
+  { name: '', logo: '', url: '' },
+  { name: '', logo: '', url: '' },
+  { name: '', logo: '', url: '' },
+  { name: '', logo: '', url: '' },
+];

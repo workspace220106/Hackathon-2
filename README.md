@@ -97,6 +97,14 @@ the hero copy ("Driven by detail…"), the daisy sculpture and the studio room i
   because `main.app` has `overflow-x: hidden`, which breaks `position: sticky`; don't put a CSS `filter` on the
   train wrapper (Chrome drops the whole stage to black). The section overlaps the Timeline by 100vh
   (`margin-bottom: -100vh`) so the exiting train reveals it. Spray font: Rubik Spray Paint (Google Fonts, `index.html`).
+* **Countdown · Prizes · Sponsors** (2026-09-18, between the Timeline and the footer):
+  `src/components/CountdownBlock.vue` counts down to `HACKATHON_START` (`src/data/hackathon.js`, currently
+  8 Oct 2026 09:00 IST — the time of day is an assumption) as four spray-paint tiles.
+  `src/components/PrizesBlock.vue` + `src/components/prizes/prizeStage.js` render the three Subway Surfers
+  characters (`public/assets/models/global/characters/{tricky,ninja,tagbot}/`, static OBJs — no rig, so
+  "waving" is an idle bob/sway + hop-and-spin on hover) and show the price tag on hover; amounts / order in
+  `prizes`. `src/components/SponsorsBlock.vue` draws six spray patches from `sponsors` — fill `logo` / `name` /
+  `url` per slot and the placeholder is replaced by the image.
 * **Create account** (`/signup`, `src/views/SignupView.vue`) and **Teams** (`/teams`, `src/views/TeamsView.vue`,
   login required). Team cards (name, domain, status, progress bar, expandable problem statement / members /
   mentor / stack / milestones / notes) come from `src/data/teams.js` — swap in your API data with the same shape.
