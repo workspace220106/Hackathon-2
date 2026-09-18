@@ -16,11 +16,21 @@ const DOOR_TRAVEL = VIEW.DOOR_W / 2 + 6;
 const HALF = VIEW.DOOR_W / 2;
 const W = VIEW.CAR_W;
 
+// graffiti imprints per coach: the coach's own domain word big on the lower
+// body, plus smaller tags on the upper panels and the skirt
 const imprints = [
-  { href: '/assets/imprints/imprint-2.webp', car: 0, x: 60, y: 378, w: 190, r: -5 },
-  { href: '/assets/imprints/imprint-5.webp', car: 1, x: 300, y: 372, w: 220, r: 4 },
-  { href: '/assets/imprints/imprint-3.webp', car: 2, x: 40, y: 374, w: 200, r: -3 },
-  { href: '/assets/imprints/imprint-7.webp', car: 3, x: 320, y: 376, w: 200, r: 6 },
+  { href: '/assets/imprints/imprint-1.webp', car: 0, x: 20, y: 372, w: 250, h: 100, r: -4 },
+  { href: '/assets/imprints/imprint-7.webp', car: 0, x: 380, y: 380, w: 150, h: 80, r: 5 },
+  { href: '/assets/imprints/imprint-5.webp', car: 0, x: 200, y: 470, w: 150, h: 60, r: 0, skirt: true },
+  { href: '/assets/imprints/imprint-4.webp', car: 1, x: 290, y: 370, w: 250, h: 100, r: 4 },
+  { href: '/assets/imprints/imprint-6.webp', car: 1, x: 20, y: 380, w: 150, h: 84, r: -6 },
+  { href: '/assets/imprints/imprint-2.webp', car: 1, x: 40, y: 468, w: 150, h: 60, r: 0, skirt: true },
+  { href: '/assets/imprints/imprint-3.webp', car: 2, x: 20, y: 368, w: 250, h: 104, r: -3 },
+  { href: '/assets/imprints/imprint-5.webp', car: 2, x: 380, y: 382, w: 150, h: 80, r: 6 },
+  { href: '/assets/imprints/imprint-7.webp', car: 2, x: 400, y: 470, w: 150, h: 60, r: 0, skirt: true },
+  { href: '/assets/imprints/imprint-2.webp', car: 3, x: 280, y: 372, w: 260, h: 100, r: 5 },
+  { href: '/assets/imprints/imprint-6.webp', car: 3, x: 20, y: 382, w: 150, h: 84, r: -5 },
+  { href: '/assets/imprints/imprint-1.webp', car: 3, x: 200, y: 470, w: 150, h: 60, r: 0, skirt: true },
 ];
 
 // deterministic grime / scratch placement per coach
@@ -55,6 +65,14 @@ defineExpose({ setDoor });
       <pattern id="trainHazard" width="28" height="28" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
         <rect width="14" height="28" fill="#F2C230" /><rect x="14" width="14" height="28" fill="#1F262B" />
       </pattern>
+      <linearGradient id="trainGraf" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0" stop-color="#FF3FA4" /><stop offset=".2" stop-color="#FF5A2E" /><stop offset=".4" stop-color="#FFC300" />
+        <stop offset=".6" stop-color="#8DE21C" /><stop offset=".8" stop-color="#00E5D0" /><stop offset="1" stop-color="#B04CFF" />
+      </linearGradient>
+      <linearGradient id="trainGrafShade" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#fff" stop-opacity=".55" /><stop offset=".5" stop-color="#fff" stop-opacity="0" /><stop offset="1" stop-color="#000" stop-opacity=".25" />
+      </linearGradient>
+      <filter id="trainGrafHalo" x="-20%" y="-40%" width="140%" height="180%"><feGaussianBlur stdDeviation="16" /></filter>
       <!-- car-local coordinates, so one clip serves every car -->
       <clipPath id="trainDoorClip">
         <rect :x="VIEW.DOOR_X" :y="VIEW.DOOR_Y" :width="VIEW.DOOR_W" :height="VIEW.DOOR_H" rx="6" />
@@ -135,7 +153,7 @@ defineExpose({ setDoor });
       <text class="train__tag" :x="VIEW.DOOR_X + HALF" y="136" text-anchor="middle">{{ labels[i] }}</text>
 
       <!-- graffiti imprint on the lower body -->
-      <image v-for="im in imprints.filter(m => m.car === i)" :key="im.href" :href="im.href" :x="im.x" :y="im.y" :width="im.w" height="90" preserveAspectRatio="xMidYMid meet" class="train__imprint" :transform="`rotate(${im.r} ${im.x + im.w / 2} ${im.y + 45})`" />
+      <image v-for="(im, k) in imprints.filter(m => m.car === i)" :key="'im' + k" :href="im.href" :x="im.x" :y="im.y" :width="im.w" :height="im.h" preserveAspectRatio="xMidYMid meet" class="train__imprint" :class="{ 'train__imprint--skirt': im.skirt }" :transform="`rotate(${im.r} ${im.x + im.w / 2} ${im.y + im.h / 2})`" />
 
       <!-- scratches + grime -->
       <g stroke="#FFE2C2" stroke-width="2" stroke-linecap="round">
@@ -163,6 +181,25 @@ defineExpose({ setDoor });
       <rect v-if="i === CARS - 1" :x="W - 8" y="230" width="10" height="60" rx="3" fill="#FF3B2E" />
     </g>
 
+    <!-- big "DOMAINS" pieces sprayed across the coach joints (between the doors), imprint-style:
+         airbrush halo, 3D extrusion, thick outline, rainbow fill, highlight, drips -->
+    <g v-for="(px, k) in [carX(1), carX(3)]" :key="'piece' + k" class="train__piece" :transform="`translate(${px} 456) scale(.44) rotate(${k ? 3 : -3})`">
+      <text class="piece__txt" x="0" y="0" text-anchor="middle" fill="#FF3FA4" opacity=".7" filter="url(#trainGrafHalo)">DOMAINS</text>
+      <text class="piece__txt" x="0" y="0" text-anchor="middle" fill="#00E5D0" opacity=".55" filter="url(#trainGrafHalo)" transform="translate(40 30)">DOMAINS</text>
+      <g fill="#1B2A4A">
+        <text v-for="k in 7" :key="'ex' + k" class="piece__txt" :x="k * 3" :y="k * 3" text-anchor="middle">DOMAINS</text>
+      </g>
+      <text class="piece__txt" x="0" y="0" text-anchor="middle" fill="none" stroke="#1B2A4A" stroke-width="22" stroke-linejoin="round">DOMAINS</text>
+      <text class="piece__txt" x="0" y="0" text-anchor="middle" fill="url(#trainGraf)">DOMAINS</text>
+      <text class="piece__txt" x="0" y="0" text-anchor="middle" fill="url(#trainGrafShade)">DOMAINS</text>
+      <text class="piece__txt" x="-4" y="-5" text-anchor="middle" fill="none" stroke="#fff" stroke-width="3" stroke-opacity=".7">DOMAINS</text>
+      <!-- drips -->
+      <g fill="#FF3FA4"><path d="M-330 14 q-6 40 2 70 a7 7 0 0 0 12 0 q4 -30 -2 -70 z" /><path d="M120 12 q-5 30 1 52 a6 6 0 0 0 10 0 q3 -22 -1 -52 z" fill="#FFC300" /><path d="M300 10 q-6 48 2 84 a7 7 0 0 0 12 0 q4 -36 -2 -84 z" fill="#00E5D0" /><path d="M-120 12 q-4 26 1 44 a5 5 0 0 0 8 0 q3 -18 -1 -44 z" fill="#8DE21C" /></g>
+      <!-- stars + speckles -->
+      <g fill="#FFC300"><path d="M-400 -150 l6 14 15 1 -12 9 4 15 -13 -9 -13 9 4 -15 -12 -9 15 -1z" /><path d="M380 -120 l5 11 12 1 -9 7 3 12 -11 -7 -11 7 3 -12 -9 -7 12 -1z" fill="#FF3FA4" /></g>
+      <g fill="#B04CFF"><circle cx="-420" cy="-40" r="6" /><circle cx="-380" cy="20" r="4" /><circle cx="410" cy="-30" r="5" /><circle cx="430" cy="40" r="3" /><circle cx="-60" cy="-160" r="4" fill="#00E5D0" /><circle cx="200" cy="-150" r="5" fill="#FF5A2E" /></g>
+    </g>
+
     <!-- HACK ON TRACKS tag sprayed on the first coach's lower band -->
     <text class="train__hero train__hero--shadow" :x="carX(0) + 30 + 2" y="466">HACK ON TRACKS</text>
     <text class="train__hero" :x="carX(0) + 30" y="464">HACK ON TRACKS</text>
@@ -173,8 +210,10 @@ defineExpose({ setDoor });
 .train { display: block; height: 100%; width: auto; overflow: visible; }
 .train__door { will-change: transform; }
 .train__imprint { mix-blend-mode: multiply; opacity: .85; }
+.train__imprint--skirt { mix-blend-mode: normal; opacity: .9; }
 .train__tag { font-family: 'Rubik Spray Paint', 'Permanent Marker', Impact, sans-serif; font-size: 34px; letter-spacing: .04em; fill: #1B2A4A; text-transform: uppercase; }
 .train__tag--shadow { fill: #7A2E10; }
+.piece__txt { font-family: 'Bangers', 'Rubik Spray Paint', Impact, sans-serif; font-size: 190px; letter-spacing: .04em; }
 .train__hero { font-family: 'Rubik Spray Paint', 'Permanent Marker', Impact, sans-serif; font-size: 26px; letter-spacing: .08em; fill: #F2C230; }
 .train__hero--shadow { fill: #141a1e; }
 </style>
