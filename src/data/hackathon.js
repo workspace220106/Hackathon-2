@@ -6,7 +6,7 @@
 export const about = {
   eyebrow: 'About the hackathon',
   title: ['HACK ON TRACKS', '2026'],
-  lead: 'A two-stage AI hackathon across four domains — Cybersecurity, FinTech / BFSI, General AI / GenAI and Blockchain × AI. Round 1 is an online idea sprint; the shortlisted teams come back for a 24-hour offline build.',
+  lead: 'A two-stage AI hackathon across four domains — Cybersecurity, FinTech / BFSI, Generative AI and Blockchain × AI. Round 1 is an online idea sprint; the shortlisted teams come back for a 24-hour offline build.',
   theme: '"AI that doesn\'t just generate answers — it understands context, makes decisions, coordinates real-world actions, and can be trusted."',
   organiser: {
     name: 'Artificial Intelligence & Deep Learning Club',
@@ -56,7 +56,7 @@ export const about = {
 export const DOMAINS = [
   { id: 'cyber', name: 'Cybersecurity & AI', short: 'Cybersecurity', theme: 'Automated vulnerability discovery, patching and intrusion detection', basis: 'Based on DARPA AIxCC, Tencent Intelligent Penetration Challenge, CISA advisories, SANS 2025' },
   { id: 'fintech', name: 'FinTech / BFSI AI', short: 'FinTech', theme: 'Investing, banking engagement, rural finance, trade finance, wealth-building' },
-  { id: 'genai', name: 'General AI / GenAI Innovation', short: 'General AI', theme: 'Emergency response, marketplaces, trust, agent safety, industrial vision' },
+  { id: 'genai', name: 'Generative AI Innovation', short: 'Generative AI', theme: 'Emergency response, marketplaces, trust, agent safety, industrial vision' },
   { id: 'blockchain', name: 'Blockchain × AI', short: 'Blockchain', theme: 'DeFi payments-as-yield, on-chain data intelligence, AI-grounded chain research' },
 ];
 
