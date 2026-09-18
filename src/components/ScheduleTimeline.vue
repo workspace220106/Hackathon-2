@@ -167,11 +167,12 @@ onUnmounted(() => { app.trackBee = null; unScroll?.(); ro?.disconnect(); emitter
   .timeline { width: calc(100% - 1.5rem); }
   .timeline__line, .timeline__fill { width: 28px; margin-left: -14px; }
   .timeline__fill { margin-left: 0; }
-  .entry { grid-template-columns: 1fr 36px 1fr; column-gap: .9rem; padding: 2rem 0; }
+  .entry { grid-template-columns: minmax(0, 1fr) 36px minmax(0, 1fr); column-gap: .9rem; padding: 2rem 0; }
+  .entry__time, .entry__body { min-width: 0; overflow-wrap: anywhere; }
   .entry__time strong { font-size: clamp(17px, 5.4vw, 30px); letter-spacing: -.03em; }
   .entry__name { font-size: clamp(17px, 4.6vw, 22px); margin-bottom: .4rem; }
   .entry__info { font-size: 13px; }
-  .entry__day { font-size: .65rem; }
+  .entry__day { font-size: 10px; }
   .entry__dot { width: 12px; height: 12px; }
   .entry--left .entry__time, .entry--right .entry__body { transform: translateX(-18px); }
   .entry--left .entry__body, .entry--right .entry__time { transform: translateX(18px); }

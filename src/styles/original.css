@@ -50,3 +50,11 @@ a.text__link { color: var(--c-cyan); }
 .footerBlock__popup .popup__content .content__left { align-self: start !important; font-size: clamp(13px, 1vw, 16px) !important; }
 .footerBlock__popup .popup__colTitle { display: block; font-family: title; font-weight: 500; text-transform: uppercase; letter-spacing: -.02em; font-size: clamp(30px, 3.2vw, 56px); line-height: .95; margin-bottom: .45em; }
 @media screen and (max-width: 700px) { .footerBlock__popup .popup__content { grid-template-columns: 1fr; gap: 2rem !important; } }
+
+/* phones: the root font-size bottoms out at 12px, which makes .8rem eyebrows / labels ~9px — keep them legible */
+@media screen and (max-width: 700px) {
+  .aboutHead__eyebrow, .aboutStats__label, .round__tag, .round__where, .aboutTheme__by,
+  .countdownBlock__eyebrow, .prizesBlock__eyebrow, .sponsorsBlock__eyebrow, .trainBlock__eyebrow,
+  .doorPanel__code, .doorPanel__label, .patch__placeholder, .prizeCol__place { font-size: 11px !important; }
+  .principle__text, .entry__info, .doorPanel__problem, .doorPanel__strong { font-size: 13px !important; line-height: 1.45 !important; }
+}

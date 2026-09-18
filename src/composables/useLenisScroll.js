@@ -8,11 +8,6 @@ const scrollListeners = new Set;
 
 let lenisScrollBound = !1;
 
-const onLenisScroll = s => {
-  const e = s.animatedScroll;
-  scrollListeners.forEach(t => t(e))
-};
-
 export const getScrollY = () => {
   var s;
   return ((s = app.lenis) == null ? void 0 : s.animatedScroll) ?? window.scrollY
@@ -25,8 +20,36 @@ export function isRectNearViewport(s, e, t = SCROLL_VISIBILITY_MARGIN) {
   return e.bottom > n && e.top < i
 }
 
+// Listeners get the current scroll position. Lenis emits "scroll" while it drives
+// the page, but on touch devices (native scrolling) it can stop emitting after an
+// interrupted programmatic scrollTo — so the native window scroll event is bound
+// as well, deduplicated by value.
+let lastY = null;
+const onNativeScroll = () => {
+  // no smooth scroll (touch): the page scrolls natively, trust window.scrollY
+  const y = app.hasNoSmoothScroll ? window.scrollY : getScrollY();
+  if (y === lastY) return;
+  lastY = y;
+  scrollListeners.forEach(t => t(y));
+};
+const onLenisScrollDedup = s => {
+  lastY = s.animatedScroll;
+  scrollListeners.forEach(t => t(s.animatedScroll));
+};
+
 export function onScroll(s) {
-  return scrollListeners.add(s), !lenisScrollBound && app.lenis && (app.lenis.on("scroll", onLenisScroll), lenisScrollBound = !0), () => {
-    scrollListeners.delete(s), scrollListeners.size === 0 && lenisScrollBound && app.lenis && (app.lenis.off("scroll", onLenisScroll), lenisScrollBound = !1)
+  scrollListeners.add(s);
+  if (!lenisScrollBound) {
+    app.lenis && app.lenis.on("scroll", onLenisScrollDedup);
+    window.addEventListener("scroll", onNativeScroll, { passive: true });
+    lenisScrollBound = !0;
+  }
+  return () => {
+    scrollListeners.delete(s);
+    if (scrollListeners.size === 0 && lenisScrollBound) {
+      app.lenis && app.lenis.off("scroll", onLenisScrollDedup);
+      window.removeEventListener("scroll", onNativeScroll);
+      lenisScrollBound = !1;
+    }
   }
 }
