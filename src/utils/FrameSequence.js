@@ -106,7 +106,7 @@ export class FrameSequence {
 
 /** The three clips the site uses, by role. fps = frames ÷ length of the original mp4. */
 export const FRAME_CLIPS = {
-  hero:   { dir: '/assets/medias/frames/hero',   count: 100, fps: 16 }, // ~6 s clip, 100 frames
-  loader: { dir: '/assets/medias/frames/loader', count: 50, fps: 5 },  // 10 s clip
+  hero:   { dir: '/assets/medias/frames/hero',   count: 60, fps: 10 }, // 6 s clip
+  loader: { dir: '/assets/medias/frames/loader', count: 100, fps: 10 }, // ~10 s clip, 100 frames
   guard:  { dir: '/assets/medias/frames/guard',  count: 50, fps: 5 },  // 10 s clip
 };
