@@ -2,7 +2,7 @@
 import sharp from 'sharp';
 import { readdirSync } from 'node:fs';
 const dir = 'public/assets/imprints';
-const SRC = ['/c/Users/araji/Downloads/Spray_painting_cyberpunk_graffit…_2K_20260917014144.jpeg','/c/Users/araji/Downloads/Graffiti_text_spelling_BLOCKCHAIN_2K_20260917014110.jpeg','/c/Users/araji/Downloads/Spray_paint_graffiti_text_2K_20260917014101.jpeg','/c/Users/araji/Downloads/Graffiti_text_FINTECH_spray_painted_2K_20260917014058.jpeg','/c/Users/araji/Downloads/Graffiti_text_reading_UNSTOP_2K_20260917014052.jpeg','/c/Users/araji/Downloads/Spray_paint_graffiti_text_2K_20260917014027.jpeg','/c/Users/araji/Downloads/Graffiti_text_AIDL_spray_paint_2K_20260917014020.jpeg'];
+const SRC = ['/c/Users/araji/Downloads/Graffiti_text_AIDL_spray_paint_2K_20260917014020.jpeg','/c/Users/araji/Downloads/Graffiti_text_spelling_BLOCKCHAIN_2K_20260917014110.jpeg','/c/Users/araji/Downloads/Spray_paint_graffiti_text_2K_20260917014101.jpeg','/c/Users/araji/Downloads/Graffiti_text_FINTECH_spray_painted_2K_20260917014058.jpeg','/c/Users/araji/Downloads/Graffiti_text_reading_UNSTOP_2K_20260917014052.jpeg','/c/Users/araji/Downloads/Spray_paint_graffiti_text_2K_20260917014027.jpeg','/c/Users/araji/Downloads/Spray_painting_cyberpunk_graffit._2K_20260917014144.jpeg'];
 for (let i = 0; i < SRC.length; i++) {
   const img = sharp(SRC[i].replace(/^\/c\//, 'C:/')).resize({ width: 1600 });
   const { data, info } = await img.raw().toBuffer({ resolveWithObject: true });
