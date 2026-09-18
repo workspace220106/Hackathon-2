@@ -3,7 +3,7 @@
 import gsap from 'gsap';
 
 // SVG user units (viewBox 0 0 W H)
-export const VIEW = { W: 2400, H: 620, CAR_W: 560, CAR_GAP: 20, CAR_X0: 40, DOOR_X: 140, DOOR_W: 280, DOOR_Y: 140, DOOR_H: 330, WHEEL_R: 26 };
+export const VIEW = { W: 2400, H: 620, CAR_W: 560, CAR_GAP: 0, CAR_X0: 40, DOOR_X: 140, DOOR_W: 280, DOOR_Y: 140, DOOR_H: 330, WHEEL_R: 26 };
 export const CARS = 4;
 
 // progress ranges: enter → 4 slots (move, open, hold, close) → exit
